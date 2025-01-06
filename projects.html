@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | Ompraksh's Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="interest_topics.html">Interest Topics</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Projects Section -->
+    <!--<section class="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-block">Python Project</div>
+            <div class="project-block">JavaScript Project</div>
+            <div class="project-block">Java Project</div>
+            <div class="project-block">React Project</div>
+        </div>
+    </section>
+
+    <script src="js/scripts.js"></script>-->
+
+    <!-- Projects Section -->
+    <!--<section class="projects">
+        <h2>My Projects</h2>
+        <ul class="project-list">
+            <li class="project-item" onclick="showProjectInfo(1)">1. Project One: Machine Learning Model for Healthcare</li>
+            <li class="project-item" onclick="showProjectInfo(2)">2. Project Two: Sanskrit Text Analysis with ML</li>
+            <li class="project-item" onclick="showProjectInfo(3)">3. Project Three: Data Visualization in Python</li>
+            <li class="project-item" onclick="showProjectInfo(4)">4. Project Four: Sentiment Analysis Tool</li>
+        </ul>-->
+
+        <!-- Project Info Box -->
+        <!--<div id="project-info" class="project-info-box">
+            <h3 id="project-title">Project Title</h3>
+            <p id="project-description">Project description will appear here.</p>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>-->
+
+    <!-- Projects Section -->
+    <!--<section class="projects">
+        <h2>My Projects</h2>
+        <ul class="project-list">
+            <li class="project-item" onclick="showProjectInfo(event, 1)">1. Project One: Machine Learning Model for Healthcare</li>
+            <li class="project-item" onclick="showProjectInfo(event, 2)">2. Project Two: Sanskrit Text Analysis with ML</li>
+            <li class="project-item" onclick="showProjectInfo(event, 3)">3. Project Three: Data Visualization in Python</li>
+            <li class="project-item" onclick="showProjectInfo(event, 4)">4. Project Four: Sentiment Analysis Tool</li>
+        </ul>
+    </section>-->
+
+    <!-- Project Info Box Template -->
+    <!--<div id="project-info" class="project-info-box" style="display:none;">
+        <h3 id="project-title">Project Title</h3>
+        <p id="project-description">Project description will appear here.</p>
+    </div>
+
+    <script src="scripts.js"></script>-->
+
+    <!-- Projects Section -->
+    <section class="projects">
+        <h2>My Projects</h2>
+        <ul class="project-list">
+            <li class="project-item">
+                <span>Welcome to My Projects Showcase</span>
+                <section>
+                <p>This section highlights a selection of projects I’ve developed, practiced, and refined using diverse programming languages, powerful libraries,</p>
+                <p>robust frameworks, and essential tools. Each project reflects my dedication to solving real-world problems and enhancing technical skills.</p>
+                </section>
+                <section>
+                <p>Click on a project to view an overview and gain insights into its objectives, implementation, and outcomes. For a deeper dive into the code and</p> 
+                <p>additional details, follow the provided links to explore the complete repositories.</p>
+                </section>
+                <section id="github-stats">
+                    <h2>My GitHub Stats</h2>
+                    <div class="stats">
+                        <!-- Username Display -->
+                        <div id="github-username"></div>
+            
+                        <!-- Stat Items -->
+                        <div class="stat-item">
+                            <span id="public-repos"></span>
+                            <p>Repositories</p>
+                        </div>
+                        <div class="stat-item">
+                            <span id="followers"></span>
+                            <p>Followers</p>
+                        </div>
+                        <div class="stat-item">
+                            <span id="following"></span>
+                            <p>Following</p>
+                        </div>
+                        <div class="stat-item">
+                            <span id="contributions"></span>
+                            <p>Contributions</p>
+                        </div>
+                    </div>
+                </section>
+    <script>
+        const username = "OmprakashSahani"; // Replace with your GitHub username
+
+        // GitHub GraphQL API URL
+        const apiUrl = "https://api.github.com/graphql";
+        const token = "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"; // Replace with your GitHub token
+
+        // Define your GraphQL query
+        const query = `
+        {
+            user(login: "${username}") {
+                contributionsCollection {
+                    contributionCalendar {
+                        totalContributions
+                    }
+                }
+            }
+        }`;
+
+        // Fetch data using GraphQL
+        fetch(apiUrl, {
+            method: "POST",
+            headers: {"Authorization": `Bearer ${token}`,  // Authorization header with the token
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const contributions = data.data.user.contributionsCollection.contributionCalendar.totalContributions;
+            document.getElementById("contributions").textContent = contributions;
+        })
+        .catch(error => {
+            console.error("Error fetching contributions:", error);
+        });
+
+        // Fetch basic GitHub stats (Public Repos, Followers, Following)
+        fetch(`https://api.github.com/users/${username}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("github-username").textContent = data.login;
+                document.getElementById("public-repos").textContent = data.public_repos;
+                document.getElementById("followers").textContent = data.followers;
+                document.getElementById("following").textContent = data.following;
+            })
+            .catch(error => {
+                console.error("Error fetching GitHub stats:", error);
+                alert("An error occurred. Check the console for details.");
+            });
+            </script>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 1)">
+                <span>1. Python</span>
+                <div id="project-info-1" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <p>This is a simple implementation of the classic Snake game and Tic Tac Toe game written in the C programming language. The game runs in the console.</p>
+                    <section>
+                        <p>Snake Game: It features basic functionality such as movement, score tracking, and growing the snake when it eats a fruit.</p>
+                    </section>
+                    <section>
+                        <p>
+                            Tic Tac Toe: It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O.
+                        </p>
+                    </section>    
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 2)">
+                <span>2. Python 2</span>
+                <div id="project-info-2" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <p>This is a simple implementation of the classic Snake game and Tic Tac Toe game written in the C programming language. The game runs in the console.</p>
+                    <section>
+                        <p>Snake Game: It features basic functionality such as movement, score tracking, and growing the snake when it eats a fruit.</p>
+                    </section>
+                    <section>
+                        <p>
+                            Tic Tac Toe: It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O.
+                        </p>
+                    </section>    
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 3)">
+                <span>3. R language</span>
+                <div id="project-info-3" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <p>This is a simple implementation of the classic Snake game and Tic Tac Toe game written in the C programming language. The game runs in the console.</p>
+                    <section>
+                        <p>Snake Game: It features basic functionality such as movement, score tracking, and growing the snake when it eats a fruit.</p>
+                    </section>
+                    <section>
+                        <p>
+                            Tic Tac Toe: It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O.
+                        </p>
+                    </section>    
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 4)">
+                <span>4. R language 2</span>
+                <div id="project-info-4" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <p>This is a simple implementation of the classic Snake game and Tic Tac Toe game written in the C programming language. The game runs in the console.</p>
+                    <section>
+                        <p>Snake Game: It features basic functionality such as movement, score tracking, and growing the snake when it eats a fruit.</p>
+                    </section>
+                    <section>
+                        <p>
+                            Tic Tac Toe: It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O.
+                        </p>
+                    </section>    
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 5)">
+                <span>5. MATLAB</span>
+                <div id="project-info-5" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <p>This is a simple implementation of the classic Snake game and Tic Tac Toe game written in the C programming language. The game runs in the console.</p>
+                    <section>
+                        <p>Snake Game: It features basic functionality such as movement, score tracking, and growing the snake when it eats a fruit.</p>
+                    </section>
+                    <section>
+                        <p>
+                            Tic Tac Toe: It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O.
+                        </p>
+                    </section>    
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 6)">
+                <span>6. MATLAB</span>
+                <div id="project-info-6" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <p>This is a simple implementation of the classic Snake game and Tic Tac Toe game written in the C programming language. The game runs in the console.</p>
+                    <section>
+                        <p>Snake Game: It features basic functionality such as movement, score tracking, and growing the snake when it eats a fruit.</p>
+                    </section>
+                    <section>
+                        <p>
+                            Tic Tac Toe: It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O.
+                        </p>
+                    </section>    
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 7)">
+                <span>7. Virtual Study Assistant Using Java</span>
+                <div id="project-info-7" class="project-info-box" style="display: none;">
+                    <h3>Virtual Study Assistant</h3>
+                    <section>
+                        <p>The Virtual Study Assistant is a Java-based desktop application designed to help users manage their study</p>
+                        <p>tasks effectively. With features such as task management, overdue notifications, and completed/pending task views, this tool simplifies task organization for students and professionals.</p>
+                    </section>
+                    <a href="https://github.com/OmprakashSahani/Virtual-Study-Assistant-Using-Java" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 8)">
+                <span>8. Personal Finance Tracker Using Java</span>
+                <div id="project-info-8" class="project-info-box" style="display: none;">
+                    <h3>Personal Finance Tracker</h3>
+                    <section>
+                        <p>A Java-based desktop application to help you track your income and expenses. This app provides an</p>
+                        <p>intuitiveGUI for managing your financial transactions, generating reports, and exporting data to a CSV file.</p>
+                    </section>   
+                    <a href="https://github.com/OmprakashSahani/Personal-Finance-Tracker-Using-Java" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 9)">
+                <span>9. Student-Grade-Calculator using C++</span>
+                <div id="project-info-9" class="project-info-box" style="display: none;">
+                    <h3>Student-Grade-Calculator</h3>
+                    <section>
+                        <p>The Student Grade Calculator program allows users to input student data, calculate their grades based</p>
+                        <p>on marks, and store/display the results. The program supports operations such as adding student data,</p>
+                        <p>viewing all records, saving data to a file, and loading data from a file.</p>
+                    </section>   
+                    <a href="https://github.com/OmprakashSahani/Student-Grade-Calculator-Using-Cpp-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 10)">
+                <span>10. Bank Management System Using C++</span>
+                <div id="project-info-10" class="project-info-box" style="display: none;">
+                    <h3>Bank Management System</h3>
+                    <section>
+                        <p>The Bank Management System allows users to manage bank accounts by performing basic operations like </p>
+                        <p>creating an account, depositing money, withdrawing money, viewing account details, and saving/loading</p>
+                        <p>data to/from a file.</p>
+                    </section>  
+                    <a href="https://github.com/OmprakashSahani/Bank-Management-System-Using-Cpp-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 11)">
+                <span>11. Compiler Using C++</span>
+                <div id="project-info-11" class="project-info-box" style="display: none;">
+                    <h3>Compiler</h3>
+                    <section>
+                        <p>This project implements an arithmetic expression evaluator that can parse and evaluate expressions  </p>
+                        <p>involving addition, subtraction, multiplication, division, and parentheses. The program also includes<p> 
+                        <p>a basic code generator that simulates generating assembly-like code for the evaluation process. </p>
+                    </section>  
+                    <a href="https://github.com/OmprakashSahani/Compiler-Using-Cpp-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 12)">
+                <span>12. Hospital Management System Using C</span>
+                <div id="project-info-12" class="project-info-box" style="display: none;">
+                    <h3>Hospital Management System</h3>
+                    <section>
+                        <p>The Hospital Management System is a simple C program that allows the management of patients in a hospital.</p>
+                    </section>  
+                    <a href="https://github.com/OmprakashSahani/Hospital-Management-System-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 13)">
+                <span>13. Mini Interpreter Compiler for Simple Expressions Using C</span>
+                <div id="project-info-13" class="project-info-box" style="display: none;">
+                    <h3>Mini Interpreter Compiler for Simple Expressions</h3>
+                    <section>
+                        <p>This program is a simple command-line-based interpreter that evaluates basic mathematical expressions</p>
+                        <p>and supports variable assignments. It uses basic operators (+, -, *, /) and allows users to assign and</p>
+                        <p>reuse variables in subsequent commands.</p>
+                    </section>  
+                    <a href="https://github.com/OmprakashSahani/Mini-Interpreter-Compiler-for-Simple-Expressions" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 14)">
+                <span>14. Text Editor and File Compression Tool Using C</span>
+                <div id="project-info-14" class="project-info-box" style="display: none;">
+                    <h3>Text Editor and File Compression Tool</h3>
+                    <section>
+                        <h3>Text Editor</h3>
+                        <p>This program provides a basic text editor functionality using the C programming language. It allows </p>
+                        <p>users to: Create a new file and write content to it, Read the content of an existing file. Append </p>
+                        <p>content to an existing file. Exit the program.</p>
+                    </section> 
+                    <section>
+                        <h3>File Compression Tool</h3>
+                        <p>This C program provides a simple file compression and decompression tool using Run-Length Encoding </p>
+                        <p>(RLE). It allows users to compress files to reduce their size and decompress files back to their original content. </p>
+                    </section>  
+                    <a href="https://github.com/OmprakashSahani/Projects-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+            <li class="project-item" onclick="showProjectInfo(event, 15)">
+                <span>15. Snake Game and Tic Tac Toe Game Using C</span>
+                <div id="project-info-15" class="project-info-box" style="display: none;">
+                    <h3>Snake Game and Tic Tac Toe Game</h3>
+                    <section>
+                        <h3>Snake Game</h3>
+                        <p>This is a simple implementation of the classic Snake game written in the C programming language. </p>
+                        <p>The game runs in the console and features basic functionality such as movement, score tracking, and</p>
+                        <p>growing the snake when it eats a fruit. </p>
+                    </section> 
+                    <section>
+                        <h3>Tic Tac Toe Game</h3>
+                        <p>This is a simple implementation of the classic Tic Tac Toe game written in the C programming language.</p>
+                        <p>It features a Player vs AI mode, where Player 1 uses X and the AI (Player 2) uses O. </p>
+                    </section>  
+                    <a href="https://github.com/OmprakashSahani/Games-Using-C-Language" target="_blank" class="github-link">Click here for the code and more info</a>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <script>
+        function showProjectInfo(event, projectId) {
+    const projectInfoBox = document.getElementById('project-info-' + projectId);
+    const allInfoBoxes = document.querySelectorAll('.project-info-box');
+
+    // Toggle visibility for the clicked project
+    if (projectInfoBox.style.display === 'none' || projectInfoBox.style.display === '') {
+        projectInfoBox.style.display = 'block';
+    } else {
+        projectInfoBox.style.display = 'none';
+    }
+
+    // Optionally, hide other project info boxes
+    allInfoBoxes.forEach(box => {
+        if (box !== projectInfoBox) {
+            box.style.display = 'none';
+        }
+    });
+}
+    </script>
+
+</body>
+</html>
+</body>
+</html>
