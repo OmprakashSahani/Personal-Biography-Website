@@ -80,7 +80,7 @@
             </script> 
         </section>-->
 
-        <section> 
+        <!--<section> 
             <title>3D Pie Chart</title> 
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/highcharts-3d.js"></script> 
@@ -116,7 +116,61 @@
                     }] 
                 }); 
             </script> 
+        </section>-->
+
+        <section> 
+            <title>Pie Chart with Percentages</title> 
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+            <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> <!-- Plugin for percentages -->
+            <section> 
+                <h1>Pie Chart Example</h1>
+            </section>
+            <canvas id="chartjsPieChart" width="400" height="400"></canvas> 
+            <script> 
+                const ctx = document.getElementById('chartjsPieChart').getContext('2d'); 
+                const chartjsPieChart = new Chart(ctx, { 
+                    type: 'pie', // Chart type 
+                    data: { 
+                        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'], 
+                        datasets: [{ 
+                            label: 'Colors Distribution', 
+                            data: [12, 19, 3, 5, 2, 3], // Values for each label 
+                            backgroundColor: [ 
+                                'red', 
+                                'blue',
+                                'yellow',
+                                'green',
+                                'purple',
+                                'orange' 
+                            ], 
+                            borderWidth: 1 
+                        }] 
+                    }, 
+                    options: { 
+                        responsive: true, 
+                        plugins: { 
+                            legend: { 
+                                position: 'top', 
+                            }, 
+                            title: { 
+                                display: true, 
+                                text: 'Pie Chart with Percentages' // Add title 
+                                    }, 
+                            datalabels: {
+                            formatter: (value, ctx) => { 
+                                const total = ctx.chart.data.datasets[0].data.reduce((acc, val) => acc + val, 0);
+                                const percentage = (value / total * 100).toFixed(1) + '%';
+                                return percentage; // Display percentage 
+                            }, 
+                                color: '#fff', // Label color 
+                                } 
+                        } 
+                    }, 
+                    plugins: [ChartDataLabels] // Activate the datalabels plugin 
+                        }); 
+            </script> 
         </section>
+        
         <section>
             <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download PDF</a>
         </section>
