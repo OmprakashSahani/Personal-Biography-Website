@@ -118,6 +118,55 @@
             </script> 
         </section>-->
 
+        <section> 
+            <title>Progress Distribution</title> 
+            <script src="https://code.highcharts.com/highcharts.js"></script> 
+            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+            <div id="container" style="width: 100%; height: 500px;"></div> 
+            <script> 
+                Highcharts.chart('container', { 
+                    chart: { 
+                        type: 'pie' 
+                    }, 
+                    title: { 
+                        text: 'Research Progress Distribution' // Title of the chart 
+                            }, 
+                    tooltip: { 
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>' 
+                    }, 
+                    plotOptions: { 
+                        pie: { 
+                            innerSize: 100, 
+                            depth: 45 
+                            allowPointSelect: true, 
+                            cursor: 'pointer', 
+                            dataLabels: { 
+                                enabled: true, 
+                                format: '{point.name}: {point.percentage:.1f}%', // Show name and percentage 
+                                connectorColor: 'silver' 
+                            } 
+                        } 
+                    }, 
+                    series: [{ 
+                        name: 'Progress', 
+                        colorByPoint: true, 
+                        data: [ 
+                            { name: 'Topic Selection', y: 30 },
+                            { name: 'Literature Review and Existing Research', y: 20 },
+                            { name: 'Data Collection', y: 10 },
+                            { name: 'Model Development', y: 0 },
+                            { name: 'ML Techniques Studied', y: 15 },
+                            { name: 'Data Preprocessing and Cleaning', y: 0 },
+                            { name: 'Challenges Identified', y: 5 },
+                            { name: 'Future Scope Identified', y: 10 },
+                            { name: 'Outcomes (Evaluation and Results)', y: 0 },
+                            { name: 'Documentation and Writing', y: 10 } 
+                        ] 
+                    }] 
+                }); 
+            </script>
+        </section>
+
         <!--<section> 
             <title>Pie Chart with Percentages</title> 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
@@ -170,52 +219,7 @@
                         }); 
             </script> 
         </section>-->
-
-    <section> 
-        <title>3D Pie Chart with Chart.js</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d"></script>
-        <section>
-            <h1>3D Pie Chart Example</h1>
-        </section> 
-        <canvas id="chartjs3dPieChart" width="400" height="400"></canvas>    
-        <script>
-            const ctx = document.getElementById('chartjs3dPieChart').getContext('2d');
-            const chart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                    datasets: [{
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                        'red', 'blue', 'yellow', 'green', 'purple', 'orange'
-                        ],
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: '3D Pie Chart Example'
-                        },
-                    },
-                    // Enable 3D options
-                    threeD: {
-                        enabled: true,
-                        bevelEnabled: true, // Adds bevel effect
-                        bevelWidth: 10,     // Bevel depth
-                        perspective: 1000,  // Depth perspective
-                        angleX: 15,         // X-axis angle
-                        angleY: 15,         // Y-axis angle
-                    }    
-                }
-            });
-        </script>
-    </section>
+    
             <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download PDF</a>
         </section>
         </section>
