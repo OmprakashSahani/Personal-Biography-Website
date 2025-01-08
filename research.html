@@ -43,6 +43,91 @@
             <p>4. Formulating a methodology for integrating machine learning models to optimize diagnostic 
                 accuarcy and enhance patient care.</p>
         </section>
+        <section> 
+            <title>3D Research Progress Chart</title>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+            <div id="container" style="width: 100%; height: 600px;"></div>
+            <script>
+                Highcharts.chart('container', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 55, // Tilt for a better 3D effect
+                            beta: 10,  // Horizontal rotation
+                            depth: 60, // Depth of the chart
+                            viewDistance: 25 // Perspective depth
+                        }, 
+                        backgroundColor: '#f9f9f9' // Light background for contrast 
+                            }, 
+                    title: { 
+                        text: 'Research Progress Distribution', 
+                        style: {
+                            fontSize: '22px',
+                            fontWeight: 'bold',
+                            color: '#333'
+                        }
+                    }, 
+                    subtitle: { 
+                        text: 'A detailed breakdown of project phases', 
+                        style: { 
+                            fontSize: '16px',
+                            color: '#666'
+                        }
+                    }, 
+                    tooltip: {
+                        pointFormat: '<b>{point.name}</b>: {point.percentage:.1f}% of total'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true, 
+                            cursor: 'pointer', 
+                            depth: 45, // Adds depth to slices 
+                            innerSize: '30%', // Creates a doughnut effect 
+                            dataLabels: { 
+                                enabled: true, 
+                                format: '<b>{point.name}</b>: {point.percentage:.1f}%', // Show name and percentage 
+                                style: { 
+                                    fontSize: '14px', 
+                                    fontWeight: 'bold', 
+                                    color: '#333' 
+                                } 
+                            }, 
+                            showInLegend: true 
+                        } 
+                    }, 
+                    legend: { 
+                        layout: 'vertical', 
+                        align: 'right', 
+                        verticalAlign: 'middle', 
+                        borderWidth: 0, 
+                        itemStyle: { 
+                            fontSize: '14px', 
+                            fontWeight: 'bold', 
+                            color: '#444' 
+                        } 
+                    }, 
+                    series: [{ 
+                        name: 'Progress', 
+                        colorByPoint: true, 
+                        data: [ 
+                            { name: 'Topic Selection', y: 30, sliced: true, selected: true }, // Highlight main focus
+                            { name: 'Literature Review and Existing Research', y: 20 },
+                            { name: 'Data Collection', y: 10 },
+                            { name: 'Model Development', y: 0 },
+                            { name: 'ML Techniques Studied', y: 15 },
+                            { name: 'Data Preprocessing and Cleaning', y: 0 },
+                            { name: 'Challenges Identified', y: 5 },
+                            { name: 'Future Scope Identified', y: 10 },
+                            { name: 'Outcomes (Evaluation and Results)', y: 0 },
+                            { name: 'Documentation and Writing', y: 10 } 
+                        ] 
+                    }] 
+                }); 
+            </script>
+        </section>
+        <section>
             <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download PDF</a>
         </section>
         </section>
