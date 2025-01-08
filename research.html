@@ -43,7 +43,7 @@
             <p>4. Formulating a methodology for integrating machine learning models to optimize diagnostic 
                 accuarcy and enhance patient care.</p>
         </section>
-        <section>
+        <!--<section>
             <title>Pie Chart with Chart.js</title>
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
             <h1>Pie Chart Example (Chart.js)</h1> 
@@ -78,7 +78,46 @@
                     } 
                 }); 
             </script> 
+        </section>-->
+
+        <section> 
+            <title>3D Pie Chart</title> 
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-3d.js"></script> 
+            <div id="container" style="height: 400px"></div> 
+            <script> 
+                Highcharts.chart('container', { 
+                    chart: { 
+                        type: 'pie', 
+                        options3d: { 
+                            enabled: true, 
+                            alpha: 45, 
+                            beta: 0 
+                        } 
+                    }, 
+                    title: { 
+                        text: '3D Pie Chart' 
+                    }, 
+                    plotOptions: { 
+                        pie: { 
+                            innerSize: 100, 
+                            depth: 45 
+                        } 
+                    }, 
+                    series: [{ 
+                        name: 'Share', 
+                        data: [ 
+                            ['Red', 8], 
+                            ['Blue', 3], 
+                            ['Yellow', 1], 
+                            ['Green', 6], 
+                            ['Purple', 8] 
+                        ] 
+                    }] 
+                }); 
+            </script> 
         </section>
+        <section>
             <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download PDF</a>
         </section>
         </section>
