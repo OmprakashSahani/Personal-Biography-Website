@@ -118,7 +118,7 @@
             </script> 
         </section>-->
 
-        <section> 
+        <!--<section> 
             <title>Pie Chart with Percentages</title> 
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
             <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script> <!-- Plugin for percentages -->
@@ -169,7 +169,68 @@
                     plugins: [ChartDataLabels] // Activate the datalabels plugin 
                         }); 
             </script> 
+        </section>-->
+
+    <section>
+    <title>3D Pie Chart with Chart.js</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-3d"></script>
+        <section>
+    <h1>3D Pie Chart Example</h1>
         </section>
+    <canvas id="chartjs3dPieChart" width="400" height="400"></canvas>
+    <script>
+        const ctx = document.getElementById('chartjs3dPieChart').getContext('2d');
+        const chartjs3dPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                datasets: [{
+                    label: 'Colors Distribution',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: [
+                        'red',
+                        'blue',
+                        'yellow',
+                        'green',
+                        'purple',
+                        'orange'
+                    ],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: true,
+                        text: '3D Pie Chart with Percentages'
+                    },
+                },
+                scales: {
+                    z: { display: false }, // Disable the z-axis display
+                },
+                elements: {
+                    arc: {
+                        borderWidth: 1,
+                    }
+                },
+                layout: {
+                    padding: 20, // Padding for aesthetics
+                },
+                threeD: {
+                    enabled: true,
+                    bevelWidth: 6, // Bevel effect for 3D
+                    angleX: 45,    // Angle on the X-axis
+                    angleY: 45,    // Angle on the Y-axis
+                    perspective: 1000, // Depth perspective
+                }
+            }
+        });
+    </script>
+    </section>
         
         <section>
             <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download PDF</a>
