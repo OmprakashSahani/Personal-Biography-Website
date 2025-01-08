@@ -48,7 +48,7 @@
             <title>3D Research Progress Chart</title>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-            <div id="container" style="width: 100%; height: 600px;"></div>
+            <div id="container" style="width: 100%; height: 600px; border-radius: 15px;"></div>
             <script>
                 Highcharts.chart('container', {
                     chart: {
@@ -61,7 +61,6 @@
                             viewDistance: 25 // Perspective depth
                         }, 
                         backgroundColor: '#f9f9f9' // Light background for contrast
-                        border-radius: 15px;
                             }, 
                     title: { 
                         text: 'Research Progress Distribution', 
