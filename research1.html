@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced 3D Donut Chart with Subsections</title>
+    <title>3D Donut Chart with Subsections and Percentages</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
@@ -12,22 +12,16 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f4f4f4;
         }
         #container {
             width: 80%;
             height: 600px;
+            margin: 50px auto;
         }
     </style>
 </head>
 <body>
-    <h1>Enhanced Research Breakdown with Subsections</h1>
+    <h1>3D Donut Chart with Subsections and Percentages</h1>
     <div id="container"></div>
     <script>
         Highcharts.chart('container', {
@@ -37,39 +31,18 @@
                     enabled: true,
                     alpha: 45,
                     beta: 0
-                },
-                events: {
-                    load: function () {
-                        var chart = this;
-                        var angle = 45;  // Initial angle
-                        var speed = 1;  // Speed of rotation (change this to control the speed)
-                        setInterval(function () {
-                            // Slowly increase the angle for smoother rotation
-                            angle += speed;  // Increment by a small value for slower rotation
-                            if (angle >= 360) angle = 0;  // Reset angle after 360 to avoid overflow
-                            
-                            // Update the chart's alpha angle
-                            chart.update({
-                                chart: {
-                                    options3d: {
-                                        alpha: angle,
-                                    }
-                                }
-                            });
-                        }, 50);  // Update interval (in milliseconds)
-                    }
                 }
             },
             title: {
-                text: 'Enhanced Research Breakdown with Subsections'
+                text: 'Research Breakdown with Subsections (3D Donut)'
             },
             subtitle: {
-                text: '3D Donut Chart with Detailed Drilldown and Features'
+                text: 'Percentages of Main Sections and Subsections'
             },
             plotOptions: {
                 pie: {
-                    innerSize: '50%',  // Makes it a donut chart
-                    depth: 45,  // Depth for 3D effect
+                    innerSize: 100,
+                    depth: 45,
                     dataLabels: {
                         enabled: true,
                         format: '{point.name}: {point.percentage:.1f}%',
