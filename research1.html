@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <h1>Enhanced 3D Research Breakdown</h1>
+    <h1>Research Breakdown with Main Sections and Subsections</h1>
     <div id="container" style="width: 100%; height: 600px;"></div>
 
     <script>
@@ -19,31 +19,43 @@
                 options3d: {
                     enabled: true,
                     alpha: 45,  // Elevation angle
-                    beta: 0,    // Rotation angle
-                    depth: 100, // Depth of 3D effect
+                    beta: 30,   // Rotation angle
+                    depth: 120, // Depth of the 3D effect
+                    viewDistance: 25, // View distance for the 3D effect
                 },
-                spacing: [10, 10, 10, 10] // Optional: spacing around the chart
+                animation: {
+                    duration: 2000, // Animation duration for loading the chart
+                    easing: 'easeOutBounce' // Easing function for smoother transitions
+                }
             },
             title: {
-                text: 'Research Breakdown (3D Donut Chart)'
+                text: 'Research Breakdown with Main Sections and Subsections'
             },
             plotOptions: {
                 pie: {
                     innerSize: '40%',  // Makes the donut shape
-                    depth: 70,         // Depth of the pie chart
-                    slicedOffset: 20,  // Offset for exploded slice
+                    depth: 80,         // Increased depth for more pronounced 3D effect
+                    slicedOffset: 30,  // Increased offset for exploded slices
                     dataLabels: {
                         enabled: true,
-                        format: '{point.name}: {point.percentage:.1f}%', // Show percentage
+                        format: '{point.name}: {point.percentage:.1f}%',
                         style: {
                             fontWeight: 'bold',
                             color: 'white'
                         }
+                    },
+                    shadow: {
+                        enabled: true,
+                        color: '#000000',
+                        offsetX: 2,
+                        offsetY: 2,
+                        opacity: 0.5,
+                        width: 5
                     }
                 }
             },
             series: [{
-                name: 'Research Categories',
+                name: 'Main Research Categories',
                 data: [
                     { name: 'Data Science Techniques', y: 30, color: '#1f77b4', sliced: true },
                     { name: 'Machine Learning Techniques', y: 40, color: '#ff7f0e' },
@@ -53,14 +65,80 @@
             }, {
                 name: 'Data Science Subsections',
                 data: [
-                    { name: 'Data Collection', y: 5, color: '#ff9999', parent: 0 },
-                    { name: 'Preprocessing', y: 5, color: '#66b3ff', parent: 0 },
-                    { name: 'Feature Extraction', y: 5, color: '#99ff99', parent: 0 }
+                    { name: 'Data Collection', y: 10, color: '#ff9999', parent: 0 },
+                    { name: 'Preprocessing', y: 10, color: '#66b3ff', parent: 0 },
+                    { name: 'Feature Extraction', y: 10, color: '#99ff99', parent: 0 }
                 ],
                 linkedTo: ':previous',  // Link to first series (main sections)
                 innerSize: '60%',       // Inner donut for subcategories
                 depth: 50,              // Depth for the inner donut (subsections)
-                slicedOffset: 10       // Slightly exploded sections
+                slicedOffset: 15,      // Slightly exploded sections
+                shadow: {
+                    enabled: true,
+                    color: '#000000',
+                    offsetX: 2,
+                    offsetY: 2,
+                    opacity: 0.3,
+                    width: 3
+                }
+            }, {
+                name: 'Machine Learning Subsections',
+                data: [
+                    { name: 'Supervised Learning', y: 15, color: '#ffcc99', parent: 1 },
+                    { name: 'Unsupervised Learning', y: 10, color: '#ff6666', parent: 1 },
+                    { name: 'Deep Learning', y: 15, color: '#c2c2f0', parent: 1 }
+                ],
+                linkedTo: ':previous',  // Link to second series (Machine Learning)
+                innerSize: '60%',
+                depth: 50,
+                slicedOffset: 15,
+                shadow: {
+                    enabled: true,
+                    color: '#000000',
+                    offsetX: 2,
+                    offsetY: 2,
+                    opacity: 0.3,
+                    width: 3
+                }
+            }, {
+                name: 'AI Techniques Subsections',
+                data: [
+                    { name: 'Natural Language Generation', y: 10, color: '#ffccff', parent: 2 },
+                    { name: 'AI for Education', y: 5, color: '#99ffcc', parent: 2 },
+                    { name: 'Semantic Analysis', y: 3, color: '#c2f0c2', parent: 2 },
+                    { name: 'Symbolic AI', y: 2, color: '#f0e6ff', parent: 2 },
+                    { name: 'Cognitive AI', y: 5, color: '#ff99cc', parent: 2 }
+                ],
+                linkedTo: ':previous',  // Link to third series (AI Techniques)
+                innerSize: '60%',
+                depth: 50,
+                slicedOffset: 15,
+                shadow: {
+                    enabled: true,
+                    color: '#000000',
+                    offsetX: 2,
+                    offsetY: 2,
+                    opacity: 0.3,
+                    width: 3
+                }
+            }, {
+                name: 'Interdisciplinary Applications Subsections',
+                data: [
+                    { name: 'Programming Language Design', y: 5, color: '#d9d9d9', parent: 3 },
+                    { name: 'Cultural Preservation', y: 5, color: '#ff6666', parent: 3 }
+                ],
+                linkedTo: ':previous',  // Link to fourth series (Interdisciplinary Applications)
+                innerSize: '60%',
+                depth: 50,
+                slicedOffset: 15,
+                shadow: {
+                    enabled: true,
+                    color: '#000000',
+                    offsetX: 2,
+                    offsetY: 2,
+                    opacity: 0.3,
+                    width: 3
+                }
             }],
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
