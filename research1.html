@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Donut Chart with Subsections Moving In/Out</title>
+    <title>3D Donut Chart with Automatic Subsections Movement</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <style>
         body {
@@ -21,10 +20,10 @@
     </style>
 </head>
 <body>
-    <h1>3D Donut Chart with Subsections Moving In/Out</h1>
+    <h1>3D Donut Chart with Automatic Subsections Movement</h1>
     <div id="container"></div>
     <script>
-        Highcharts.chart('container', {
+        var chart = Highcharts.chart('container', {
             chart: {
                 type: 'pie',
                 options3d: {
@@ -33,15 +32,26 @@
                     beta: 0
                 },
                 events: {
-                    render: function() {
+                    load: function () {
                         var chart = this;
-                        chart.series[0].points.forEach(function (point) {
-                            if (point.selected) {
-                                point.slice();
-                            } else {
-                                point.setVisible(true);
-                            }
-                        });
+                        var moveOut = true; // Boolean to control the expansion direction
+
+                        // Function to animate the chart
+                        setInterval(function () {
+                            chart.series[0].points.forEach(function (point) {
+                                // Determine the radius for subsections
+                                if (moveOut) {
+                                    point.update({
+                                        radius: point.radius + 15 // Expand outward
+                                    });
+                                } else {
+                                    point.update({
+                                        radius: point.radius - 15 // Contract inward
+                                    });
+                                }
+                            });
+                            moveOut = !moveOut; // Toggle between expanding and contracting
+                        }, 2000); // Change state every 2 seconds
                     }
                 }
             },
@@ -49,7 +59,7 @@
                 text: 'Research Breakdown with Subsections (3D Donut)'
             },
             subtitle: {
-                text: 'Main Sections and Subsections Moving In/Out'
+                text: 'Main Sections and Subsections Moving Automatically'
             },
             plotOptions: {
                 pie: {
@@ -65,22 +75,7 @@
                     },
                     allowPointSelect: true,
                     cursor: 'pointer',
-                    showInLegend: true,
-                    point: {
-                        events: {
-                            mouseOver: function () {
-                                var chart = this.series.chart;
-                                var drilldown = chart.drilldown;
-                                drilldown.show(this.name);
-                                this.slice();
-                            },
-                            mouseOut: function () {
-                                var chart = this.series.chart;
-                                chart.drilldown.hide();
-                                this.slice(false);
-                            }
-                        }
-                    }
+                    showInLegend: true
                 }
             },
             tooltip: {
@@ -95,26 +90,32 @@
                     {
                         name: 'Data Science Techniques',
                         y: 30,
-                        sliced: true,
-                        selected: true,
+                        sliced: false,
+                        selected: false,
                         color: '#FF5733',
                         drilldown: 'dataScience'
                     },
                     {
                         name: 'Machine Learning Techniques',
                         y: 40,
+                        sliced: false,
+                        selected: false,
                         color: '#33FF57',
                         drilldown: 'machineLearning'
                     },
                     {
                         name: 'AI Techniques',
                         y: 20,
+                        sliced: false,
+                        selected: false,
                         color: '#3357FF',
                         drilldown: 'aiTechniques'
                     },
                     {
                         name: 'Interdisciplinary Applications',
                         y: 10,
+                        sliced: false,
+                        selected: false,
                         color: '#FF33A1',
                         drilldown: 'interdisciplinary'
                     }
