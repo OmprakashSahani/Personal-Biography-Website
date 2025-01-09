@@ -23,18 +23,42 @@
 <body>
     <h1>Enhanced Research Breakdown with Drilldown</h1>
     <div id="container"></div>
-    <script>
-        // Function to generate random data for initial display
-        function getRandomData() {
-            return [
-                { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20, drilldown: 'dataScience' },
-                { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30, drilldown: 'machineLearning' },
-                { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10, drilldown: 'aiTechniques' },
-                { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5, drilldown: 'interdisciplinary' }
-            ];
-        }
 
-        // Highcharts chart initialization with drilldown
+    <script>
+        // Data for the chart
+        const data = [
+            { name: 'Data Science Techniques', y: 40, drilldown: 'dataScience' },
+            { name: 'Machine Learning Techniques', y: 30, drilldown: 'machineLearning' },
+            { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
+            { name: 'Interdisciplinary Applications', y: 10, drilldown: 'interdisciplinary' }
+        ];
+
+        // Drilldown data
+        const drilldownData = {
+            dataScience: [
+                ['Text Collection', 10],
+                ['Preprocessing', 8],
+                ['Feature Extraction', 12]
+            ],
+            machineLearning: [
+                ['Supervised Learning', 15],
+                ['Unsupervised Learning', 10],
+                ['Deep Learning', 10],
+                ['NLP Tasks', 5]
+            ],
+            aiTechniques: [
+                ['NLG', 10],
+                ['AI for Education', 5],
+                ['Semantic Analysis', 3],
+                ['Symbolic AI', 2]
+            ],
+            interdisciplinary: [
+                ['Programming Language Design', 5],
+                ['Cultural Preservation', 5]
+            ]
+        };
+
+        // Initialize the chart
         Highcharts.chart('container', {
             chart: {
                 type: 'pie',
@@ -75,51 +99,30 @@
             },
             series: [{
                 name: 'Research Breakdown',
-                data: getRandomData(),  // Initial data
+                data: data, // Initial data
                 sliced: true,
                 selected: true
             }],
             drilldown: {
                 series: [{
                     id: 'dataScience',
-                    data: [
-                        ['Text Collection', 10],
-                        ['Preprocessing', 8],
-                        ['Feature Extraction', 12]
-                    ]
+                    data: drilldownData.dataScience
                 }, {
                     id: 'machineLearning',
-                    data: [
-                        ['Supervised Learning', 15],
-                        ['Unsupervised Learning', 10],
-                        ['Deep Learning', 10],
-                        ['NLP Tasks', 5]
-                    ]
+                    data: drilldownData.machineLearning
                 }, {
                     id: 'aiTechniques',
-                    data: [
-                        ['NLG', 10],
-                        ['AI for Education', 5],
-                        ['Semantic Analysis', 3],
-                        ['Symbolic AI', 2]
-                    ]
+                    data: drilldownData.aiTechniques
                 }, {
                     id: 'interdisciplinary',
-                    data: [
-                        ['Programming Language Design', 5],
-                        ['Cultural Preservation', 5]
-                    ]
+                    data: drilldownData.interdisciplinary
                 }]
             },
             exporting: {
                 enabled: true
             },
             legend: {
-                enabled: true,
-                itemStyle: {
-                    fontWeight: 'normal',
-                    fontSize: '14px'
-                }
+                enabled: true
             }
         });
     </script>
