@@ -149,10 +149,19 @@
                         backgroundColor: '#f4f4f4',
                     },
                     title: {
-                        text: 'Technical Subsections in Research'
+                        text: 'Technical Subsections in Research',
+                        style: {
+                            fontSize: '22px',
+                            fontWeight: 'bold',
+                            color: '#333'
+                        }
                     },
                     subtitle: {
-                        text: 'Data Science, Machine Learning, and AI Integration'
+                        text: 'Data Science, Machine Learning, and AI Integration',
+                        style: {
+                            fontSize: '16px',
+                            color: '#666'
+                        }
                     },
                     plotOptions: {
                         pie: {
@@ -162,9 +171,21 @@
                             cursor: 'pointer',
                             dataLabels: {
                                 enabled: true,
-                                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                style: {
+                                    fontSize: '14px',
+                                    fontWeight: 'bold',
+                                    color: '#333'
+                                }
                             },
                             showInLegend: true
+                        }
+                    },
+                    legend: {
+                        itemStyle: {
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            color: '#444'
                         }
                     },
                     series: [{
@@ -245,10 +266,6 @@
                         }
                     },
                     legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'middle',
-                        borderWidth: 0,
                         itemStyle: {
                             fontSize: '14px',
                             fontWeight: 'bold',
