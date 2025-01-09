@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Donut Chart with Subsections and Percentages</title>
+    <title>3D Donut Chart with Subsections Moving In/Out</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-    <h1>3D Donut Chart with Subsections and Percentages</h1>
+    <h1>3D Donut Chart with Subsections Moving In/Out</h1>
     <div id="container"></div>
     <script>
         Highcharts.chart('container', {
@@ -31,13 +31,25 @@
                     enabled: true,
                     alpha: 45,
                     beta: 0
+                },
+                events: {
+                    render: function() {
+                        var chart = this;
+                        chart.series[0].points.forEach(function (point) {
+                            if (point.selected) {
+                                point.slice();
+                            } else {
+                                point.setVisible(true);
+                            }
+                        });
+                    }
                 }
             },
             title: {
                 text: 'Research Breakdown with Subsections (3D Donut)'
             },
             subtitle: {
-                text: 'Percentages of Main Sections and Subsections'
+                text: 'Main Sections and Subsections Moving In/Out'
             },
             plotOptions: {
                 pie: {
@@ -53,7 +65,22 @@
                     },
                     allowPointSelect: true,
                     cursor: 'pointer',
-                    showInLegend: true
+                    showInLegend: true,
+                    point: {
+                        events: {
+                            mouseOver: function () {
+                                var chart = this.series.chart;
+                                var drilldown = chart.drilldown;
+                                drilldown.show(this.name);
+                                this.slice();
+                            },
+                            mouseOut: function () {
+                                var chart = this.series.chart;
+                                chart.drilldown.hide();
+                                this.slice(false);
+                            }
+                        }
+                    }
                 }
             },
             tooltip: {
