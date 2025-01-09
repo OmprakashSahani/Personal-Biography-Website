@@ -31,6 +31,21 @@
                     enabled: true,
                     alpha: 45,
                     beta: 0
+                },
+                events: {
+                    load: function () {
+                        var chart = this;
+                        setInterval(function () {
+                            // Rotate the chart slowly (every 1 second)
+                            chart.update({
+                                chart: {
+                                    options3d: {
+                                        alpha: (chart.options.chart.options3d.alpha + 1) % 360
+                                    }
+                                }
+                            });
+                        }, 1000); // Slow down the rotation by increasing the interval to 1000ms (1 second)
+                    }
                 }
             },
             title: {
