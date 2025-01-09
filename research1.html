@@ -18,8 +18,8 @@
             margin: 50px auto;
         }
         .subsection-chart {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             margin: 30px auto;
             display: none;
         }
@@ -135,7 +135,33 @@ Highcharts.chart('container', {
     }
 });
 
-// Subsection Donut Charts
+// Data for Subsection Charts
+const dataScienceSubsection = [
+    ['Text Collection', 10],
+    ['Preprocessing', 8],
+    ['Feature Extraction', 12]
+];
+
+const machineLearningSubsection = [
+    ['Supervised Learning', 15],
+    ['Unsupervised Learning', 10],
+    ['Deep Learning', 10],
+    ['NLP Tasks', 5]
+];
+
+const aiTechniquesSubsection = [
+    ['NLG', 10],
+    ['AI for Education', 5],
+    ['Semantic Analysis', 3],
+    ['Symbolic AI', 2]
+];
+
+const interdisciplinarySubsection = [
+    ['Programming Language Design', 5],
+    ['Cultural Preservation', 5]
+];
+
+// Create Subsection Charts
 function createSubsectionChart(containerId, data) {
     Highcharts.chart(containerId, {
         chart: {
@@ -174,32 +200,6 @@ function createSubsectionChart(containerId, data) {
         }
     });
 }
-
-// Data for Subsection Charts
-const dataScienceSubsection = [
-    ['Text Collection', 10],
-    ['Preprocessing', 8],
-    ['Feature Extraction', 12]
-];
-
-const machineLearningSubsection = [
-    ['Supervised Learning', 15],
-    ['Unsupervised Learning', 10],
-    ['Deep Learning', 10],
-    ['NLP Tasks', 5]
-];
-
-const aiTechniquesSubsection = [
-    ['NLG', 10],
-    ['AI for Education', 5],
-    ['Semantic Analysis', 3],
-    ['Symbolic AI', 2]
-];
-
-const interdisciplinarySubsection = [
-    ['Programming Language Design', 5],
-    ['Cultural Preservation', 5]
-];
 
 // Create Subsection Charts
 createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
