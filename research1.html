@@ -3,113 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanskrit Language Research | Ompraksh's Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Highcharts Test</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="research.html">Healthcare Research</a></li>
-                <li><a href="research1.html">Sanskrit Language Research</a></li>
-                <li><a href="interest_topics.html">Interest Topics</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Research Section -->
-    <section>
-        <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
-        <div id="enhanced-chart" style="width: 100%; height: 600px;"></div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                // Function to generate random data
-                function getRandomData() {
-                    return [
-                        { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
-                        { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
-                        { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
-                        { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
-                    ];
-                }
-
-                // Highcharts configuration
-                Highcharts.chart('enhanced-chart', {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                            enabled: true,
-                            alpha: 45,
-                            beta: 0
-                        },
-                        events: {
-                            load: function () {
-                                const chart = this;
-                                setInterval(function () {
-                                    const newData = getRandomData();
-                                    chart.series[0].setData(newData, true, { duration: 1000 });
-                                }, 3000);
-                            }
-                        }
-                    },
-                    title: {
-                        text: 'Enhanced Research Breakdown with Real-Time Data Updates'
-                    },
-                    subtitle: {
-                        text: '3D Donut Chart with Detailed Drilldown and Features'
-                    },
-                    plotOptions: {
-                        pie: {
-                            innerSize: 100,
-                            depth: 45,
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.percentage:.1f}%',
-                                style: {
-                                    color: 'black',
-                                    fontWeight: 'bold'
-                                }
-                            },
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            showInLegend: true
-                        }
-                    },
-                    tooltip: {
-                        useHTML: true,
-                        formatter: function () {
-                            return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
-                        }
-                    },
-                    series: [{
-                        name: 'Research Breakdown',
-                        data: getRandomData(),
-                        sliced: true,
-                        selected: true
-                    }],
-                    exporting: {
-                        enabled: true
-                    },
-                    legend: {
+    <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
+    <div id="enhanced-chart" style="width: 100%; height: 600px;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Highcharts.chart('enhanced-chart', {
+                chart: {
+                    type: 'pie',
+                    options3d: {
                         enabled: true,
-                        itemStyle: {
-                            fontWeight: 'normal',
-                            fontSize: '14px'
+                        alpha: 45,
+                        beta: 0
+                    }
+                },
+                title: {
+                    text: 'Enhanced Research Breakdown'
+                },
+                plotOptions: {
+                    pie: {
+                        innerSize: 100,
+                        depth: 45,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}: {point.percentage:.1f}%'
                         }
                     }
-                });
+                },
+                series: [{
+                    name: 'Research Breakdown',
+                    data: [
+                        { name: 'Data Science Techniques', y: 20 },
+                        { name: 'Machine Learning Techniques', y: 30 },
+                        { name: 'AI Techniques', y: 10 },
+                        { name: 'Interdisciplinary Applications', y: 5 }
+                    ]
+                }]
             });
-        </script>
-    </section>
-
-    <script src="js/scripts.js"></script>
+        });
+    </script>
 </body>
 </html>
