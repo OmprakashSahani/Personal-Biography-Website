@@ -667,6 +667,79 @@
   .download-button:hover {
     background-color: #0056b3;
   }
+
+/* Research Page 2 */
+  .research1 {
+    margin-top: 40px;
+  }
+  
+  .research h2 {
+    margin-bottom: 20px;
+  }
+  
+  .research1 .research-block {
+    background-color: #9b59b6;
+    color: white;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+  
+  .research1 .research-block:hover {
+    transform: scale(1.05);
+  }
+
+  .research1 {
+    /*background-color: #f0f0f0;*/
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 30px auto;
+  }
+
+  .research1 h2 {
+    font-size: 20px;
+  }
+
+  .research2 {
+    /*background-color: #f0f0f0;*/
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin: 30px auto;
+  }
+
+  .research2 h2 {
+    font-size: 20px;
+  }
+
+  .research .p1{
+    text-align: left;
+  }
+  
+  .research .download-button {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .download-button:hover {
+    background-color: #0056b3;
+  }
   
   /* Contact Page */
   .contact {
