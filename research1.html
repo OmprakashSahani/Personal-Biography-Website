@@ -36,35 +36,24 @@
                         type: 'pie',
                         options3d: {
                             enabled: true,
-                            alpha: 55,
-                            beta: 15,
-                            depth: 50,
-                            viewDistance: 25
+                            alpha: 45,
+                            beta: 0,
+                            depth: 50
                         },
                         backgroundColor: '#f9f9f9',
-                        animation: {
-                            duration: 1500,
-                            easing: 'easeOutBounce'
-                        }
+                        animation: true
                     },
                     title: {
-                        text: '3D Donut Chart with Advanced Features',
-                        style: {
-                            fontSize: '22px',
-                            fontWeight: 'bold',
-                            color: '#333'
-                        }
+                        text: '3D Donut Chart with Drilldown Features',
+                        style: { fontSize: '22px', fontWeight: 'bold' }
                     },
                     subtitle: {
-                        text: 'A breakdown of research activities with drilldown capabilities',
-                        style: {
-                            fontSize: '16px',
-                            color: '#666'
-                        }
+                        text: 'Breakdown of Sanskrit Language Research Activities',
+                        style: { fontSize: '16px', color: '#666' }
                     },
                     plotOptions: {
                         pie: {
-                            innerSize: '50%', // Creates the donut effect
+                            innerSize: '50%', // Donut chart effect
                             depth: 45,
                             allowPointSelect: true,
                             cursor: 'pointer',
@@ -73,18 +62,16 @@
                                 format: '{point.name}: {point.percentage:.1f}%',
                                 style: {
                                     fontWeight: 'bold',
-                                    fontSize: '14px',
-                                    color: '#333'
+                                    fontSize: '14px'
                                 }
                             },
                             showInLegend: true
                         }
                     },
                     tooltip: {
-                        useHTML: true,
                         headerFormat: '<strong>{point.key}</strong><br>',
-                        pointFormat: '<b>{point.percentage:.1f}%</b> of total<br>Value: <b>{point.y}</b>',
-                        footerFormat: '<br>Total: <b>{point.total}</b>'
+                        pointFormat: 'Value: {point.y}<br>Percentage: {point.percentage:.2f}%',
+                        useHTML: true
                     },
                     series: [{
                         name: 'Research Phases',
@@ -106,28 +93,34 @@
                         series: [
                             {
                                 id: 'dataScience',
+                                name: 'Data Science Details',
                                 data: [
                                     ['Data Cleaning', 10],
-                                    ['Feature Engineering', 10],
-                                    ['Visualization', 10]
+                                    ['Feature Engineering', 15],
+                                    ['Visualization', 5]
                                 ]
                             },
                             {
                                 id: 'mlTechniques',
+                                name: 'Machine Learning Details',
                                 data: [
-                                    ['Supervised Learning', 15],
-                                    ['Unsupervised Learning', 10]
+                                    ['Supervised Learning', 10],
+                                    ['Unsupervised Learning', 10],
+                                    ['Deep Learning', 5]
                                 ]
                             },
                             {
                                 id: 'aiTechniques',
+                                name: 'AI Techniques Details',
                                 data: [
-                                    ['NLP', 10],
-                                    ['Symbolic AI', 10]
+                                    ['NLP Applications', 10],
+                                    ['Symbolic AI', 5],
+                                    ['Semantic Analysis', 5]
                                 ]
                             },
                             {
                                 id: 'interdisciplinary',
+                                name: 'Interdisciplinary Applications',
                                 data: [
                                     ['Programming Language Design', 15],
                                     ['Cultural Preservation', 10]
@@ -145,11 +138,7 @@
                     },
                     legend: {
                         enabled: true,
-                        itemStyle: {
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            color: '#444'
-                        }
+                        itemStyle: { fontSize: '14px', fontWeight: 'normal' }
                     }
                 });
             });
