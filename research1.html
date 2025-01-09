@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Donut Chart with Subsections</title>
+    <title>Enhanced 3D Donut Chart with Subsections</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,7 +21,7 @@
     </style>
 </head>
 <body>
-    <h1>Research Breakdown with Subsections</h1>
+    <h1>Enhanced Research Breakdown with Subsections</h1>
     <div id="container"></div>
     <script>
         Highcharts.chart('container', {
@@ -32,10 +34,10 @@
                 }
             },
             title: {
-                text: 'Research Breakdown with Subsections'
+                text: 'Enhanced Research Breakdown with Subsections'
             },
             subtitle: {
-                text: '3D Donut Chart of Data Science, ML, AI, and Interdisciplinary Techniques'
+                text: '3D Donut Chart with Detailed Drilldown and Features'
             },
             plotOptions: {
                 pie: {
@@ -48,8 +50,17 @@
                             color: 'black',
                             fontWeight: 'bold'
                         }
-                    }
+                    },
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    showInLegend: true
                 }
+            },
+            tooltip: {
+                useHTML: true,
+                headerFormat: '<span style="font-size: 14px; font-weight: bold;">{point.key}</span><br>',
+                pointFormat: '<span style="color:{point.color}">●</span> {point.name}: {point.y}%<br>',
+                footerFormat: '<b>Total: {point.total}%</b>'
             },
             series: [{
                 name: 'Research Breakdown',
@@ -60,9 +71,6 @@
                         sliced: true,
                         selected: true,
                         color: '#FF5733',
-                        dataLabels: {
-                            format: '<b>Data Science Techniques</b><br>Subsections:'
-                        },
                         drilldown: 'dataScience'
                     },
                     {
@@ -116,6 +124,22 @@
                         ['Cultural Preservation', 5]
                     ]
                 }]
+            },
+            exporting: {
+                enabled: true,
+                buttons: {
+                    contextButton: {
+                        symbol: 'export',
+                        menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                    }
+                }
+            },
+            legend: {
+                enabled: true,
+                itemStyle: {
+                    fontWeight: 'normal',
+                    fontSize: '14px'
+                }
             }
         });
     </script>
