@@ -3,64 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Donut Chart with Sections and Subsections</title>
+    <title>3D Donut Charts</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
         }
-        #container {
-            width: 50%;
+        section {
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+        .chart-container {
+            width: 90%;
             height: 600px;
-            margin: 50px auto;
+            margin: 0 auto;
         }
         .subsection-chart {
-            width: 40%;
+            width: 45%;
             height: 300px;
-            margin: 30px auto;
+            margin: 10px;
             display: inline-block;
         }
         .instruction-message {
+            text-align: center;
             font-size: 16px;
             font-weight: bold;
             color: #FF5733;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-<h1>3D Donut Chart with Sections and Subsections</h1>
+<h1>3D Donut Charts with Sections and Subsections</h1>
 
-<!-- Instruction Message -->
-<div class="instruction-message">
-    Hover or Click on a section to view its subsections.
-</div>
+<!-- Section 1: Main Donut Chart and Subsections -->
+<section>
+    <h2>Main Research Breakdown</h2>
+    <div class="instruction-message">
+        Hover or Click on a section to view its subsections.
+    </div>
+    <div id="main-donut" class="chart-container"></div>
+    <div id="dataScienceSubsection" class="subsection-chart"></div>
+    <div id="machineLearningSubsection" class="subsection-chart"></div>
+    <div id="aiTechniquesSubsection" class="subsection-chart"></div>
+    <div id="interdisciplinarySubsection" class="subsection-chart"></div>
+</section>
 
-<!-- Main Donut Chart -->
-<div id="container"></div>
-
-<!-- Subsection Donut Charts -->
-<div id="dataScienceSubsection" class="subsection-chart"></div>
-<div id="machineLearningSubsection" class="subsection-chart"></div>
-<div id="aiTechniquesSubsection" class="subsection-chart"></div>
-<div id="interdisciplinarySubsection" class="subsection-chart"></div>
+<!-- Section 2: Research Progress -->
+<section>
+    <h2>Research Progress Distribution</h2>
+    <div id="progress-donut" class="chart-container"></div>
+</section>
 
 <script>
-// Main Donut Chart (Center 3D Chart)
-Highcharts.chart('container', {
+// Main Donut Chart
+Highcharts.chart('main-donut', {
     chart: {
         type: 'pie',
         options3d: {
             enabled: true,
             alpha: 45,
             beta: 0
-        },
-        events: {
-            // Removed auto-rotation to avoid blinking issue
         }
     },
     title: {
@@ -83,16 +100,10 @@ Highcharts.chart('container', {
             showInLegend: true
         }
     },
-    tooltip: {
-        useHTML: true,
-        headerFormat: '<span style="font-size: 14px; font-weight: bold;">{point.key}</span><br>',
-        pointFormat: '<span style="color:{point.color}">●</span> {point.name}: {point.y}%<br>',
-        footerFormat: '<b>Total: {point.total}%</b>'
-    },
     series: [{
         name: 'Research Breakdown',
         data: [
-            { name: 'Data Science Techniques', y: 30, sliced: true, selected: true, drilldown: 'dataScience' },
+            { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
             { name: 'Machine Learning Techniques', y: 40, drilldown: 'machineLearning' },
             { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
             { name: 'Interdisciplinary Applications', y: 10, drilldown: 'interdisciplinary' }
@@ -102,11 +113,11 @@ Highcharts.chart('container', {
         enabled: true,
         buttons: {
             contextButton: {
-                symbol: 'export',
                 menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
             }
         }
-    }
+    },
+    credits: { enabled: false }
 });
 
 // Subsection Donut Charts
@@ -120,13 +131,11 @@ function createSubsectionChart(containerId, data) {
                 beta: 0
             }
         },
-        title: {
-            text: 'Subsection Breakdown'
-        },
+        title: { text: 'Subsection Breakdown' },
         plotOptions: {
             pie: {
                 innerSize: 80,
-                depth: 50,  // Increased depth for a more 3D effect
+                depth: 50,
                 dataLabels: {
                     enabled: true,
                     format: '{point.name}: {point.percentage:.1f}%',
@@ -143,33 +152,28 @@ function createSubsectionChart(containerId, data) {
             name: 'Subsection Breakdown',
             data: data
         }],
-        exporting: {
-            enabled: true
-        }
+        exporting: { enabled: true },
+        credits: { enabled: false }
     });
 }
 
-// Data for Subsection Charts
 const dataScienceSubsection = [
     ['Text Collection', 10],
     ['Preprocessing', 8],
     ['Feature Extraction', 12]
 ];
-
 const machineLearningSubsection = [
     ['Supervised Learning', 15],
     ['Unsupervised Learning', 10],
     ['Deep Learning', 10],
     ['NLP Tasks', 5]
 ];
-
 const aiTechniquesSubsection = [
     ['NLG', 10],
     ['AI for Education', 5],
     ['Semantic Analysis', 3],
     ['Symbolic AI', 2]
 ];
-
 const interdisciplinarySubsection = [
     ['Programming Language Design', 5],
     ['Cultural Preservation', 5]
@@ -181,6 +185,61 @@ createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
 createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
 createSubsectionChart('interdisciplinarySubsection', interdisciplinarySubsection);
 
+// Research Progress Chart
+Highcharts.chart('progress-donut', {
+    chart: {
+        type: 'pie',
+        options3d: {
+            enabled: true,
+            alpha: 55,
+            beta: 10,
+            depth: 60
+        }
+    },
+    title: {
+        text: 'Research Progress Distribution',
+        style: { fontSize: '22px', fontWeight: 'bold', color: '#333' }
+    },
+    plotOptions: {
+        pie: {
+            allowPointSelect: true,
+            cursor: 'pointer',
+            depth: 45,
+            innerSize: '30%',
+            dataLabels: {
+                enabled: true,
+                format: '<b>{point.name}</b>: {point.percentage:.1f}%',
+                style: { fontSize: '14px', fontWeight: 'bold', color: '#333' }
+            },
+            showInLegend: true
+        }
+    },
+    series: [{
+        name: 'Progress',
+        data: [
+            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
+            { name: 'Literature Review', y: 20 },
+            { name: 'Data Collection', y: 10 },
+            { name: 'Model Development', y: 0 },
+            { name: 'ML Techniques Studied', y: 15 },
+            { name: 'Data Preprocessing', y: 0 },
+            { name: 'Challenges Identified', y: 5 },
+            { name: 'Future Scope Identified', y: 10 },
+            { name: 'Outcomes', y: 0 },
+            { name: 'Documentation & Writing', y: 10 }
+        ]
+    }],
+    exporting: {
+        enabled: true,
+        buttons: {
+            contextButton: {
+                menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+            }
+        }
+    },
+    credits: { enabled: false }
+});
 </script>
+
 </body>
 </html>
