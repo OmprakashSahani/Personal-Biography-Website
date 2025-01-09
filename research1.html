@@ -36,11 +36,9 @@
                     load: function () {
                         var chart = this;
                         var angle = 0;
-
                         setInterval(function () {
-                            // Rotate the chart in such a way that sections stay in position with names
-                            angle += 1; // Increase angle by 1 degree for smooth rotation
-
+                            // Rotate the chart slowly and ensure it stays visible
+                            angle += 1;
                             chart.update({
                                 chart: {
                                     options3d: {
@@ -48,7 +46,7 @@
                                     }
                                 }
                             });
-                        }, 20); // Slow down the rotation for smoother effect
+                        }, 100); // Slower rotation to make it visible
                     }
                 }
             },
@@ -60,8 +58,8 @@
             },
             plotOptions: {
                 pie: {
-                    innerSize: '50%',  // Make it a donut chart by setting the innerSize
-                    depth: 45,
+                    innerSize: '50%',  // This makes it a donut chart
+                    depth: 45,  // Depth for 3D effect
                     dataLabels: {
                         enabled: true,
                         format: '{point.name}: {point.percentage:.1f}%',
