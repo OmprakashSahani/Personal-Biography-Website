@@ -26,147 +26,92 @@
     </nav>
 
     <!-- Research Section -->
-    <section class="research">
-        <h2>Research</h2> 
-        <section class="research2">
-            <h2>Transforming Healthcare with Machine Learning: Innovation in Medical Decision Making and Risk Management</h2>
-            <h3>Independent Research</h3>
-            <section> 
-                <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download or View Research Overview & Progress Report (PDF)</a> 
-            </section> 
-            <section> 
-                <h2>Introduction</h2> 
-                <p class="p1"> 
-            </section>
-            <section>
-                <h2>Purpose and Scope</h2> 
-                <p class="p1"> 
-            </section>
+    <section>
+    <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
+    <div id="enhanced-chart" style="width: 100%; height: 600px;"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            function getRandomData() {
+                const data = [
+                    { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
+                    { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
+                    { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
+                    { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
+                ];
+                const total = data.reduce((sum, item) => sum + item.y, 0);
+                if (total > 100) {
+                    data.forEach(item => (item.y = Math.round((item.y / total) * 100)));
+                }
+                return data;
+            }
 
-            <!-- Enhanced 3D Doughnut Chart -->
-            <section>
-                <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
-                <div id="enhanced-chart" style="width: 100%; height: 600px;"></div>
-                <script>
-                    // Function to generate random data for updates
-                    function getRandomData() {
-                        return [
-                            { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
-                            { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
-                            { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
-                            { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
-                        ];
+            Highcharts.chart('enhanced-chart', {
+                chart: {
+                    type: 'pie',
+                    options3d: {
+                        enabled: true,
+                        alpha: 45,
+                        beta: 0
+                    },
+                    events: {
+                        load: function () {
+                            var chart = this;
+                            setInterval(function () {
+                                var newData = getRandomData();
+                                chart.series[0].setData(newData, true, { duration: 1000 });
+                            }, 3000);
+                        }
                     }
-
-                    Highcharts.chart('enhanced-chart', {
-                        chart: {
-                            type: 'pie',
-                            options3d: {
-                                enabled: true,
-                                alpha: 45,
-                                beta: 0
-                            },
-                            events: {
-                                load: function () {
-                                    var chart = this;
-                                    setInterval(function () {
-                                        var newData = getRandomData();
-                                        chart.series[0].setData(newData, true, { duration: 1000 });
-                                    }, 3000); // Update every 3 seconds
-                                }
-                            }
-                        },
-                        title: {
-                            text: 'Enhanced Research Breakdown with Real-Time Data Updates'
-                        },
-                        subtitle: {
-                            text: '3D Donut Chart with Detailed Drilldown and Features'
-                        },
-                        plotOptions: {
-                            pie: {
-                                innerSize: 100,
-                                depth: 45,
-                                dataLabels: {
-                                    enabled: true,
-                                    format: '{point.name}: {point.percentage:.1f}%',
-                                    style: {
-                                        color: 'black',
-                                        fontWeight: 'bold'
-                                    }
-                                },
-                                allowPointSelect: true,
-                                cursor: 'pointer',
-                                showInLegend: true
-                            },
-                            series: {
-                                animation: {
-                                    duration: 1500,
-                                    easing: 'easeOutBounce'
-                                }
-                            }
-                        },
-                        tooltip: {
-                            useHTML: true,
-                            headerFormat: '<span style="font-size: 14px; font-weight: bold;">{point.key}</span><br>',
-                            pointFormat: '<span style="color:{point.color}">●</span> {point.name}: {point.y}%<br>',
-                            footerFormat: '<b>Total: {point.total}%</b>',
-                            formatter: function () {
-                                return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
-                            }
-                        },
-                        series: [{
-                            name: 'Research Breakdown',
-                            data: getRandomData(),
-                            sliced: true,
-                            selected: true,
-                            drilldown: 'dataScience'
-                        }],
-                        drilldown: {
-                            series: [{
-                                id: 'dataScience',
-                                data: [
-                                    ['Text Collection', 10],
-                                    ['Preprocessing', 8],
-                                    ['Feature Extraction', 12]
-                                ]
-                            }, {
-                                id: 'machineLearning',
-                                data: [
-                                    ['Supervised Learning', 15],
-                                    ['Unsupervised Learning', 10],
-                                    ['Deep Learning', 10],
-                                    ['NLP Tasks', 5]
-                                ]
-                            }, {
-                                id: 'aiTechniques',
-                                data: [
-                                    ['NLG', 10],
-                                    ['AI for Education', 5],
-                                    ['Semantic Analysis', 3],
-                                    ['Symbolic AI', 2]
-                                ]
-                            }, {
-                                id: 'interdisciplinary',
-                                data: [
-                                    ['Programming Language Design', 5],
-                                    ['Cultural Preservation', 5]
-                                ]
-                            }]
-                        },
-                        exporting: {
-                            enabled: true
-                        },
-                        legend: {
+                },
+                title: {
+                    text: 'Enhanced Research Breakdown with Real-Time Data Updates'
+                },
+                subtitle: {
+                    text: '3D Donut Chart with Detailed Drilldown and Features'
+                },
+                plotOptions: {
+                    pie: {
+                        innerSize: 100,
+                        depth: 45,
+                        dataLabels: {
                             enabled: true,
-                            itemStyle: {
-                                fontWeight: 'normal',
-                                fontSize: '14px'
+                            format: '{point.name}: {point.percentage:.1f}%',
+                            style: {
+                                color: 'black',
+                                fontWeight: 'bold'
                             }
                         },
-                        zoomType: 'xy',
-                    });
-                </script>
-            </section>
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        showInLegend: true
+                    }
+                },
+                tooltip: {
+                    useHTML: true,
+                    formatter: function () {
+                        return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
+                    }
+                },
+                series: [{
+                    name: 'Research Breakdown',
+                    data: getRandomData(),
+                    sliced: true,
+                    selected: true
+                }],
+                exporting: {
+                    enabled: true
+                },
+                legend: {
+                    enabled: true,
+                    itemStyle: {
+                        fontWeight: 'normal',
+                        fontSize: '14px'
+                    }
+                }
+            });
+        });
+    </script>
+</section>
         </section>
     </section>
 
