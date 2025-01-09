@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced 3D Donut Chart</title>
+    <title>Enhanced 3D Donut Chart with Drilldown</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
@@ -12,8 +12,6 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin: 0;
-            padding: 0;
         }
         #container {
             width: 80%;
@@ -23,108 +21,106 @@
     </style>
 </head>
 <body>
-    <h1>Enhanced Research Breakdown</h1>
+    <h1>Enhanced Research Breakdown with Drilldown</h1>
     <div id="container"></div>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            Highcharts.chart('container', {
-                chart: {
-                    type: 'pie',
-                    options3d: {
-                        enabled: true,
-                        alpha: 45,
-                        beta: 0
-                    }
-                },
-                title: {
-                    text: 'Enhanced Research Breakdown with Drilldown'
-                },
-                subtitle: {
-                    text: '3D Donut Chart Representation'
-                },
-                plotOptions: {
-                    pie: {
-                        innerSize: 100,
-                        depth: 45,
-                        dataLabels: {
-                            enabled: true,
-                            format: '{point.name}: {point.percentage:.1f}%',
-                            style: {
-                                color: 'black',
-                                fontWeight: 'bold'
-                            }
-                        },
-                        allowPointSelect: true,
-                        cursor: 'pointer',
-                        showInLegend: true
-                    }
-                },
-                tooltip: {
-                    useHTML: true,
-                    formatter: function () {
-                        return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y};
-                    }
-                },
-                series: [{
-                    name: 'Research Breakdown',
-                    data: [
-                        { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
-                        { name: 'Machine Learning Techniques', y: 25, drilldown: 'machineLearning' },
-                        { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
-                        { name: 'Interdisciplinary Applications', y: 25, drilldown: 'interdisciplinary' }
-                    ],
-                    sliced: true,
-                    selected: true
-                }],
-                drilldown: {
-                    series: [{
-                        id: 'dataScience',
-                        data: [
-                            ['Text Collection', 10],
-                            ['Preprocessing', 8],
-                            ['Feature Extraction', 12]
-                        ]
-                    }, {
-                        id: 'machineLearning',
-                        data: [
-                            ['Supervised Learning', 15],
-                            ['Unsupervised Learning', 10],
-                            ['Deep Learning', 10],
-                            ['NLP Tasks', 5]
-                        ]
-                    }, {
-                        id: 'aiTechniques',
-                        data: [
-                            ['NLG', 10],
-                            ['AI for Education', 5],
-                            ['Semantic Analysis', 3],
-                            ['Symbolic AI', 2]
-                        ]
-                    }, {
-                        id: 'interdisciplinary',
-                        data: [
-                            ['Programming Language Design', 5],
-                            ['Cultural Preservation', 5]
-                        ]
-                    }]
-                },
-                exporting: {
+        // Function to generate random data for initial display
+        function getRandomData() {
+            return [
+                { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20, drilldown: 'dataScience' },
+                { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30, drilldown: 'machineLearning' },
+                { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10, drilldown: 'aiTechniques' },
+                { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5, drilldown: 'interdisciplinary' }
+            ];
+        }
+
+        // Highcharts chart initialization with drilldown
+        var chart = Highcharts.chart('container', {
+            chart: {
+                type: 'pie',
+                options3d: {
                     enabled: true,
-                    buttons: {
-                        contextButton: {
-                            symbol: 'export',
-                            menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
-                        }
-                    }
-                },
-                legend: {
-                    enabled: true,
-                    itemStyle: {
-                        fontWeight: 'normal',
-                        fontSize: '14px'
-                    }
+                    alpha: 45,
+                    beta: 0
                 }
-            });
+            },
+            title: {
+                text: 'Enhanced Research Breakdown with Drilldown'
+            },
+            subtitle: {
+                text: '3D Donut Chart with Drilldown Feature'
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: 100,
+                    depth: 45,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.percentage:.1f}%',
+                        style: {
+                            color: 'black',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    showInLegend: true
+                }
+            },
+            tooltip: {
+                useHTML: true,
+                formatter: function () {
+                    return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
+                }
+            },
+            series: [{
+                name: 'Research Breakdown',
+                data: getRandomData(),  // Initial data
+                sliced: true,
+                selected: true
+            }],
+            drilldown: {
+                series: [{
+                    id: 'dataScience',
+                    data: [
+                        ['Text Collection', 10],
+                        ['Preprocessing', 8],
+                        ['Feature Extraction', 12]
+                    ]
+                }, {
+                    id: 'machineLearning',
+                    data: [
+                        ['Supervised Learning', 15],
+                        ['Unsupervised Learning', 10],
+                        ['Deep Learning', 10],
+                        ['NLP Tasks', 5]
+                    ]
+                }, {
+                    id: 'aiTechniques',
+                    data: [
+                        ['NLG', 10],
+                        ['AI for Education', 5],
+                        ['Semantic Analysis', 3],
+                        ['Symbolic AI', 2]
+                    ]
+                }, {
+                    id: 'interdisciplinary',
+                    data: [
+                        ['Programming Language Design', 5],
+                        ['Cultural Preservation', 5]
+                    ]
+                }]
+            },
+            exporting: {
+                enabled: true
+            },
+            legend: {
+                enabled: true,
+                itemStyle: {
+                    fontWeight: 'normal',
+                    fontSize: '14px'
+                }
+            }
         });
     </script>
 </body>
