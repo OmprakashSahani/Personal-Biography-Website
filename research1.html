@@ -48,173 +48,153 @@
                     explore various machine learning models used to forecast diseases, identify potential risks, and assist healthcare providers in making evidence-based decisions. It will also identify 
                     challenges in applying machine learning techniques, including ethical concerns, data privacy issues, and the need for medical professionals' trust in AI tools.</p>
             </section>
-            <!--<section>
-            <title>3D Research Progress Chart</title>
+            <title>Enhanced 3D Donut Chart with Real-Time Updates</title> 
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-            <div id="container" style="width: 100%; height: 600px; border-radius: 15px;"></div>
-            <script>
-                Highcharts.chart('container', {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                            enabled: true,
-                            alpha: 55, // Tilt for a better 3D effect
-                            beta: 10,  // Horizontal rotation
-                            depth: 60, // Depth of the chart
-                            viewDistance: 25 // Perspective depth
-                        }, 
-                        backgroundColor: '#f9f9f9' // Light background for contrast
-                            }, 
-                    title: { 
-                        text: 'Research Progress Distribution', 
-                        style: {
-                            fontSize: '22px',
-                            fontWeight: 'bold',
-                            color: '#333'
-                        }
-                    }, 
-                    subtitle: { 
-                        text: 'A detailed breakdown of project phases', 
-                        style: { 
-                            fontSize: '16px',
-                            color: '#666'
-                        }
-                    }, 
-                    tooltip: {
-                        pointFormat: '<b>{point.name}</b>: {point.percentage:.1f}% of total'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true, 
-                            cursor: 'pointer', 
-                            depth: 45, // Adds depth to slices 
-                            size: '75%',
-                            innerSize: '30%', // Creates a doughnut effect 
-                            dataLabels: { 
-                                enabled: true, 
-                                format: '<b>{point.name}</b>: {point.percentage:.1f}%', // Show name and percentage 
-                                style: { 
-                                    fontSize: '14px', 
-                                    fontWeight: 'bold', 
-                                    color: '#333' 
-                                } 
-                            }, 
-                            showInLegend: true 
-                        } 
-                    }, 
-                    legend: { 
-                        layout: 'vertical', 
-                        align: 'right', 
-                        verticalAlign: 'middle', 
-                        borderWidth: 0, 
-                        itemStyle: { 
-                            fontSize: '14px', 
-                            fontWeight: 'bold', 
-                            color: '#444' 
-                        } 
-                    }, 
-                    series: [{ 
-                        name: 'Progress', 
-                        colorByPoint: true, 
-                        data: [ 
-                            { name: 'Topic Selection', y: 30, sliced: true, selected: true }, // Highlight main focus
-                            { name: 'Literature Review and Existing Research', y: 20 },
-                            { name: 'Data Collection', y: 10 },
-                            { name: 'Model Development', y: 0 },
-                            { name: 'ML Techniques Studied', y: 15 },
-                            { name: 'Data Preprocessing and Cleaning', y: 0 },
-                            { name: 'Challenges Identified', y: 5 },
-                            { name: 'Future Scope Identified', y: 10 },
-                            { name: 'Outcomes', y: 0 },
-                            { name: 'Documentation & Writing', y: 10 } 
-                        ] 
-                    }] 
-                }); 
-            </script>--> 
-            
-            <title>Combined 3D Pie Charts</title>
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-
-            <!-- Technical Subsections in Research Chart --> 
-            <section style="margin-bottom: 50px;">
-            <!--<h2 style="text-align: center;">Technical Subsections in Research</h2>-->
-            <div id="technical-chart" style="height: 600px; width: 100%; border-radius: 15px;"></div>
-            <script>
-                Highcharts.chart('technical-chart', {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                            enabled: true,
-                            alpha: 45,
-                            beta: 0
-                        },
-                        backgroundColor: '#f4f4f4',
-                    },
-                    title: {
-                        text: 'Technical Subsections in Research',
-                        style: {
-                            fontSize: '22px',
-                            fontWeight: 'bold',
-                            color: '#333'
-                        }
-                    },
-                    subtitle: {
-                        text: 'Data Science, Machine Learning, and AI Integration',
-                        style: {
-                            fontSize: '16px',
-                            color: '#666'
-                        }
-                    },
-                    plotOptions: {
-                        pie: {
-                            innerSize: 50, // Creates a donut-like effect
-                            depth: 45,
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
+            <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                }
+                #container {
+                    width: 80%;
+                    height: 600px;
+                    margin: 50px auto;
+                }
+            </style>
+            <section> 
+                <h1>Enhanced Research Breakdown with Subsections (Real-Time Update)</h1> 
+                <div id="container"></div> 
+                <script> 
+                    // Function to generate random data for simulation of real-time updates 
+                    function getRandomData() { 
+                        return [ 
+                            { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
+                            { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
+                            { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
+                            { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
+                        ];
+                    } 
+                    // Highcharts chart initialization 
+                    var chart = Highcharts.chart('container', { 
+                        chart: { 
+                            type: 'pie', 
+                            options3d: { 
                                 enabled: true,
-                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                                style: {
-                                    fontSize: '14px',
-                                    fontWeight: 'bold',
-                                    color: '#333'
-                                }
+                                alpha: 45,
+                                beta: 0
                             },
-                            showInLegend: true
-                        }
+                            events: {
+                                load: function () {
+                                    var chart = this;
+                                    setInterval(function () {
+                                        // Update the chart data every 3 seconds to simulate real-time updates
+                                        var newData = getRandomData();
+                                        chart.series[0].setData(newData, true, { duration: 1000 });
+                                    }, 3000); // Update every 3 seconds
+                                }
+                            }
+                        },
+                        title: {
+                            text: 'Enhanced Research Breakdown with Real-Time Data Updates'
+                        },
+                        subtitle: {
+                            text: '3D Donut Chart with Detailed Drilldown and Features'
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: 100,
+                                depth: 45,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.percentage:.1f}%',
+                                    style: {
+                                        color: 'black',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                showInLegend: true
+                            },
+                            series: {
+                                animation: {
+                                    duration: 1500, // Animation speed for real-time updates
+                                    easing: 'easeOutBounce' // Smooth animation effect
+                                    }
+                            }
+                        },
+                        tooltip: {
+                            useHTML: true,
+                            headerFormat: '<span style="font-size: 14px; font-weight: bold;">{point.key}</span><br>',
+                            pointFormat: '<span style="color:{point.color}">●</span> {point.name}: {point.y}%<br>',
+                            footerFormat: '<b>Total: {point.total}%</b>',
+                            formatter: function () {
+                                return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
+                                }
+                    }, 
+                                                 series: [{
+                                                     name: 'Research Breakdown',
+                                                     data: getRandomData(),  // Initial data
+                                                     sliced: true,
+                                                     selected: true,
+                                                     drilldown: 'dataScience'
+                                                 }],
+                                                 drilldown: {
+                        series: [{
+                            id: 'dataScience',
+                            data: [
+                                ['Text Collection', 10],
+                                ['Preprocessing', 8],
+                                ['Feature Extraction', 12]
+                            ]
+                        }, {
+                            id: 'machineLearning',
+                            data: [
+                                ['Supervised Learning', 15],
+                                ['Unsupervised Learning', 10],
+                                ['Deep Learning', 10],
+                                ['NLP Tasks', 5]
+                            ]
+                        }, {
+                            id: 'aiTechniques',
+                            data: [
+                                ['NLG', 10],
+                                ['AI for Education', 5],
+                                ['Semantic Analysis', 3],
+                                ['Symbolic AI', 2]
+                            ]
+                        }, {
+                            id: 'interdisciplinary',
+                            data: [
+                                ['Programming Language Design', 5],
+                                ['Cultural Preservation', 5]
+                            ]
+                        }]
                     },
-                    legend: {
-                        itemStyle: {
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            color: '#444'
-                        }
-                    },
-                    series: [{
-                        name: 'Percentage',
-                        data: [
-                            { name: 'Data Science: Data Collection & Preprocessing', y: 20 },
-                            { name: 'Data Science: Exploratory Data Analysis', y: 10 },
-                            { name: 'Data Science: Data Visualization', y: 10 },
-                            { name: 'Machine Learning: Predictive Analytics', y: 20 },
-                            { name: 'Machine Learning: Classification & Clustering', y: 15 },
-                            { name: 'Machine Learning: Deep Learning', y: 15 },
-                            { name: 'AI Integration: Natural Language Processing (NLP)', y: 5 },
-                            { name: 'AI Integration: Reinforcement Learning', y: 3 },
-                            { name: 'AI Integration: Deployment & Integration', y: 2 }
-                        ]
-                    }],
-                    tooltip: {
-                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b><br/>Details: {point.name}'
-                    },
-                    credits: {
-                        enabled: false // Remove Highcharts watermark
+                    exporting: {
+                        enabled: true,
+                            buttons: {
+                            contextButton: {
+                                symbol: 'export',
+                                    menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                            }
                     }
-                });
-            </script>
-        </section>
+                },
+                legend: {
+                    enabled: true,
+                    itemStyle: {
+                        fontWeight: 'normal',
+                        fontSize: '14px'
+                    }
+                },
+                zoomType: 'xy', // Enable zooming (both horizontal and vertical)
+                touchEventEnabled: true, // Allow touch interaction
+            });
+    </script>
+</section>
             <section>
                 <p class="p1">
                     The technical subsections in research highlight the specific <strong>methodologies and tools</strong> employed to achieve the research objectives. 
