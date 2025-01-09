@@ -35,7 +35,84 @@
             diagnosis, and patient care. By leveraging vast amounts of medical data, machine learning algorithms can provide insights that assist healthcare professionals in diagnosing diseases, predicting outcomes, and recommending personalized treatments. 
             This research investigates the application of machine learning in enhancing medical decision-making processes, improving diagnostic accuracy, and predicting patient risks, ultimately contributing to the improvement of healthcare services and patient outcomes. 
             The scope of this research includes predictive analytics, clinical decision support systems (CDSS), and AI-driven tools to optimize care delivery.</p>
-            </section> 
+            </section>
+            <section>
+                <title>3D Research Progress Chart</title>
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+                <div id="container" style="width: 100%; height: 600px; border-radius: 15px;"></div>
+                <script> 
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'pie',
+                            options3d: {
+                                enabled: true,
+                                alpha: 55, // Tilt for a better 3D effect
+                                beta: 10,  // Horizontal rotation
+                                depth: 60, // Depth of the chart
+                                viewDistance: 25 // Perspective depth
+                            }, 
+                            backgroundColor: '#f9f9f9' // Light background for contrast
+                                }, 
+                        title: { 
+                            text: 'Contribution of Data Science, Machine Learning, and AI Techniques in Research', 
+                            style: {
+                                fontSize: '22px',
+                                fontWeight: 'bold',
+                                color: '#333'
+                            }
+                        }, 
+                        subtitle: { 
+                            text: 'A Detailed Breakdown of Techniques in Research', 
+                            style: { 
+                                fontSize: '16px',
+                                color: '#666'
+                            }
+                        }, 
+                        tooltip: {
+                            pointFormat: '<b>{point.name}</b>: {point.percentage:.1f}% of total'
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true, 
+                                cursor: 'pointer', 
+                                depth: 45, // Adds depth to slices 
+                                size: '75%',
+                                innerSize: '30%', // Creates a doughnut effect 
+                                dataLabels: { 
+                                    enabled: true, 
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f}%', // Show name and percentage 
+                                    style: { 
+                                        fontSize: '14px', 
+                                        fontWeight: 'bold', 
+                                        color: '#333' 
+                                    } 
+                                }, 
+                                showInLegend: true 
+                            } 
+                        }, 
+                        legend: { 
+                            layout: 'vertical', 
+                            align: 'right', 
+                            verticalAlign: 'middle', 
+                            borderWidth: 0, 
+                            itemStyle: { 
+                                fontSize: '14px', 
+                                fontWeight: 'bold', 
+                                color: '#444' 
+                            } 
+                        }, 
+                        series: [{ 
+                            name: 'Contribution', 
+                            colorByPoint: true, 
+                            data: [ 
+                                { name: 'Data Science: Data Collection & Preprocessing, Exploratory Data Analysis', y: 40, sliced: true, selected: true }, // Highlight main focus
+                                { name: 'Machine Learning: Predictive Analytics, Classification, Clustering, Deep Learning', y: 50 },
+                                { name: 'AI Integration: NLP, Reinforcement Learning, Deployment & Integration', y: 10 },
+                            ] 
+                        }] 
+                    }); 
+                </script>
             <section> 
             <h2>Purpose and Scope</h2> 
                 <p class="p1"> 
@@ -43,7 +120,8 @@
                     By focusing on predictive analytics, this study aims to predict and manage high-risk patient conditions, as well as improve medical diagnosis. The research will 
                     explore various machine learning models used to forecast diseases, identify potential risks, and assist healthcare providers in making evidence-based decisions. It will also identify 
                     challenges in applying machine learning techniques, including ethical concerns, data privacy issues, and the need for medical professionals' trust in AI tools.</p>
-        </section>  
+        </section>
+            </section>
             <section>
             <title>3D Research Progress Chart</title>
             <script src="https://code.highcharts.com/highcharts.js"></script>
