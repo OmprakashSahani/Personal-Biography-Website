@@ -20,7 +20,12 @@
                 type: 'pie',
                 hole: 0.4,
                 textinfo: 'percent+label',
-                domain: { x: [0, 0.5] }
+                domain: { x: [0, 0.5] },
+                marker: {
+                    colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'],  // Custom colors for the outer segments
+                },
+                pull: [0.1, 0, 0, 0], // Exploding the first segment (Data Science Techniques)
+                showlegend: true
             },
             {
                 values: [5, 5, 5],
@@ -29,7 +34,11 @@
                 type: 'pie',
                 hole: 0.5,
                 textinfo: 'percent+label',
-                domain: { x: [0.5, 1] }
+                domain: { x: [0.5, 1] },
+                marker: {
+                    colors: ['#ff9999', '#66b3ff', '#99ff99'],  // Custom colors for subcategory segments
+                },
+                showlegend: false
             },
             {
                 values: [7, 7, 8, 6, 6, 6],
@@ -38,7 +47,11 @@
                 type: 'pie',
                 hole: 0.5,
                 textinfo: 'percent+label',
-                domain: { x: [0.5, 1] }
+                domain: { x: [0.5, 1] },
+                marker: {
+                    colors: ['#c2c2f0', '#ffb3e6', '#c2f0c2', '#ff6666', '#c2c2f0', '#ffcc99'],
+                },
+                showlegend: false
             },
             {
                 values: [4, 4, 4, 4, 4],
@@ -47,7 +60,11 @@
                 type: 'pie',
                 hole: 0.5,
                 textinfo: 'percent+label',
-                domain: { x: [0.5, 1] }
+                domain: { x: [0.5, 1] },
+                marker: {
+                    colors: ['#ffccff', '#ffff99', '#ffb3b3', '#c2c2f0', '#ffb3e6'],
+                },
+                showlegend: false
             },
             {
                 values: [5, 5],
@@ -56,13 +73,17 @@
                 type: 'pie',
                 hole: 0.5,
                 textinfo: 'percent+label',
-                domain: { x: [0.5, 1] }
+                domain: { x: [0.5, 1] },
+                marker: {
+                    colors: ['#f1c232', '#ff99cc'],  // Custom colors for these subcategory segments
+                },
+                showlegend: false
             }
         ];
 
         var layout = {
             title: 'Research Breakdown (3D Donut Chart)',
-            showlegend: false,
+            showlegend: true,
             height: 600,
             width: 800,
             autosize: true,
@@ -71,6 +92,11 @@
                 l: 50,
                 b: 50,
                 r: 50
+            },
+            plot_bgcolor: "#f4f4f4", // Light background color
+            transition: {
+                duration: 1000,  // Animation duration
+                easing: 'cubic-in-out'
             }
         };
 
