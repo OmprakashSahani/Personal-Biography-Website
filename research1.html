@@ -3,104 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research Breakdown - 3D Donut Chart</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Enhanced 3D Donut Chart with Highcharts</title>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/3d.js"></script>
 </head>
 <body>
 
-    <h1>Research Breakdown</h1>
-    <div id="donut-chart" style="width: 100%; height: 600px;"></div>
+    <h1>Enhanced 3D Research Breakdown</h1>
+    <div id="container" style="width: 100%; height: 600px;"></div>
 
     <script>
-        var data = [
-            {
-                values: [30, 40, 20, 10],
-                labels: ['Data Science Techniques', 'Machine Learning Techniques', 'AI Techniques', 'Interdisciplinary Applications'],
-                hoverinfo: 'label+percent',
+        Highcharts.chart('container', {
+            chart: {
                 type: 'pie',
-                hole: 0.4,
-                textinfo: 'percent+label',
-                domain: { x: [0, 0.5] },
-                marker: {
-                    colors: ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728'],  // Custom colors for the outer segments
+                options3d: {
+                    enabled: true,
+                    alpha: 45,  // Elevation angle
+                    beta: 0,    // Rotation angle
+                    depth: 100, // Depth of 3D effect
                 },
-                pull: [0.1, 0, 0, 0], // Exploding the first segment (Data Science Techniques)
-                showlegend: true
+                spacing: [10, 10, 10, 10] // Optional: spacing around the chart
             },
-            {
-                values: [5, 5, 5],
-                labels: ['Data Collection', 'Preprocessing', 'Feature Extraction'],
-                hoverinfo: 'label+percent',
-                type: 'pie',
-                hole: 0.5,
-                textinfo: 'percent+label',
-                domain: { x: [0.5, 1] },
-                marker: {
-                    colors: ['#ff9999', '#66b3ff', '#99ff99'],  // Custom colors for subcategory segments
-                },
-                showlegend: false
+            title: {
+                text: 'Research Breakdown (3D Donut Chart)'
             },
-            {
-                values: [7, 7, 8, 6, 6, 6],
-                labels: ['Supervised Learning', 'Unsupervised Learning', 'Deep Learning', 'NLP Tasks', 'Dimensionality Reduction', 'Machine Translation'],
-                hoverinfo: 'label+percent',
-                type: 'pie',
-                hole: 0.5,
-                textinfo: 'percent+label',
-                domain: { x: [0.5, 1] },
-                marker: {
-                    colors: ['#c2c2f0', '#ffb3e6', '#c2f0c2', '#ff6666', '#c2c2f0', '#ffcc99'],
-                },
-                showlegend: false
+            plotOptions: {
+                pie: {
+                    innerSize: '40%',  // Makes the donut shape
+                    depth: 70,         // Depth of the pie chart
+                    slicedOffset: 20,  // Offset for exploded slice
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.percentage:.1f}%', // Show percentage
+                        style: {
+                            fontWeight: 'bold',
+                            color: 'white'
+                        }
+                    }
+                }
             },
-            {
-                values: [4, 4, 4, 4, 4],
-                labels: ['Natural Language Generation', 'AI for Education', 'Semantic Analysis', 'Symbolic AI', 'Cognitive AI'],
-                hoverinfo: 'label+percent',
-                type: 'pie',
-                hole: 0.5,
-                textinfo: 'percent+label',
-                domain: { x: [0.5, 1] },
-                marker: {
-                    colors: ['#ffccff', '#ffff99', '#ffb3b3', '#c2c2f0', '#ffb3e6'],
-                },
-                showlegend: false
+            series: [{
+                name: 'Research Categories',
+                data: [
+                    { name: 'Data Science Techniques', y: 30, color: '#1f77b4', sliced: true },
+                    { name: 'Machine Learning Techniques', y: 40, color: '#ff7f0e' },
+                    { name: 'AI Techniques', y: 20, color: '#2ca02c' },
+                    { name: 'Interdisciplinary Applications', y: 10, color: '#d62728' }
+                ]
+            }, {
+                name: 'Data Science Subsections',
+                data: [
+                    { name: 'Data Collection', y: 5, color: '#ff9999', parent: 0 },
+                    { name: 'Preprocessing', y: 5, color: '#66b3ff', parent: 0 },
+                    { name: 'Feature Extraction', y: 5, color: '#99ff99', parent: 0 }
+                ],
+                linkedTo: ':previous',  // Link to first series (main sections)
+                innerSize: '60%',       // Inner donut for subcategories
+                depth: 50,              // Depth for the inner donut (subsections)
+                slicedOffset: 10       // Slightly exploded sections
+            }],
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
             },
-            {
-                values: [5, 5],
-                labels: ['Programming Language Design', 'Cultural Preservation Techniques'],
-                hoverinfo: 'label+percent',
-                type: 'pie',
-                hole: 0.5,
-                textinfo: 'percent+label',
-                domain: { x: [0.5, 1] },
-                marker: {
-                    colors: ['#f1c232', '#ff99cc'],  // Custom colors for these subcategory segments
-                },
-                showlegend: false
+            responsive: {
+                rules: [{
+                    condition: {
+                        maxWidth: 600
+                    },
+                    chartOptions: {
+                        chart: {
+                            spacingTop: 10,
+                            spacingBottom: 10
+                        },
+                        plotOptions: {
+                            pie: {
+                                dataLabels: {
+                                    style: {
+                                        fontSize: '10px'
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }]
             }
-        ];
-
-        var layout = {
-            title: 'Research Breakdown (3D Donut Chart)',
-            showlegend: true,
-            height: 600,
-            width: 800,
-            autosize: true,
-            margin: {
-                t: 50,
-                l: 50,
-                b: 50,
-                r: 50
-            },
-            plot_bgcolor: "#f4f4f4", // Light background color
-            transition: {
-                duration: 1000,  // Animation duration
-                easing: 'cubic-in-out'
-            }
-        };
-
-        Plotly.newPlot('donut-chart', data, layout);
+        });
     </script>
 
 </body>
