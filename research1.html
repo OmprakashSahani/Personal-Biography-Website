@@ -13,7 +13,7 @@
             text-align: center;
         }
         #container {
-            width: 50%;
+            width: 70%;
             height: 600px;
             margin: 50px auto;
         }
@@ -21,6 +21,7 @@
             width: 200px;
             height: 200px;
             margin: 30px auto;
+            display: none;
         }
         .instruction-message {
             font-size: 16px;
@@ -59,7 +60,19 @@ Highcharts.chart('container', {
             beta: 0
         },
         events: {
-            // Removed auto-rotation to avoid blinking issue
+            load: function () {
+                // Rotate the chart slowly
+                var chart = this;
+                setInterval(function () {
+                    chart.update({
+                        chart: {
+                            options3d: {
+                                alpha: (chart.options.chart.options3d.alpha + 0.5) % 360
+                            }
+                        }
+                    });
+                }, 50); // Slow rotation
+            }
         }
     },
     title: {
@@ -103,6 +116,20 @@ Highcharts.chart('container', {
             contextButton: {
                 symbol: 'export',
                 menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+            }
+        }
+    },
+    // On hover or click display the respective subsection chart
+    plotOptions: {
+        pie: {
+            events: {
+                mouseOver: function () {
+                    var subsectionId = this.drilldown;
+                    showSubsectionChart(subsectionId);
+                },
+                mouseOut: function () {
+                    hideAllSubsectionCharts();
+                }
             }
         }
     }
@@ -179,6 +206,20 @@ createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
 createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
 createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
 createSubsectionChart('interdisciplinarySubsection', interdisciplinarySubsection);
+
+// Show respective subsection chart
+function showSubsectionChart(subsectionId) {
+    hideAllSubsectionCharts();
+    document.getElementById(subsectionId + 'Subsection').style.display = 'block';
+}
+
+// Hide all subsection charts
+function hideAllSubsectionCharts() {
+    document.getElementById('dataScienceSubsection').style.display = 'none';
+    document.getElementById('machineLearningSubsection').style.display = 'none';
+    document.getElementById('aiTechniquesSubsection').style.display = 'none';
+    document.getElementById('interdisciplinarySubsection').style.display = 'none';
+}
 
 </script>
 </body>
