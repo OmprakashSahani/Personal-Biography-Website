@@ -36,64 +36,6 @@
             This research investigates the application of machine learning in enhancing medical decision-making processes, improving diagnostic accuracy, and predicting patient risks, ultimately contributing to the improvement of healthcare services and patient outcomes. 
             The scope of this research includes predictive analytics, clinical decision support systems (CDSS), and AI-driven tools to optimize care delivery.</p>
             </section>
-            <section> 
-                <title>3D Pie Chart - Highcharts</title>
-                <script src="https://code.highcharts.com/highcharts.js"></script>
-                <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-                <!--<h2>3D Pie Chart - Breakdown of Technical Subsections in Research</h2>-->
-                <div id="container" style="height: 500px; width: 100%;"></div>  
-                <script> 
-                    Highcharts.chart('container', { 
-                        chart: {
-                            type: 'pie',
-                            options3d: {
-                                enabled: true,
-                                alpha: 45,
-                                beta: 0
-                            },
-                            backgroundColor: '#f4f4f4',
-                        },
-                        title: {
-                            text: 'Technical Subsections in Research'
-                        },
-                        subtitle: {
-                            text: 'Data Science, Machine Learning, and AI Integration'
-                        },
-                        plotOptions: {
-                            pie: {
-                                innerSize: 50, // Creates a donut-like effect
-                                depth: 45,
-                                allowPointSelect: true,
-                                cursor: 'pointer',
-                                dataLabels: {
-                                    enabled: true,
-                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
-                                },
-                                showInLegend: true
-                            }
-                        },
-                        series: [{
-                            name: 'Percentage',
-                            data: [
-                                { name: 'Data Science: Data Collection & Preprocessing', y: 20 },
-                                { name: 'Data Science: Exploratory Data Analysis', y: 10 },
-                                { name: 'Data Science: Data Visualization', y: 10 },
-                                { name: 'Machine Learning: Predictive Analytics', y: 20 },
-                                { name: 'Machine Learning: Classification & Clustering', y: 15 },
-                                { name: 'Machine Learning: Deep Learning', y: 15 },
-                                { name: 'AI Integration: Natural Language Processing (NLP)', y: 5 },
-                                { name: 'AI Integration: Reinforcement Learning', y: 3 },
-                                { name: 'AI Integration: Deployment & Integration', y: 2 }
-                            ]
-                        }],
-                        tooltip: {
-                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b><br/>Details: {point.name}'
-                        },
-                        credits: {
-                            enabled: false // Remove Highcharts watermark
-                            }
-                    });
-                </script>
             <section>
                 <h2>Purpose and Scope</h2> 
                 <p class="p1"> 
@@ -102,7 +44,7 @@
                     explore various machine learning models used to forecast diseases, identify potential risks, and assist healthcare providers in making evidence-based decisions. It will also identify 
                     challenges in applying machine learning techniques, including ethical concerns, data privacy issues, and the need for medical professionals' trust in AI tools.</p>
             </section>
-            <section>
+            <!--<section>
             <title>3D Research Progress Chart</title>
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/highcharts-3d.js"></script>
@@ -185,7 +127,153 @@
                         ] 
                     }] 
                 }); 
-            </script> 
+            </script>--> 
+            
+            <title>Combined 3D Pie Charts</title>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
+            <!-- Technical Subsections in Research Chart --> 
+            <section style="margin-bottom: 50px;">
+            <h2 style="text-align: center;">Technical Subsections in Research</h2>
+            <div id="technical-chart" style="height: 500px; width: 100%;"></div>
+            <script>
+                Highcharts.chart('technical-chart', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 45,
+                            beta: 0
+                        },
+                        backgroundColor: '#f4f4f4',
+                    },
+                    title: {
+                        text: 'Technical Subsections in Research'
+                    },
+                    subtitle: {
+                        text: 'Data Science, Machine Learning, and AI Integration'
+                    },
+                    plotOptions: {
+                        pie: {
+                            innerSize: 50, // Creates a donut-like effect
+                            depth: 45,
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Percentage',
+                        data: [
+                            { name: 'Data Science: Data Collection & Preprocessing', y: 20 },
+                            { name: 'Data Science: Exploratory Data Analysis', y: 10 },
+                            { name: 'Data Science: Data Visualization', y: 10 },
+                            { name: 'Machine Learning: Predictive Analytics', y: 20 },
+                            { name: 'Machine Learning: Classification & Clustering', y: 15 },
+                            { name: 'Machine Learning: Deep Learning', y: 15 },
+                            { name: 'AI Integration: Natural Language Processing (NLP)', y: 5 },
+                            { name: 'AI Integration: Reinforcement Learning', y: 3 },
+                            { name: 'AI Integration: Deployment & Integration', y: 2 }
+                        ]
+                    }],
+                    tooltip: {
+                        pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b><br/>Details: {point.name}'
+                    },
+                    credits: {
+                        enabled: false // Remove Highcharts watermark
+                    }
+                });
+            </script>
+        </section>
+            <!-- Research Progress Chart -->
+            <section>
+                <h2 style="text-align: center;">Research Progress Distribution</h2>
+                <div id="progress-chart" style="width: 100%; height: 600px; border-radius: 15px;"></div>
+                <script>
+                    Highcharts.chart('progress-chart', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 55, // Tilt for a better 3D effect
+                            beta: 10,  // Horizontal rotation
+                            depth: 60, // Depth of the chart
+                            viewDistance: 25 // Perspective depth
+                        },
+                        backgroundColor: '#f9f9f9' // Light background for contrast
+                    },
+                    title: {
+                        text: 'Research Progress Distribution',
+                        style: {
+                            fontSize: '22px',
+                            fontWeight: 'bold',
+                            color: '#333'
+                        }
+                    },
+                    subtitle: {
+                        text: 'A detailed breakdown of project phases',
+                        style: {
+                            fontSize: '16px',
+                            color: '#666'
+                        }
+                    },
+                    tooltip: {
+                        pointFormat: '<b>{point.name}</b>: {point.percentage:.1f}% of total'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            depth: 45, // Adds depth to slices
+                            size: '75%',
+                            innerSize: '30%', // Creates a doughnut effect
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f}%',
+                                style: {
+                                    fontSize: '14px',
+                                    fontWeight: 'bold',
+                                    color: '#333'
+                                }
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'middle',
+                        borderWidth: 0,
+                        itemStyle: {
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            color: '#444'
+                        }
+                    },
+                    series: [{
+                        name: 'Progress',
+                        colorByPoint: true,
+                        data: [
+                            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
+                            { name: 'Literature Review and Existing Research', y: 20 },
+                            { name: 'Data Collection', y: 10 },
+                            { name: 'Model Development', y: 0 },
+                            { name: 'ML Techniques Studied', y: 15 },
+                            { name: 'Data Preprocessing and Cleaning', y: 0 },
+                            { name: 'Challenges Identified', y: 5 },
+                            { name: 'Future Scope Identified', y: 10 },
+                            { name: 'Outcomes', y: 0 },
+                            { name: 'Documentation & Writing', y: 10 }
+                        ]
+                    }]
+                });
+            </script>
+        </section>
             <section>
                 <h2>Machine Learning Techniques for Healthcare</h2>
                 <p class="p1">
