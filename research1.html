@@ -3,169 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced 3D Donut Chart with Highcharts</title>
+    <title>Enhanced 3D Donut Chart with Subsections</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/3d.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+            width: 80%;
+            height: 600px;
+            margin: 50px auto;
+        }
+    </style>
 </head>
 <body>
-
-    <h1>Research Breakdown with Main Sections and Subsections</h1>
-    <div id="container" style="width: 100%; height: 600px;"></div>
-
+    <h1>Enhanced Research Breakdown with Subsections</h1>
+    <div id="container"></div>
     <script>
         Highcharts.chart('container', {
             chart: {
                 type: 'pie',
                 options3d: {
-                    enabled: true, // Enable 3D effect
-                    alpha: 45, // Elevation angle (rotation around X-axis)
-                    beta: 30,  // Rotation angle (rotation around Y-axis)
-                    depth: 150, // Depth of the 3D effect
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
                 },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeOutBounce'
+                events: {
+                    load: function () {
+                        var chart = this;
+                        setInterval(function () {
+                            // Rotate the chart
+                            chart.update({
+                                chart: {
+                                    options3d: {
+                                        alpha: (chart.options.chart.options3d.alpha + 1) % 360
+                                    }
+                                }
+                            });
+                        }, 100);
+                    }
                 }
             },
             title: {
-                text: 'Research Breakdown with Main Sections and Subsections'
+                text: 'Enhanced Research Breakdown with Subsections'
+            },
+            subtitle: {
+                text: '3D Donut Chart with Detailed Drilldown and Features'
             },
             plotOptions: {
                 pie: {
-                    innerSize: '50%', // Makes the donut shape
-                    depth: 100, // Depth of the donut slices
-                    slicedOffset: 15, // Slightly offset the slices for 3D effect
+                    innerSize: 100,
+                    depth: 45,
                     dataLabels: {
                         enabled: true,
                         format: '{point.name}: {point.percentage:.1f}%',
                         style: {
-                            fontWeight: 'bold',
-                            color: 'white'
+                            color: 'black',
+                            fontWeight: 'bold'
                         }
                     },
-                    shadow: {
-                        enabled: true,
-                        color: '#000000',
-                        offsetX: 3,
-                        offsetY: 3,
-                        opacity: 0.3,
-                        width: 10
-                    }
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    showInLegend: true
                 }
+            },
+            tooltip: {
+                useHTML: true,
+                headerFormat: '<span style="font-size: 14px; font-weight: bold;">{point.key}</span><br>',
+                pointFormat: '<span style="color:{point.color}">●</span> {point.name}: {point.y}%<br>',
+                footerFormat: '<b>Total: {point.total}%</b>'
             },
             series: [{
-                name: 'Main Research Categories',
+                name: 'Research Breakdown',
                 data: [
-                    { name: 'Data Science Techniques', y: 30, color: '#1f77b4', sliced: true },
-                    { name: 'Machine Learning Techniques', y: 40, color: '#ff7f0e' },
-                    { name: 'AI Techniques', y: 20, color: '#2ca02c' },
-                    { name: 'Interdisciplinary Applications', y: 10, color: '#d62728' }
-                ]
-            }, {
-                name: 'Data Science Subsections',
-                data: [
-                    { name: 'Data Collection', y: 10, color: '#ff9999', parent: 0 },
-                    { name: 'Preprocessing', y: 10, color: '#66b3ff', parent: 0 },
-                    { name: 'Feature Extraction', y: 10, color: '#99ff99', parent: 0 }
-                ],
-                linkedTo: ':previous',
-                innerSize: '60%',
-                depth: 60,
-                slicedOffset: 25,
-                shadow: {
-                    enabled: true,
-                    color: '#000000',
-                    offsetX: 3,
-                    offsetY: 3,
-                    opacity: 0.3,
-                    width: 10
-                }
-            }, {
-                name: 'Machine Learning Subsections',
-                data: [
-                    { name: 'Supervised Learning', y: 15, color: '#ffcc99', parent: 1 },
-                    { name: 'Unsupervised Learning', y: 10, color: '#ff6666', parent: 1 },
-                    { name: 'Deep Learning', y: 15, color: '#c2c2f0', parent: 1 }
-                ],
-                linkedTo: ':previous',
-                innerSize: '60%',
-                depth: 60,
-                slicedOffset: 25,
-                shadow: {
-                    enabled: true,
-                    color: '#000000',
-                    offsetX: 3,
-                    offsetY: 3,
-                    opacity: 0.3,
-                    width: 10
-                }
-            }, {
-                name: 'AI Techniques Subsections',
-                data: [
-                    { name: 'Natural Language Generation', y: 10, color: '#ffccff', parent: 2 },
-                    { name: 'AI for Education', y: 5, color: '#99ffcc', parent: 2 },
-                    { name: 'Semantic Analysis', y: 3, color: '#c2f0c2', parent: 2 },
-                    { name: 'Symbolic AI', y: 2, color: '#f0e6ff', parent: 2 },
-                    { name: 'Cognitive AI', y: 5, color: '#ff99cc', parent: 2 }
-                ],
-                linkedTo: ':previous',
-                innerSize: '60%',
-                depth: 60,
-                slicedOffset: 25,
-                shadow: {
-                    enabled: true,
-                    color: '#000000',
-                    offsetX: 3,
-                    offsetY: 3,
-                    opacity: 0.3,
-                    width: 10
-                }
-            }, {
-                name: 'Interdisciplinary Applications Subsections',
-                data: [
-                    { name: 'Programming Language Design', y: 5, color: '#d9d9d9', parent: 3 },
-                    { name: 'Cultural Preservation', y: 5, color: '#ff6666', parent: 3 }
-                ],
-                linkedTo: ':previous',
-                innerSize: '60%',
-                depth: 60,
-                slicedOffset: 25,
-                shadow: {
-                    enabled: true,
-                    color: '#000000',
-                    offsetX: 3,
-                    offsetY: 3,
-                    opacity: 0.3,
-                    width: 10
-                }
-            }],
-            tooltip: {
-                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-            },
-            responsive: {
-                rules: [{
-                    condition: {
-                        maxWidth: 600
+                    {
+                        name: 'Data Science Techniques',
+                        y: 30,
+                        sliced: true,
+                        selected: true,
+                        color: '#FF5733',
+                        drilldown: 'dataScience'
                     },
-                    chartOptions: {
-                        chart: {
-                            spacingTop: 10,
-                            spacingBottom: 10
-                        },
-                        plotOptions: {
-                            pie: {
-                                dataLabels: {
-                                    style: {
-                                        fontSize: '10px'
-                                    }
-                                }
-                            }
-                        }
+                    {
+                        name: 'Machine Learning Techniques',
+                        y: 40,
+                        color: '#33FF57',
+                        drilldown: 'machineLearning'
+                    },
+                    {
+                        name: 'AI Techniques',
+                        y: 20,
+                        color: '#3357FF',
+                        drilldown: 'aiTechniques'
+                    },
+                    {
+                        name: 'Interdisciplinary Applications',
+                        y: 10,
+                        color: '#FF33A1',
+                        drilldown: 'interdisciplinary'
                     }
+                ]
+            }],
+            drilldown: {
+                series: [{
+                    id: 'dataScience',
+                    data: [
+                        ['Text Collection', 10],
+                        ['Preprocessing', 8],
+                        ['Feature Extraction', 12]
+                    ]
+                }, {
+                    id: 'machineLearning',
+                    data: [
+                        ['Supervised Learning', 15],
+                        ['Unsupervised Learning', 10],
+                        ['Deep Learning', 10],
+                        ['NLP Tasks', 5]
+                    ]
+                }, {
+                    id: 'aiTechniques',
+                    data: [
+                        ['NLG', 10],
+                        ['AI for Education', 5],
+                        ['Semantic Analysis', 3],
+                        ['Symbolic AI', 2]
+                    ]
+                }, {
+                    id: 'interdisciplinary',
+                    data: [
+                        ['Programming Language Design', 5],
+                        ['Cultural Preservation', 5]
+                    ]
                 }]
+            },
+            exporting: {
+                enabled: true,
+                buttons: {
+                    contextButton: {
+                        symbol: 'export',
+                        menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                    }
+                }
+            },
+            legend: {
+                enabled: true,
+                itemStyle: {
+                    fontWeight: 'normal',
+                    fontSize: '14px'
+                }
             }
         });
     </script>
-
 </body>
 </html>
