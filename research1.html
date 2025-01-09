@@ -43,9 +43,9 @@
                         var chart = this;
                         var angle = 0;
                         setInterval(function () {
-                            // Slow rotation, update once every 500ms
-                            angle += 1;
-                            if (angle >= 360) angle = 0; // Keep the angle within bounds
+                            // Slow rotation: increase interval and reduce angle change
+                            angle += 0.5;  // Very small increment to make rotation slower
+                            if (angle >= 360) angle = 0;  // Reset angle once it reaches 360
                             chart.update({
                                 chart: {
                                     options3d: {
@@ -53,7 +53,7 @@
                                     }
                                 }
                             });
-                        }, 500); // Update every 500ms for smoother, slower rotation
+                        }, 50);  // Update every 50ms for smoother rotation
                     }
                 }
             },
