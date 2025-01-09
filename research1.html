@@ -3,48 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Highcharts Test</title>
+    <title>Sanskrit Language Research | Ompraksh's Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <body>
-    <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
-    <div id="enhanced-chart" style="width: 100%; height: 600px;"></div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            Highcharts.chart('enhanced-chart', {
-                chart: {
-                    type: 'pie',
-                    options3d: {
-                        enabled: true,
-                        alpha: 45,
-                        beta: 0
-                    }
-                },
-                title: {
-                    text: 'Enhanced Research Breakdown'
-                },
-                plotOptions: {
-                    pie: {
-                        innerSize: 100,
-                        depth: 45,
-                        dataLabels: {
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="research.html">Healthcare Research</a></li>
+                <li><a href="research1.html">Sanskrit Language Research</a></li>
+                <li><a href="interest_topics.html">Interest Topics</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Research Section -->
+    <section>
+        <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
+        <div id="3d-donut-chart" style="width: 100%; height: 600px;"></div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                Highcharts.chart('3d-donut-chart', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
                             enabled: true,
-                            format: '{point.name}: {point.percentage:.1f}%'
+                            alpha: 55,
+                            beta: 15,
+                            depth: 50,
+                            viewDistance: 25
+                        },
+                        backgroundColor: '#f9f9f9',
+                        animation: {
+                            duration: 1500,
+                            easing: 'easeOutBounce'
+                        }
+                    },
+                    title: {
+                        text: '3D Donut Chart with Advanced Features',
+                        style: {
+                            fontSize: '22px',
+                            fontWeight: 'bold',
+                            color: '#333'
+                        }
+                    },
+                    subtitle: {
+                        text: 'A breakdown of research activities with drilldown capabilities',
+                        style: {
+                            fontSize: '16px',
+                            color: '#666'
+                        }
+                    },
+                    plotOptions: {
+                        pie: {
+                            innerSize: '50%', // Creates the donut effect
+                            depth: 45,
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.name}: {point.percentage:.1f}%',
+                                style: {
+                                    fontWeight: 'bold',
+                                    fontSize: '14px',
+                                    color: '#333'
+                                }
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    tooltip: {
+                        useHTML: true,
+                        headerFormat: '<strong>{point.key}</strong><br>',
+                        pointFormat: '<b>{point.percentage:.1f}%</b> of total<br>Value: <b>{point.y}</b>',
+                        footerFormat: '<br>Total: <b>{point.total}</b>'
+                    },
+                    series: [{
+                        name: 'Research Phases',
+                        colorByPoint: true,
+                        data: [
+                            { 
+                                name: 'Data Science Techniques', 
+                                y: 30, 
+                                drilldown: 'dataScience', 
+                                sliced: true, 
+                                selected: true 
+                            },
+                            { name: 'Machine Learning Techniques', y: 25, drilldown: 'mlTechniques' },
+                            { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
+                            { name: 'Interdisciplinary Applications', y: 25, drilldown: 'interdisciplinary' }
+                        ]
+                    }],
+                    drilldown: {
+                        series: [
+                            {
+                                id: 'dataScience',
+                                data: [
+                                    ['Data Cleaning', 10],
+                                    ['Feature Engineering', 10],
+                                    ['Visualization', 10]
+                                ]
+                            },
+                            {
+                                id: 'mlTechniques',
+                                data: [
+                                    ['Supervised Learning', 15],
+                                    ['Unsupervised Learning', 10]
+                                ]
+                            },
+                            {
+                                id: 'aiTechniques',
+                                data: [
+                                    ['NLP', 10],
+                                    ['Symbolic AI', 10]
+                                ]
+                            },
+                            {
+                                id: 'interdisciplinary',
+                                data: [
+                                    ['Programming Language Design', 15],
+                                    ['Cultural Preservation', 10]
+                                ]
+                            }
+                        ]
+                    },
+                    exporting: {
+                        enabled: true,
+                        buttons: {
+                            contextButton: {
+                                menuItems: ['downloadPNG', 'downloadPDF', 'downloadCSV']
+                            }
+                        }
+                    },
+                    legend: {
+                        enabled: true,
+                        itemStyle: {
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            color: '#444'
                         }
                     }
-                },
-                series: [{
-                    name: 'Research Breakdown',
-                    data: [
-                        { name: 'Data Science Techniques', y: 20 },
-                        { name: 'Machine Learning Techniques', y: 30 },
-                        { name: 'AI Techniques', y: 10 },
-                        { name: 'Interdisciplinary Applications', y: 5 }
-                    ]
-                }]
+                });
             });
-        });
-    </script>
+        </script>
+    </section>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
