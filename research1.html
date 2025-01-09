@@ -13,7 +13,7 @@
             text-align: center;
         }
         #container {
-            width: 70%;
+            width: 50%;
             height: 600px;
             margin: 50px auto;
         }
@@ -21,24 +21,12 @@
             width: 200px;
             height: 200px;
             margin: 30px auto;
-            display: none;
-        }
-        .instruction-message {
-            font-size: 16px;
-            font-weight: bold;
-            color: #FF5733;
-            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
 <h1>3D Donut Chart with Sections and Subsections</h1>
-
-<!-- Instruction Message -->
-<div class="instruction-message">
-    Hover or Click on a section to view its subsections.
-</div>
 
 <!-- Main Donut Chart -->
 <div id="container"></div>
@@ -61,17 +49,16 @@ Highcharts.chart('container', {
         },
         events: {
             load: function () {
-                // Rotate the chart slowly
                 var chart = this;
                 setInterval(function () {
                     chart.update({
                         chart: {
                             options3d: {
-                                alpha: (chart.options.chart.options3d.alpha + 0.5) % 360
+                                alpha: (chart.options.chart.options3d.alpha + 1) % 360
                             }
                         }
                     });
-                }, 50); // Slow rotation
+                }, 100);  // Slow rotation
             }
         }
     },
@@ -116,20 +103,6 @@ Highcharts.chart('container', {
             contextButton: {
                 symbol: 'export',
                 menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
-            }
-        }
-    },
-    // On hover or click display the respective subsection chart
-    plotOptions: {
-        pie: {
-            events: {
-                mouseOver: function () {
-                    var subsectionId = this.drilldown;
-                    showSubsectionChart(subsectionId);
-                },
-                mouseOut: function () {
-                    hideAllSubsectionCharts();
-                }
             }
         }
     }
@@ -206,20 +179,6 @@ createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
 createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
 createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
 createSubsectionChart('interdisciplinarySubsection', interdisciplinarySubsection);
-
-// Show respective subsection chart
-function showSubsectionChart(subsectionId) {
-    hideAllSubsectionCharts();
-    document.getElementById(subsectionId + 'Subsection').style.display = 'block';
-}
-
-// Hide all subsection charts
-function hideAllSubsectionCharts() {
-    document.getElementById('dataScienceSubsection').style.display = 'none';
-    document.getElementById('machineLearningSubsection').style.display = 'none';
-    document.getElementById('aiTechniquesSubsection').style.display = 'none';
-    document.getElementById('interdisciplinarySubsection').style.display = 'none';
-}
 
 </script>
 </body>
