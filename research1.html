@@ -3,243 +3,373 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Donut Charts</title>
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-        }
-        section {
-            margin: 20px auto;
-            padding: 20px;
-            width: 90%;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            text-align: center;
-            color: #333;
-        }
-        .chart-container {
-            width: 90%;
-            height: 600px;
-            margin: 0 auto;
-        }
-        .subsection-chart {
-            width: 45%;
-            height: 300px;
-            margin: 10px;
-            display: inline-block;
-        }
-        .instruction-message {
-            text-align: center;
-            font-size: 16px;
-            font-weight: bold;
-            color: #FF5733;
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Sanskrit Language Research | Ompraksh's Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="research.html">Healthcare Research</a></li>
+                <li><a href="research1.html">Sanskrit Language Research</a></li>
+                <li><a href="interest_topics.html">Interest Topics</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-<h1>3D Donut Charts with Sections and Subsections</h1>
-
-<!-- Section 1: Main Donut Chart and Subsections -->
-<section>
-    <h2>Main Research Breakdown</h2>
-    <div class="instruction-message">
-        Hover or Click on a section to view its subsections.
-    </div>
-    <div id="main-donut" class="chart-container"></div>
-    <div id="dataScienceSubsection" class="subsection-chart"></div>
-    <div id="machineLearningSubsection" class="subsection-chart"></div>
-    <div id="aiTechniquesSubsection" class="subsection-chart"></div>
-    <div id="interdisciplinarySubsection" class="subsection-chart"></div>
-</section>
-
-<!-- Section 2: Research Progress -->
-<section>
-    <h2>Research Progress Distribution</h2>
-    <div id="progress-donut" class="chart-container"></div>
-</section>
-
-<script>
-// Main Donut Chart
-Highcharts.chart('main-donut', {
-    chart: {
-        type: 'pie',
-        options3d: {
-            enabled: true,
-            alpha: 45,
-            beta: 0
-        }
-    },
-    title: {
-        text: 'Main Research Breakdown'
-    },
-    plotOptions: {
-        pie: {
-            innerSize: 100,
-            depth: 45,
-            dataLabels: {
-                enabled: true,
-                format: '{point.name}: {point.percentage:.1f}%',
-                style: {
-                    color: 'black',
-                    fontWeight: 'bold'
-                }
-            },
-            allowPointSelect: true,
-            cursor: 'pointer',
-            showInLegend: true
-        }
-    },
-    series: [{
-        name: 'Research Breakdown',
-        data: [
-            { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
-            { name: 'Machine Learning Techniques', y: 40, drilldown: 'machineLearning' },
-            { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
-            { name: 'Interdisciplinary Applications', y: 10, drilldown: 'interdisciplinary' }
-        ]
-    }],
-    exporting: {
-        enabled: true,
-        buttons: {
-            contextButton: {
-                menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+    <!-- Research Section -->
+    <section class="research">
+        <h2>Research</h2> 
+        <section class="research2">
+            <h2>Transforming Healthcare with Machine Learning: Innovation in Medical Decision Making and Risk Management</h2>
+            <h3>Independent Research</h3>
+            <section> 
+                <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download PDF or View Research Overview & Progress Report</a> 
+            </section> 
+            <section> 
+                <h2>Introduction</h2> 
+                <p class="p1"> 
+            <!--<p>Machine Learning, Data Science, Natural Language Processing (NLP), AI applications, Pure and Applied Mathematics.</p>
+            <p>Reading Books, Travelling, Exploring, Coding, Analysis</p>-->
+            Machine learning (ML) and artificial intelligence (AI) are emerging as transformative technologies in healthcare, shaping new paradigms for medical decision-making, 
+            diagnosis, and patient care. By leveraging vast amounts of medical data, machine learning algorithms can provide insights that assist healthcare professionals in diagnosing diseases, predicting outcomes, and recommending personalized treatments. 
+            This research investigates the application of machine learning in enhancing medical decision-making processes, improving diagnostic accuracy, and predicting patient risks, ultimately contributing to the improvement of healthcare services and patient outcomes. 
+            The scope of this research includes predictive analytics, clinical decision support systems (CDSS), and AI-driven tools to optimize care delivery.</p>
+            </section>
+            <section>
+                <h2>Purpose and Scope</h2> 
+                <p class="p1"> 
+                    The primary objective of this research is to examine how machine learning models can be utilized to improve decision-making in healthcare settings. 
+                    By focusing on predictive analytics, this study aims to predict and manage high-risk patient conditions, as well as improve medical diagnosis. The research will 
+                    explore various machine learning models used to forecast diseases, identify potential risks, and assist healthcare providers in making evidence-based decisions. It will also identify 
+                    challenges in applying machine learning techniques, including ethical concerns, data privacy issues, and the need for medical professionals' trust in AI tools.</p>
+            </section>
+            <title>3D Donut Charts</title>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f5f5f5;
+                margin: 0;
+                padding: 0;
             }
-        }
-    },
-    credits: { enabled: false }
-});
-
-// Subsection Donut Charts
-function createSubsectionChart(containerId, data) {
-    Highcharts.chart(containerId, {
-        chart: {
-            type: 'pie',
-            options3d: {
-                enabled: true,
-                alpha: 45,
-                beta: 0
+            section {
+                margin: 20px auto;
+                padding: 20px;
+                width: 90%;
+                background-color: #ffffff;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
-        },
-        title: { text: 'Subsection Breakdown' },
-        plotOptions: {
-            pie: {
-                innerSize: 80,
-                depth: 50,
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}: {point.percentage:.1f}%',
-                    style: {
-                        color: 'black',
-                        fontWeight: 'bold'
+            h1, h2 {
+                text-align: center;
+                color: #333;
+            }
+            .chart-container {
+                width: 90%;
+                height: 600px;
+                margin: 0 auto;
+            }
+            .subsection-chart {
+                width: 45%;
+                height: 300px;
+                margin: 10px;
+                display: inline-block;
+            }
+            .instruction-message {
+                text-align: center;
+                font-size: 16px;
+                font-weight: bold;
+                color: #FF5733;
+                margin-bottom: 20px;
+            }
+        </style>
+            <!-- Section 1: Main Donut Chart and Subsections --> 
+            <section> 
+                <h2>Main Research Breakdown</h2> 
+                <div id="main-donut" class="chart-container"></div>
+                <div id="dataScienceSubsection" class="subsection-chart"></div>
+                <div id="machineLearningSubsection" class="subsection-chart"></div>
+                <div id="aiTechniquesSubsection" class="subsection-chart"></div>
+                <div id="interdisciplinarySubsection" class="subsection-chart"></div>
+            </section>
+            <!-- Section 2: Research Progress --> 
+            <section> 
+                <h2>Research Progress Distribution</h2> 
+                <div id="progress-donut" class="chart-container"></div> 
+            </section> 
+            <script> 
+                // Main Donut Chart 
+                Highcharts.chart('main-donut', { 
+                    chart: { 
+                        type: 'pie', 
+                        options3d: { 
+                            enabled: true, 
+                            alpha: 45, 
+                            beta: 0 
+                        } 
+                    }, 
+                    title: { 
+                        text: 'Main Research Breakdown' 
+                    }, 
+                    plotOptions: { 
+                        pie: { 
+                            innerSize: 100,
+                            depth: 45,
+                            dataLabels: {
+                                enabled: true,
+                                format: '{point.name}: {point.percentage:.1f}%',
+                                style: {
+                                    color: 'black',
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Research Breakdown',
+                        data: [
+                            { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
+                            { name: 'Machine Learning Techniques', y: 40, drilldown: 'machineLearning' },
+                            { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
+                            { name: 'Interdisciplinary Applications', y: 10, drilldown: 'interdisciplinary' }
+                        ] 
+                    }],
+                    exporting: {
+                        enabled: true,
+                        buttons: {
+                            contextButton: {
+                                menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                            }
+                        }
+                    },
+                    credits: { enabled: false }
+                });
+                // Subsection Donut Charts
+                function createSubsectionChart(containerId, data) {
+                    Highcharts.chart(containerId, {
+                        chart: {
+                            type: 'pie',
+                            options3d: {
+                                enabled: true,
+                                alpha: 45,
+                                beta: 0
+                        }
+                },
+                title: { text: 'Subsection Breakdown' },
+                plotOptions: {
+                    pie: {
+                        innerSize: 80,
+                        depth: 50,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}: {point.percentage:.1f}%',
+                            style: {
+                                color: 'black',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        allowPointSelect: true,
+                        cursor: 'pointer'
                     }
                 },
-                allowPointSelect: true,
-                cursor: 'pointer'
-            }
-        },
-        series: [{
-            name: 'Subsection Breakdown',
-            data: data
-        }],
-        exporting: { enabled: true },
-        credits: { enabled: false }
-    });
-}
+                series: [{
+                    name: 'Subsection Breakdown',
+                    data: data
+                }],
+                        exporting: { enabled: true },
+                        credits: { enabled: false }
+                    });
+                }
 
-const dataScienceSubsection = [
-    ['Text Collection', 10],
-    ['Preprocessing', 8],
-    ['Feature Extraction', 12]
-];
-const machineLearningSubsection = [
-    ['Supervised Learning', 15],
-    ['Unsupervised Learning', 10],
-    ['Deep Learning', 10],
-    ['NLP Tasks', 5]
-];
-const aiTechniquesSubsection = [
-    ['NLG', 10],
-    ['AI for Education', 5],
-    ['Semantic Analysis', 3],
-    ['Symbolic AI', 2]
-];
-const interdisciplinarySubsection = [
-    ['Programming Language Design', 5],
-    ['Cultural Preservation', 5]
-];
+                const dataScienceSubsection = [
+                    ['Text Collection', 10],
+                    ['Preprocessing', 8],
+                    ['Feature Extraction', 12]
+                ];
+                const machineLearningSubsection = [
+                    ['Supervised Learning', 15],
+                    ['Unsupervised Learning', 10],
+                    ['Deep Learning', 10],
+                    ['NLP Tasks', 5]
+                ];
+                const aiTechniquesSubsection = [
+                    ['NLG', 10],
+                    ['AI for Education', 5],
+                    ['Semantic Analysis', 3],
+                    ['Symbolic AI', 2]
+                ];
+                const interdisciplinarySubsection = [
+                    ['Programming Language Design', 5],
+                    ['Cultural Preservation', 5]
+                ];
+                // Create Subsection Charts
+                createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
+                createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
+                createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
+                createSubsectionChart('interdisciplinarySubsection', interdisciplinarySubsection);
 
-// Create Subsection Charts
-createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
-createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
-createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
-createSubsectionChart('interdisciplinarySubsection', interdisciplinarySubsection);
-
-// Research Progress Chart
-Highcharts.chart('progress-donut', {
-    chart: {
-        type: 'pie',
-        options3d: {
-            enabled: true,
-            alpha: 55,
-            beta: 10,
-            depth: 60
-        }
-    },
-    title: {
-        text: 'Research Progress Distribution',
-        style: { fontSize: '22px', fontWeight: 'bold', color: '#333' }
-    },
-    plotOptions: {
-        pie: {
-            allowPointSelect: true,
-            cursor: 'pointer',
-            depth: 45,
-            innerSize: '30%',
-            dataLabels: {
-                enabled: true,
-                format: '<b>{point.name}</b>: {point.percentage:.1f}%',
-                style: { fontSize: '14px', fontWeight: 'bold', color: '#333' }
-            },
-            showInLegend: true
-        }
-    },
-    series: [{
-        name: 'Progress',
-        data: [
-            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
-            { name: 'Literature Review', y: 20 },
-            { name: 'Data Collection', y: 10 },
-            { name: 'Model Development', y: 0 },
-            { name: 'ML Techniques Studied', y: 15 },
-            { name: 'Data Preprocessing', y: 0 },
-            { name: 'Challenges Identified', y: 5 },
-            { name: 'Future Scope Identified', y: 10 },
-            { name: 'Outcomes', y: 0 },
-            { name: 'Documentation & Writing', y: 10 }
-        ]
-    }],
-    exporting: {
-        enabled: true,
-        buttons: {
-            contextButton: {
-                menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
-            }
-        }
-    },
-    credits: { enabled: false }
-});
-</script>
-
+                // Research Progress Chart 
+                Highcharts.chart('progress-donut', { 
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                        enabled: true,
+                        alpha: 55,
+                        beta: 10,
+                        depth: 60
+                        }
+                    },
+                    title: {
+                        text: 'Research Progress Distribution',
+                        style: { fontSize: '22px', fontWeight: 'bold', color: '#333' }
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            depth: 45,
+                            innerSize: '30%',
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f}%',
+                                style: { fontSize: '14px', fontWeight: 'bold', color: '#333' }
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    series: [{
+                        name: 'Progress',
+                        data: [
+                            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
+                            { name: 'Literature Review', y: 20 },
+                            { name: 'Data Collection', y: 10 },
+                            { name: 'Model Development', y: 0 },
+                            { name: 'ML Techniques Studied', y: 15 },
+                            { name: 'Data Preprocessing', y: 0 },
+                            { name: 'Challenges Identified', y: 5 },
+                            { name: 'Future Scope Identified', y: 10 },
+                            { name: 'Outcomes', y: 0 },
+                            { name: 'Documentation & Writing', y: 10 }
+                        ]
+                    }],
+                    exporting: {
+                        enabled: true,
+                        buttons: {
+                            contextButton: {
+                                menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                            }
+                        }
+                    },
+                    credits: { enabled: false }
+                });
+            </script>
+            
+            <section>
+                <p class="p1">
+                    The technical subsections in research highlight the specific <strong>methodologies and tools</strong> employed to achieve the research objectives. 
+                    In the domain of <strong>Data Science,</strong> the primary focus is on <strong>Data Collection and Preprocessing (20%),</strong> ensuring the data is clean, relevant, and suitable for analysis. 
+                    This is followed by <strong>Exploratory Data Analysis (10%),</strong> where patterns, trends, and insights are uncovered, and <strong>Data Visualization (10%),</strong> 
+                    which communicates findings effectively using visual tools like graphs and dashboards. 
+                    Within <strong>Machine Learning,</strong> <strong>Predictive Analytics (20%)</strong> plays a key role in forecasting outcomes, while <strong>Classification and Clustering (15%)</strong> organize data into 
+                    meaningful categories. <strong>Deep Learning (15%),</strong> a subset of machine learning, is employed for complex tasks such as <strong>image and speech recognition.</strong> In <strong>AI Integration,</strong> 
+                    <strong>Natural Language Processing (NLP) (5%)</strong> facilitates understanding and generation of <strong>human language,</strong> <strong>Reinforcement Learning (3%)</strong> optimizes decision-making 
+                    through trial and error, and <strong>Deployment and Integration (2%)</strong> ensures that AI solutions are operationally embedded into real-world systems. 
+                    This structured breakdown ensures the comprehensive application of techniques tailored to specific research goals.</p>
+            </section>
+            <!-- Research Progress Chart -->
+            <section>
+                <!--<h2 style="text-align: center;">Research Progress Distribution</h2>-->
+                <div id="progress-chart" style="width: 100%; height: 600px; border-radius: 15px;"></div>
+                <script>
+                    Highcharts.chart('progress-chart', {
+                    chart: {
+                        type: 'pie',
+                        options3d: {
+                            enabled: true,
+                            alpha: 55, // Tilt for a better 3D effect
+                            beta: 10,  // Horizontal rotation
+                            depth: 60, // Depth of the chart
+                            viewDistance: 25 // Perspective depth
+                        },
+                        backgroundColor: '#f9f9f9' // Light background for contrast
+                    },
+                    title: {
+                        text: 'Research Progress Distribution',
+                        style: {
+                            fontSize: '22px',
+                            fontWeight: 'bold',
+                            color: '#333'
+                        }
+                    },
+                    subtitle: {
+                        text: 'A detailed breakdown of project phases',
+                        style: {
+                            fontSize: '16px',
+                            color: '#666'
+                        }
+                    },
+                    tooltip: {
+                        pointFormat: '<b>{point.name}</b>: {point.percentage:.1f}% of total'
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            cursor: 'pointer',
+                            depth: 45, // Adds depth to slices
+                            size: '75%',
+                            innerSize: '30%', // Creates a doughnut effect
+                            dataLabels: {
+                                enabled: true,
+                                format: '<b>{point.name}</b>: {point.percentage:.1f}%',
+                                style: {
+                                    fontSize: '14px',
+                                    fontWeight: 'bold',
+                                    color: '#333'
+                                }
+                            },
+                            showInLegend: true
+                        }
+                    },
+                    legend: {
+                        itemStyle: {
+                            fontSize: '14px',
+                            fontWeight: 'bold',
+                            color: '#444'
+                        }
+                    },
+                    series: [{
+                        name: 'Progress',
+                        colorByPoint: true,
+                        data: [
+                            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
+                            { name: 'Literature Review and Existing Research', y: 20 },
+                            { name: 'Data Collection', y: 10 },
+                            { name: 'Model Development', y: 0 },
+                            { name: 'ML Techniques Studied', y: 15 },
+                            { name: 'Data Preprocessing and Cleaning', y: 0 },
+                            { name: 'Challenges Identified', y: 5 },
+                            { name: 'Future Scope Identified', y: 10 },
+                            { name: 'Outcomes', y: 0 },
+                            { name: 'Documentation & Writing', y: 10 }
+                        ]
+                    }],
+                        credits: {
+                            enabled: false // Remove Highcharts watermark
+                        }
+                });
+            </script>
+            </section>
+        </section>
+    </section>
 </body>
 </html>
