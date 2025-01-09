@@ -35,16 +35,20 @@
                 events: {
                     load: function () {
                         var chart = this;
+                        var angle = 0;
+
                         setInterval(function () {
-                            // Rotate the chart slowly (every 1 second)
+                            // Rotate the chart in such a way that sections stay in position with names
+                            angle += 1; // Increase angle by 1 degree for smooth rotation
+
                             chart.update({
                                 chart: {
                                     options3d: {
-                                        alpha: (chart.options.chart.options3d.alpha + 1) % 360
+                                        alpha: angle,
                                     }
                                 }
                             });
-                        }, 1000); // Slow down the rotation by increasing the interval to 1000ms (1 second)
+                        }, 20); // Slow down the rotation for smoother effect
                     }
                 }
             },
