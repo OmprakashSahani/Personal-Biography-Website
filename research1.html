@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sanskrit Language Research | Ompraksh's Personal Portfolio</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
 </head>
 <body>
     <nav class="navbar">
@@ -28,49 +32,36 @@
             <h2>Transforming Healthcare with Machine Learning: Innovation in Medical Decision Making and Risk Management</h2>
             <h3>Independent Research</h3>
             <section> 
-                <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download or View Research Overview & Progress Report (PDF)</a> 
+                <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download or View Research Overview & Progress Report (PDF)</a> 
             </section> 
             <section> 
                 <h2>Introduction</h2> 
                 <p class="p1"> 
-            <!--<p>Machine Learning, Data Science, Natural Language Processing (NLP), AI applications, Pure and Applied Mathematics.</p>
-            <p>Reading Books, Travelling, Exploring, Coding, Analysis</p>-->
-            Machine learning (ML) and artificial intelligence (AI) are emerging as transformative technologies in healthcare, shaping new paradigms for medical decision-making, 
-            diagnosis, and patient care. By leveraging vast amounts of medical data, machine learning algorithms can provide insights that assist healthcare professionals in diagnosing diseases, predicting outcomes, and recommending personalized treatments. 
-            This research investigates the application of machine learning in enhancing medical decision-making processes, improving diagnostic accuracy, and predicting patient risks, ultimately contributing to the improvement of healthcare services and patient outcomes. 
-            The scope of this research includes predictive analytics, clinical decision support systems (CDSS), and AI-driven tools to optimize care delivery.</p>
             </section>
             <section>
                 <h2>Purpose and Scope</h2> 
                 <p class="p1"> 
-                    The primary objective of this research is to examine how machine learning models can be utilized to improve decision-making in healthcare settings. 
-                    By focusing on predictive analytics, this study aims to predict and manage high-risk patient conditions, as well as improve medical diagnosis. The research will 
-                    explore various machine learning models used to forecast diseases, identify potential risks, and assist healthcare providers in making evidence-based decisions. It will also identify 
-                    challenges in applying machine learning techniques, including ethical concerns, data privacy issues, and the need for medical professionals' trust in AI tools.</p>
             </section>
-            <title>Enhanced 3D Donut Chart with Real-Time Updates</title> 
-            <script src="https://code.highcharts.com/highcharts.js"></script>
-            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
-            <script src="https://code.highcharts.com/modules/drilldown.js"></script>
-            <script src="https://code.highcharts.com/modules/exporting.js"></script>
-            <section> 
-            <h1>Enhanced Research Breakdown with Subsections (Real-Time Update)</h1> 
-                <div id="container"></div> 
-                <script> 
-                    // Function to generate random data for simulation of real-time updates 
-                    function getRandomData() { 
-                        return [ 
+
+            <!-- Enhanced 3D Doughnut Chart -->
+            <section>
+                <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
+                <div id="enhanced-chart" style="width: 100%; height: 600px;"></div>
+                <script>
+                    // Function to generate random data for updates
+                    function getRandomData() {
+                        return [
                             { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
                             { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
                             { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
                             { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
                         ];
-                    } 
-                    // Highcharts chart initialization 
-                    var chart = Highcharts.chart('container', { 
-                        chart: { 
-                            type: 'pie', 
-                            options3d: { 
+                    }
+
+                    Highcharts.chart('enhanced-chart', {
+                        chart: {
+                            type: 'pie',
+                            options3d: {
                                 enabled: true,
                                 alpha: 45,
                                 beta: 0
@@ -79,7 +70,6 @@
                                 load: function () {
                                     var chart = this;
                                     setInterval(function () {
-                                        // Update the chart data every 3 seconds to simulate real-time updates
                                         var newData = getRandomData();
                                         chart.series[0].setData(newData, true, { duration: 1000 });
                                     }, 3000); // Update every 3 seconds
@@ -110,9 +100,9 @@
                             },
                             series: {
                                 animation: {
-                                    duration: 1500, // Animation speed for real-time updates
-                                    easing: 'easeOutBounce' // Smooth animation effect
-                                    }
+                                    duration: 1500,
+                                    easing: 'easeOutBounce'
+                                }
                             }
                         },
                         tooltip: {
@@ -122,364 +112,67 @@
                             footerFormat: '<b>Total: {point.total}%</b>',
                             formatter: function () {
                                 return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
-                                }
-                    }, 
-                                                 series: [{
-                                                     name: 'Research Breakdown',
-                                                     data: getRandomData(),  // Initial data
-                                                     sliced: true,
-                                                     selected: true,
-                                                     drilldown: 'dataScience'
-                                                 }],
-                                                 drilldown: {
-                        series: [{
-                            id: 'dataScience',
-                            data: [
-                                ['Text Collection', 10],
-                                ['Preprocessing', 8],
-                                ['Feature Extraction', 12]
-                            ]
-                        }, {
-                            id: 'machineLearning',
-                            data: [
-                                ['Supervised Learning', 15],
-                                ['Unsupervised Learning', 10],
-                                ['Deep Learning', 10],
-                                ['NLP Tasks', 5]
-                            ]
-                        }, {
-                            id: 'aiTechniques',
-                            data: [
-                                ['NLG', 10],
-                                ['AI for Education', 5],
-                                ['Semantic Analysis', 3],
-                                ['Symbolic AI', 2]
-                            ]
-                        }, {
-                            id: 'interdisciplinary',
-                            data: [
-                                ['Programming Language Design', 5],
-                                ['Cultural Preservation', 5]
-                            ]
-                        }]
-                    },
-                    exporting: {
-                        enabled: true,
-                            buttons: {
-                            contextButton: {
-                                symbol: 'export',
-                                    menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
                             }
-                    }
-                },
-                legend: {
-                    enabled: true,
-                    itemStyle: {
-                        fontWeight: 'normal',
-                        fontSize: '14px'
-                    }
-                },
-                zoomType: 'xy', // Enable zooming (both horizontal and vertical)
-                touchEventEnabled: true, // Allow touch interaction
-            });
-    </script>
-</section>
-            <section>
-                <p class="p1">
-                    The technical subsections in research highlight the specific <strong>methodologies and tools</strong> employed to achieve the research objectives. 
-                    In the domain of <strong>Data Science,</strong> the primary focus is on <strong>Data Collection and Preprocessing (20%),</strong> ensuring the data is clean, relevant, and suitable for analysis. 
-                    This is followed by <strong>Exploratory Data Analysis (10%),</strong> where patterns, trends, and insights are uncovered, and <strong>Data Visualization (10%),</strong> 
-                    which communicates findings effectively using visual tools like graphs and dashboards. 
-                    Within <strong>Machine Learning,</strong> <strong>Predictive Analytics (20%)</strong> plays a key role in forecasting outcomes, while <strong>Classification and Clustering (15%)</strong> organize data into 
-                    meaningful categories. <strong>Deep Learning (15%),</strong> a subset of machine learning, is employed for complex tasks such as <strong>image and speech recognition.</strong> In <strong>AI Integration,</strong> 
-                    <strong>Natural Language Processing (NLP) (5%)</strong> facilitates understanding and generation of <strong>human language,</strong> <strong>Reinforcement Learning (3%)</strong> optimizes decision-making 
-                    through trial and error, and <strong>Deployment and Integration (2%)</strong> ensures that AI solutions are operationally embedded into real-world systems. 
-                    This structured breakdown ensures the comprehensive application of techniques tailored to specific research goals.</p>
-            </section>
-            <!-- Research Progress Chart -->
-            <section>
-                <!--<h2 style="text-align: center;">Research Progress Distribution</h2>-->
-                <div id="progress-chart" style="width: 100%; height: 600px; border-radius: 15px;"></div>
-                <script>
-                    Highcharts.chart('progress-chart', {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                            enabled: true,
-                            alpha: 55, // Tilt for a better 3D effect
-                            beta: 10,  // Horizontal rotation
-                            depth: 60, // Depth of the chart
-                            viewDistance: 25 // Perspective depth
                         },
-                        backgroundColor: '#f9f9f9' // Light background for contrast
-                    },
-                    title: {
-                        text: 'Research Progress Distribution',
-                        style: {
-                            fontSize: '22px',
-                            fontWeight: 'bold',
-                            color: '#333'
-                        }
-                    },
-                    subtitle: {
-                        text: 'A detailed breakdown of project phases',
-                        style: {
-                            fontSize: '16px',
-                            color: '#666'
-                        }
-                    },
-                    tooltip: {
-                        pointFormat: '<b>{point.name}</b>: {point.percentage:.1f}% of total'
-                    },
-                    plotOptions: {
-                        pie: {
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            depth: 45, // Adds depth to slices
-                            size: '75%',
-                            innerSize: '30%', // Creates a doughnut effect
-                            dataLabels: {
-                                enabled: true,
-                                format: '<b>{point.name}</b>: {point.percentage:.1f}%',
-                                style: {
-                                    fontSize: '14px',
-                                    fontWeight: 'bold',
-                                    color: '#333'
-                                }
-                            },
-                            showInLegend: true
-                        }
-                    },
-                    legend: {
-                        itemStyle: {
-                            fontSize: '14px',
-                            fontWeight: 'bold',
-                            color: '#444'
-                        }
-                    },
-                    series: [{
-                        name: 'Progress',
-                        colorByPoint: true,
-                        data: [
-                            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
-                            { name: 'Literature Review and Existing Research', y: 20 },
-                            { name: 'Data Collection', y: 10 },
-                            { name: 'Model Development', y: 0 },
-                            { name: 'ML Techniques Studied', y: 15 },
-                            { name: 'Data Preprocessing and Cleaning', y: 0 },
-                            { name: 'Challenges Identified', y: 5 },
-                            { name: 'Future Scope Identified', y: 10 },
-                            { name: 'Outcomes', y: 0 },
-                            { name: 'Documentation & Writing', y: 10 }
-                        ]
-                    }],
-                        credits: {
-                            enabled: false // Remove Highcharts watermark
-                        }
-                });
-            </script>
-        </section>
-            <section>
-                <p class="p1">
-                    The research progress distribution reflects the various stages of the project's lifecycle and their current completion levels. 
-                    The <strong>Topic Selection (30%)</strong> phase is the most advanced, focusing on identifying a relevant and impactful research area. 
-                    The <strong>Literature Review and Existing Research (20%)</strong> phase entails studying previous works to build a solid theoretical foundation. 
-                    <strong>Data Collection (10%)</strong> marks the acquisition of relevant datasets, while <strong>Machine Learning Techniques Studied (15%)</strong> involves understanding and 
-                    selecting appropriate algorithms for the research. <strong>Challenges Identified (5%)</strong> indicates potential roadblocks and limitations encountered during the research. 
-                    Similarly, <strong>Future Scope Identified (10%)</strong> ensures that the research outlines areas for expansion and further studies. 
-                    While progress in <strong>Model Development, Data Preprocessing and Cleaning, and Outcomes is yet to begin (0%),</strong> the <strong>Documentation and Writing (10%)</strong> phase ensures that 
-                    completed work is systematically recorded. 
-                    This chart provides a clear visualization of how much has been accomplished and what areas require further attention.</p>
+                        series: [{
+                            name: 'Research Breakdown',
+                            data: getRandomData(),
+                            sliced: true,
+                            selected: true,
+                            drilldown: 'dataScience'
+                        }],
+                        drilldown: {
+                            series: [{
+                                id: 'dataScience',
+                                data: [
+                                    ['Text Collection', 10],
+                                    ['Preprocessing', 8],
+                                    ['Feature Extraction', 12]
+                                ]
+                            }, {
+                                id: 'machineLearning',
+                                data: [
+                                    ['Supervised Learning', 15],
+                                    ['Unsupervised Learning', 10],
+                                    ['Deep Learning', 10],
+                                    ['NLP Tasks', 5]
+                                ]
+                            }, {
+                                id: 'aiTechniques',
+                                data: [
+                                    ['NLG', 10],
+                                    ['AI for Education', 5],
+                                    ['Semantic Analysis', 3],
+                                    ['Symbolic AI', 2]
+                                ]
+                            }, {
+                                id: 'interdisciplinary',
+                                data: [
+                                    ['Programming Language Design', 5],
+                                    ['Cultural Preservation', 5]
+                                ]
+                            }]
+                        },
+                        exporting: {
+                            enabled: true
+                        },
+                        legend: {
+                            enabled: true,
+                            itemStyle: {
+                                fontWeight: 'normal',
+                                fontSize: '14px'
+                            }
+                        },
+                        zoomType: 'xy',
+                    });
+                </script>
             </section>
-                    
-            <section>
-                <h2>Machine Learning Techniques for Healthcare</h2>
-                <p class="p1">
-                    Several machine learning techniques have been successfully applied in healthcare for tasks such as risk prediction, diagnostic support, and personalized medicine.</p> 
-                    <p class="p1">The following techniques have shown the most promise in improving healthcare outcomes:-</p>
-                <section>
-                <h3 style="text-align: left;">Classification and Clustering:</h3>
-                <p class="p1">
-                    Predictive models using regression techniques, support vector machines (SVM), and decision trees have been successfully applied to forecast outcomes in chronic diseases like diabetes, cardiovascular disease, and cancer. 
-                    These models provide actionable insights that help healthcare providers proactively intervene with personalized treatment plans.</p>
-                </section>
-                <section>
-                <h3 style="text-align: left;">Predictive Analytics:</h3>
-                <p class="p1">
-                    In healthcare, classification algorithms like random forests, k-nearest neighbors (KNN), 
-                    and Naive Bayes are employed to classify patients into categories such as high-risk or low-risk groups. 
-                    Clustering techniques like k-means clustering are applied to group similar patient profiles, helping tailor treatments.
-                </p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Deep Learning:</h3>
-                    <p class="p1">
-                        Deep learning algorithms, particularly convolutional neural networks (CNNs), are widely used in medical imaging applications, 
-                        such as radiology and pathology. These models are capable of detecting abnormalities in medical images 
-                        (e.g., identifying tumors in CT scans or MRIs) with accuracy comparable to, or surpassing, human experts.</p>
-                    </section>
-                <section>
-                    <h3 style="text-align: left;">Natural Language Processing (NLP):</h3>
-                    <p class="p1">
-                        NLP techniques analyze clinical text data, such as electronic health records (EHR), to extract useful information for decision support. NLP is particularly useful in recognizing medical terminology, 
-                        categorizing symptoms, and identifying relationships between diseases and treatments in large unstructured datasets.</p>
-                    </section>
-                <section>
-                    <h3 style="text-align: left;">Reinforcement Learning (RL):</h3>
-                    <p class="p1">
-                        RL is being explored for optimizing treatment plans. By continuously learning from patient responses, 
-                        reinforcement learning systems can adjust treatment recommendations to maximize patient outcomes, particularly in oncology and chronic disease management.</p>
-                </section>
-                <h2>Literature Review and Existing Research</h2>
-                <p class="p1">
-                    A comprehensive literature review reveals 
-                    the extensive efforts made by academic institutions and healthcare providers in integrating AI and machine learning into healthcare solutions.
-                </p>
-                <section>
-                    <h3 style="text-align: left;">Columbia University:</h3>
-                    <p class="p1">
-                        Columbia University is indeed conducting significant research using AI, Machine Learning (ML), and Natural Language Processing (NLP) in healthcare.</p>
-                    <p class="p1">• Center for Innovation in Imaging Biomarkers and Integrated Diagnostics (CIMBID): Columbia's CIMBID center is focused on using AI and ML to develop advanced imaging biomarkers and diagnostic tools for improving patient outcomes, 
-                        particularly in the realm of medical imaging.</p>
-                    <p class="p1">•	AI in Healthcare Applications: Columbia University is exploring AI applications across healthcare, such as analyzing electronic health records, predicting hospital readmissions, 
-                    and using NLP to understand clinical narratives in electronic health records.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Indian Institutions:</h3>
-                    <p class="p1">
-                        Several prominent Indian institutions and organizations are working towards integrating AI and machine learning into healthcare, 
-                        with research and projects spanning areas like diagnostics, medical imaging, predictive analytics, and personalized medicine.</p>
-                    <p class="p1">•	Indian Institute of Technology (IIT) Delhi and IIT Bombay are working on AI-based healthcare applications like disease detection,
-                        predictive analytics, and medical imaging.</p> 
-                    <p class="p1">•	Indian Institute of Science (IISc), Bengaluru is leveraging AI and ML for medical image analysis, personalized healthcare, 
-                        and disease prediction.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Imperial College London:</h3>
-                    <p class="p1">Imperial College London is indeed conducting significant research in the field of AI and Machine Learning (ML) in healthcare. 
-                        The institution is engaged in multiple initiatives that focus on using AI to improve diagnostics, patient outcomes, 
-                        and healthcare delivery. </p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Johns Hopkins University:</h3>
-                    <p class="p1">JHU has been at the forefront of integrating Artificial Intelligence (AI) and Machine Learning (ML) 
-                        into healthcare research, with several key initiatives aimed at improving patient care, advancing medical knowledge, 
-                        and promoting health equity. </p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Massachusetts Institute of Technology (MIT):</h3>
-                    <p class="p1">The Computer Science and Artificial Intelligence Laboratory (CSAIL) at the Massachusetts Institute of Technology (MIT) is 
-                        indeed conducting active research in healthcare, with a focus on leveraging machine learning and AI for various applications. This research aims to reduce diagnostic errors, improve the accuracy of medical predictions, and streamline the delivery of care, 
-                        which has the potential to enhance overall healthcare efficiency and patient outcomes.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Stanford University:</h3>
-                    <p class="p1">Stanford University has been a leader in integrating machine learning and AI into healthcare research, with a focus on improving diagnostic accuracy and medical imaging. One notable example is their work on AI-driven medical imaging for cancer diagnosis.
-Stanford researchers have applied deep learning models to chest CT scans to identify signs of lung cancer. In one significant study, the deep learning algorithms achieved diagnostic accuracy comparable to that of experienced radiologists, which is a groundbreaking development in medical imaging. 
-This research showcases the potential of AI to assist clinicians in early detection and diagnosis, particularly in areas like cancer, where early identification can significantly improve patient outcomes.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">The University of Pennsylvania:</h3>
-                    <p class="p1">The University of Pennsylvania is indeed involved in cutting-edge research that integrates Machine Learning (ML) and Artificial 
-                        Intelligence (AI) into healthcare. The initiatives mentioned, such as those from Penn Medicine, Computational Medicine, 
-                        AI in Health and Medicine Program, and others like CHIBE and the Institute for Biomedical Informatics, are accurate representations 
-                        of the university's active engagement in AI research within the healthcare sector.</p>
-                </section>
-                <h2>Challenges in Healthcare AI</h2>
-                <p class="p1">
-                    The integration of AI and machine learning into healthcare systems 
-                    faces significant challenges that need to be addressed to fully realize the potential of these technologies.</p>
-                <section>
-                    <h3 style="text-align: left;">Data Privacy and Security:</h3>
-                    <p class="p1">
-                        Healthcare data is highly sensitive, and the use of machine learning models requires robust data privacy and security protocols. 
-                        Ensuring patient data confidentiality and preventing data breaches are crucial challenges when implementing AI models.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Interpretability and Trust:</h3>
-                    <p class="p1">
-                        Machine learning models, particularly deep learning algorithms, often operate as "black boxes," meaning their decision-making process is not easily understood by clinicians. 
-                        Ensuring that AI systems provide explanations for their decisions is essential to building trust with healthcare professionals.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Data Quality and Availability:</h3>
-                    <p class="p1">
-                        The quality of machine learning models relies heavily on the availability of large, high-quality datasets. 
-                        In healthcare, access to such data is often limited due to privacy laws and the fragmentation of healthcare data across systems.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Integration with Existing Systems:</h3>
-                    <p class="p1">
-                        AI models must integrate seamlessly with existing healthcare IT systems, such as electronic health records (EHR) and hospital management systems. 
-                        The challenge lies in aligning machine learning workflows with current clinical practices without disrupting daily operations.</p>
-                </section>
-                <h2>Potential Applications and Outcomes</h2>
-                <p class="p1">
-                    The possibilities for AI and machine learning in healthcare are vast. Some key applications include:</p>
-                <section>
-                    <h3 style="text-align: left;">Risk Management and Predictive Analytics:</h3>
-                    <p class="p1">
-                        Machine learning models are used to predict disease outcomes, such as the likelihood of a heart attack or stroke, based on patient data including genetics, 
-                        lifestyle, and medical history. Predictive analytics helps identify at-risk patients before symptoms appear, improving preventive care.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Personalized Medicine:</h3>
-                    <p class="p1">
-                        By analyzing genetic data, machine learning enables the tailoring of treatment plans for individual patients, 
-                        optimizing drug dosages, and predicting responses to treatments based on genetic markers.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Clinical Decision Support Systems (CDSS):</h3>
-                    <p class="p1">
-                        AI-powered CDSSs help clinicians by providing evidence-based recommendations, diagnosing diseases, and suggesting treatment 
-                        options based on patient history and medical guidelines. These systems aim to reduce diagnostic errors and ensure that patients 
-                        receive timely and appropriate care.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Operational Efficiency:</h3>
-                    <p class="p1">
-                        AI can optimize healthcare operations, from staffing and resource allocation to patient scheduling. 
-                        Predictive analytics can forecast patient influxes, helping hospitals prepare for high-demand periods.</p>
-                </section>
-                <section>
-                    <h3 style="text-align: left;">Outcomes and Future Scope:</h3>
-                    <p class="p1">
-                        The future of AI in healthcare is highly promising. As machine learning algorithms continue to evolve, their ability to handle more complex tasks and provide real-time decision support will continue to improve. 
-                        This will lead to better patient outcomes, more efficient healthcare systems, and ultimately, a paradigm shift toward personalized and preventative care.</p>
-                </section>
-                <h2>Conclusion</h2>
-                <p class="p1">
-                    In conclusion, integrating machine learning into healthcare systems holds immense potential for improving patient outcomes, 
-                    diagnostic accuracy, and operational efficiency. The development of predictive models, clinical decision support tools, and 
-                    personalized medicine approaches are driving a new era of healthcare innovation. However, addressing challenges such as data privacy, 
-                    model interpretability, and integration with existing systems will be essential for widespread adoption. The continued advancement of 
-                    AI in healthcare offers exciting opportunities for transforming medical decision-making and enhancing patient care.</p>
-            </section> 
-            <!--<section> 
-                <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download Research Overview & Progress Report (PDF)</a> 
-            </section>-->
-        </section> 
-    </section>
 
-        <!--<section class="research1">
-            <h2>Integrating Sanskrit Language with Data Science: Machine Learning Approaches for Text Analysis</h2>
-            <h3>Independent Research</h3>
-            <section class="p1">-->
-            <!--<p>Machine Learning, Data Science, Natural Language Processing (NLP), AI applications, Pure and Applied Mathematics.</p>
-            <p>Reading Books, Travelling, Exploring, Coding, Analysis</p>-->
-            <!--<p>1. Initiating research on integrating Sanskrit with machine learning techniques to explore text analysis and its application in data science. </p>
-            </section>-->
-        <!--<section class="p1">
-            <p>2. Curating and collecting datasets of Sanskrit texts to develop machine learning models aimedat linguistics analysis and cultural preservation.</p>
+            <section>
+                <p class="p1"></p>
+            </section>
         </section>
-        <section class="p1">
-            <p>3. Exploring the use of Sanskrit in computational linguistics and natural language processing 
-                (NLP), focusing on leveraging modern technological advancements.</p>
-        </section>
-        <section>
-            <a href="Sample of Work.pdf" download="Research-Paper" class="download-button">Download Research Overview & Progress Report (PDF)</a>
-        </section>
-    </section>-->
+    </section>
 
     <script src="js/scripts.js"></script>
 </body>
