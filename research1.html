@@ -59,18 +59,7 @@ Highcharts.chart('container', {
             beta: 0
         },
         events: {
-            load: function () {
-                var chart = this;
-                setInterval(function () {
-                    chart.update({
-                        chart: {
-                            options3d: {
-                                alpha: (chart.options.chart.options3d.alpha + 1) % 360
-                            }
-                        }
-                    });
-                }, 100);  // Slow rotation
-            }
+            // Removed auto-rotation to avoid blinking issue
         }
     },
     title: {
