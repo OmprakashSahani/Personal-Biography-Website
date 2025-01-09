@@ -17,15 +17,14 @@
             chart: {
                 type: 'pie',
                 options3d: {
-                    enabled: true,
-                    alpha: 45,  // Elevation angle
-                    beta: 30,   // Rotation angle
-                    depth: 120, // Depth of the 3D effect
-                    viewDistance: 25, // View distance for the 3D effect
+                    enabled: true, // Enable 3D effect
+                    alpha: 45, // Elevation angle (rotation around X-axis)
+                    beta: 30,  // Rotation angle (rotation around Y-axis)
+                    depth: 150, // Depth of the 3D effect
                 },
                 animation: {
-                    duration: 2000, // Animation duration for loading the chart
-                    easing: 'easeOutBounce' // Easing function for smoother transitions
+                    duration: 2000,
+                    easing: 'easeOutBounce'
                 }
             },
             title: {
@@ -33,9 +32,9 @@
             },
             plotOptions: {
                 pie: {
-                    innerSize: '40%',  // Makes the donut shape
-                    depth: 80,         // Increased depth for more pronounced 3D effect
-                    slicedOffset: 30,  // Increased offset for exploded slices
+                    innerSize: '50%', // Makes the donut shape
+                    depth: 100, // Depth of the donut slices
+                    slicedOffset: 15, // Slightly offset the slices for 3D effect
                     dataLabels: {
                         enabled: true,
                         format: '{point.name}: {point.percentage:.1f}%',
@@ -47,10 +46,10 @@
                     shadow: {
                         enabled: true,
                         color: '#000000',
-                        offsetX: 2,
-                        offsetY: 2,
-                        opacity: 0.5,
-                        width: 5
+                        offsetX: 3,
+                        offsetY: 3,
+                        opacity: 0.3,
+                        width: 10
                     }
                 }
             },
@@ -69,17 +68,17 @@
                     { name: 'Preprocessing', y: 10, color: '#66b3ff', parent: 0 },
                     { name: 'Feature Extraction', y: 10, color: '#99ff99', parent: 0 }
                 ],
-                linkedTo: ':previous',  // Link to first series (main sections)
-                innerSize: '60%',       // Inner donut for subcategories
-                depth: 50,              // Depth for the inner donut (subsections)
-                slicedOffset: 15,      // Slightly exploded sections
+                linkedTo: ':previous',
+                innerSize: '60%',
+                depth: 60,
+                slicedOffset: 25,
                 shadow: {
                     enabled: true,
                     color: '#000000',
-                    offsetX: 2,
-                    offsetY: 2,
+                    offsetX: 3,
+                    offsetY: 3,
                     opacity: 0.3,
-                    width: 3
+                    width: 10
                 }
             }, {
                 name: 'Machine Learning Subsections',
@@ -88,17 +87,17 @@
                     { name: 'Unsupervised Learning', y: 10, color: '#ff6666', parent: 1 },
                     { name: 'Deep Learning', y: 15, color: '#c2c2f0', parent: 1 }
                 ],
-                linkedTo: ':previous',  // Link to second series (Machine Learning)
+                linkedTo: ':previous',
                 innerSize: '60%',
-                depth: 50,
-                slicedOffset: 15,
+                depth: 60,
+                slicedOffset: 25,
                 shadow: {
                     enabled: true,
                     color: '#000000',
-                    offsetX: 2,
-                    offsetY: 2,
+                    offsetX: 3,
+                    offsetY: 3,
                     opacity: 0.3,
-                    width: 3
+                    width: 10
                 }
             }, {
                 name: 'AI Techniques Subsections',
@@ -109,17 +108,17 @@
                     { name: 'Symbolic AI', y: 2, color: '#f0e6ff', parent: 2 },
                     { name: 'Cognitive AI', y: 5, color: '#ff99cc', parent: 2 }
                 ],
-                linkedTo: ':previous',  // Link to third series (AI Techniques)
+                linkedTo: ':previous',
                 innerSize: '60%',
-                depth: 50,
-                slicedOffset: 15,
+                depth: 60,
+                slicedOffset: 25,
                 shadow: {
                     enabled: true,
                     color: '#000000',
-                    offsetX: 2,
-                    offsetY: 2,
+                    offsetX: 3,
+                    offsetY: 3,
                     opacity: 0.3,
-                    width: 3
+                    width: 10
                 }
             }, {
                 name: 'Interdisciplinary Applications Subsections',
@@ -127,17 +126,17 @@
                     { name: 'Programming Language Design', y: 5, color: '#d9d9d9', parent: 3 },
                     { name: 'Cultural Preservation', y: 5, color: '#ff6666', parent: 3 }
                 ],
-                linkedTo: ':previous',  // Link to fourth series (Interdisciplinary Applications)
+                linkedTo: ':previous',
                 innerSize: '60%',
-                depth: 50,
-                slicedOffset: 15,
+                depth: 60,
+                slicedOffset: 25,
                 shadow: {
                     enabled: true,
                     color: '#000000',
-                    offsetX: 2,
-                    offsetY: 2,
+                    offsetX: 3,
+                    offsetY: 3,
                     opacity: 0.3,
-                    width: 3
+                    width: 10
                 }
             }],
             tooltip: {
