@@ -3,148 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanskrit Language Research | Ompraksh's Personal Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Enhanced 3D Donut Chart with Real-Time Updates</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #container {
+            width: 80%;
+            height: 600px;
+            margin: 50px auto;
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="research.html">Healthcare Research</a></li>
-                <li><a href="research1.html">Sanskrit Language Research</a></li>
-                <li><a href="interest_topics.html">Interest Topics</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <h1>Enhanced Research Breakdown with Subsections (Real-Time Update)</h1>
+    <div id="container"></div>
+    <script>
+        // Function to generate random data for simulation of real-time updates
+        function getRandomData() {
+            return [
+                { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
+                { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
+                { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
+                { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
+            ];
+        }
 
-    <!-- Research Section -->
-    <section>
-        <h2 style="text-align: center;">Sanskrit Language Research Breakdown</h2>
-        <div id="3d-donut-chart" style="width: 100%; height: 600px;"></div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                Highcharts.chart('3d-donut-chart', {
-                    chart: {
-                        type: 'pie',
-                        options3d: {
-                            enabled: true,
-                            alpha: 45,
-                            beta: 0,
-                            depth: 50
-                        },
-                        backgroundColor: '#f9f9f9',
-                        animation: true
-                    },
-                    title: {
-                        text: '3D Donut Chart with Drilldown Features',
-                        style: { fontSize: '22px', fontWeight: 'bold' }
-                    },
-                    subtitle: {
-                        text: 'Breakdown of Sanskrit Language Research Activities',
-                        style: { fontSize: '16px', color: '#666' }
-                    },
-                    plotOptions: {
-                        pie: {
-                            innerSize: '50%', // Donut chart effect
-                            depth: 45,
-                            allowPointSelect: true,
-                            cursor: 'pointer',
-                            dataLabels: {
-                                enabled: true,
-                                format: '{point.name}: {point.percentage:.1f}%',
-                                style: {
-                                    fontWeight: 'bold',
-                                    fontSize: '14px'
-                                }
-                            },
-                            showInLegend: true
-                        }
-                    },
-                    tooltip: {
-                        headerFormat: '<strong>{point.key}</strong><br>',
-                        pointFormat: 'Value: {point.y}<br>Percentage: {point.percentage:.2f}%',
-                        useHTML: true
-                    },
-                    series: [{
-                        name: 'Research Phases',
-                        colorByPoint: true,
-                        data: [
-                            { 
-                                name: 'Data Science Techniques', 
-                                y: 30, 
-                                drilldown: 'dataScience', 
-                                sliced: true, 
-                                selected: true 
-                            },
-                            { name: 'Machine Learning Techniques', y: 25, drilldown: 'mlTechniques' },
-                            { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
-                            { name: 'Interdisciplinary Applications', y: 25, drilldown: 'interdisciplinary' }
-                        ]
-                    }],
-                    drilldown: {
-                        series: [
-                            {
-                                id: 'dataScience',
-                                name: 'Data Science Details',
-                                data: [
-                                    ['Data Cleaning', 10],
-                                    ['Feature Engineering', 15],
-                                    ['Visualization', 5]
-                                ]
-                            },
-                            {
-                                id: 'mlTechniques',
-                                name: 'Machine Learning Details',
-                                data: [
-                                    ['Supervised Learning', 10],
-                                    ['Unsupervised Learning', 10],
-                                    ['Deep Learning', 5]
-                                ]
-                            },
-                            {
-                                id: 'aiTechniques',
-                                name: 'AI Techniques Details',
-                                data: [
-                                    ['NLP Applications', 10],
-                                    ['Symbolic AI', 5],
-                                    ['Semantic Analysis', 5]
-                                ]
-                            },
-                            {
-                                id: 'interdisciplinary',
-                                name: 'Interdisciplinary Applications',
-                                data: [
-                                    ['Programming Language Design', 15],
-                                    ['Cultural Preservation', 10]
-                                ]
-                            }
-                        ]
-                    },
-                    exporting: {
-                        enabled: true,
-                        buttons: {
-                            contextButton: {
-                                menuItems: ['downloadPNG', 'downloadPDF', 'downloadCSV']
-                            }
-                        }
-                    },
-                    legend: {
-                        enabled: true,
-                        itemStyle: { fontSize: '14px', fontWeight: 'normal' }
+        // Highcharts chart initialization
+        var chart = Highcharts.chart('container', {
+            chart: {
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                },
+                events: {
+                    load: function () {
+                        var chart = this;
+                        setInterval(function () {
+                            // Update the chart data every 3 seconds to simulate real-time updates
+                            var newData = getRandomData();
+                            chart.series[0].setData(newData, true, { duration: 1000 });
+                        }, 3000); // Update every 3 seconds
                     }
-                });
-            });
-        </script>
-    </section>
-
-    <script src="js/scripts.js"></script>
+                }
+            },
+            title: {
+                text: 'Enhanced Research Breakdown with Real-Time Data Updates'
+            },
+            subtitle: {
+                text: '3D Donut Chart with Detailed Drilldown and Features'
+            },
+            plotOptions: {
+                pie: {
+                    innerSize: 100,
+                    depth: 45,
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}: {point.percentage:.1f}%',
+                        style: {
+                            color: 'black',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    showInLegend: true
+                },
+                series: {
+                    animation: {
+                        duration: 1500, // Animation speed for real-time updates
+                        easing: 'easeOutBounce' // Smooth animation effect
+                    }
+                }
+            },
+            tooltip: {
+                useHTML: true,
+                headerFormat: '<span style="font-size: 14px; font-weight: bold;">{point.key}</span><br>',
+                pointFormat: '<span style="color:{point.color}">●</span> {point.name}: {point.y}%<br>',
+                footerFormat: '<b>Total: {point.total}%</b>',
+                formatter: function () {
+                    return <strong>${this.point.name}</strong><br>Percentage: ${this.percentage.toFixed(2)}%<br>Value: ${this.y}%;
+                }
+            },
+            series: [{
+                name: 'Research Breakdown',
+                data: getRandomData(),  // Initial data
+                sliced: true,
+                selected: true,
+                drilldown: 'dataScience'
+            }],
+            drilldown: {
+                series: [{
+                    id: 'dataScience',
+                    data: [
+                        ['Text Collection', 10],
+                        ['Preprocessing', 8],
+                        ['Feature Extraction', 12]
+                    ]
+                }, {
+                    id: 'machineLearning',
+                    data: [
+                        ['Supervised Learning', 15],
+                        ['Unsupervised Learning', 10],
+                        ['Deep Learning', 10],
+                        ['NLP Tasks', 5]
+                    ]
+                }, {
+                    id: 'aiTechniques',
+                    data: [
+                        ['NLG', 10],
+                        ['AI for Education', 5],
+                        ['Semantic Analysis', 3],
+                        ['Symbolic AI', 2]
+                    ]
+                }, {
+                    id: 'interdisciplinary',
+                    data: [
+                        ['Programming Language Design', 5],
+                        ['Cultural Preservation', 5]
+                    ]
+                }]
+            },
+            exporting: {
+                enabled: true,
+                buttons: {
+                    contextButton: {
+                        symbol: 'export',
+                        menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                    }
+                }
+            },
+            legend: {
+                enabled: true,
+                itemStyle: {
+                    fontWeight: 'normal',
+                    fontSize: '14px'
+                }
+            },
+            zoomType: 'xy', // Enable zooming (both horizontal and vertical)
+            touchEventEnabled: true, // Allow touch interaction
+        });
+    </script>
 </body>
 </html>
