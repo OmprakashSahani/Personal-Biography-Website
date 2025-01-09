@@ -18,9 +18,10 @@
             margin: 50px auto;
         }
         .subsection-chart {
-            width: 200px;
-            height: 200px;
+            width: 45%;
+            height: 300px;
             margin: 30px auto;
+            display: inline-block;
         }
         .instruction-message {
             font-size: 16px;
@@ -125,7 +126,7 @@ function createSubsectionChart(containerId, data) {
         plotOptions: {
             pie: {
                 innerSize: 80,
-                depth: 45,
+                depth: 50,  // Increased depth for a more 3D effect
                 dataLabels: {
                     enabled: true,
                     format: '{point.name}: {point.percentage:.1f}%',
