@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced 3D Donut Chart with Real-Time Updates</title>
+    <title>Enhanced 3D Donut Chart with Drilldown</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/drilldown.js"></script>
@@ -21,44 +21,24 @@
     </style>
 </head>
 <body>
-    <h1>Enhanced Research Breakdown with Subsections (Real-Time Update)</h1>
+    <h1>Enhanced Research Breakdown with Subsections</h1>
     <div id="container"></div>
     <script>
-        // Function to generate random data for simulation of real-time updates
-        function getRandomData() {
-            return [
-                { name: 'Data Science Techniques', y: Math.floor(Math.random() * 10) + 20 },
-                { name: 'Machine Learning Techniques', y: Math.floor(Math.random() * 10) + 30 },
-                { name: 'AI Techniques', y: Math.floor(Math.random() * 10) + 10 },
-                { name: 'Interdisciplinary Applications', y: Math.floor(Math.random() * 10) + 5 }
-            ];
-        }
-
         // Highcharts chart initialization
-        var chart = Highcharts.chart('container', {
+        Highcharts.chart('container', {
             chart: {
                 type: 'pie',
                 options3d: {
                     enabled: true,
                     alpha: 45,
                     beta: 0
-                },
-                events: {
-                    load: function () {
-                        var chart = this;
-                        setInterval(function () {
-                            // Update the chart data every 3 seconds to simulate real-time updates
-                            var newData = getRandomData();
-                            chart.series[0].setData(newData, true, { duration: 1000 });
-                        }, 3000); // Update every 3 seconds
-                    }
                 }
             },
             title: {
-                text: 'Enhanced Research Breakdown with Real-Time Data Updates'
+                text: 'Enhanced Research Breakdown'
             },
             subtitle: {
-                text: '3D Donut Chart with Detailed Drilldown and Features'
+                text: '3D Donut Chart with Detailed Drilldown'
             },
             plotOptions: {
                 pie: {
@@ -75,12 +55,6 @@
                     allowPointSelect: true,
                     cursor: 'pointer',
                     showInLegend: true
-                },
-                series: {
-                    animation: {
-                        duration: 1500, // Animation speed for real-time updates
-                        easing: 'easeOutBounce' // Smooth animation effect
-                    }
                 }
             },
             tooltip: {
@@ -94,10 +68,14 @@
             },
             series: [{
                 name: 'Research Breakdown',
-                data: getRandomData(),  // Initial data
+                data: [
+                    { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
+                    { name: 'Machine Learning Techniques', y: 25, drilldown: 'machineLearning' },
+                    { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
+                    { name: 'Interdisciplinary Applications', y: 25, drilldown: 'interdisciplinary' }
+                ],
                 sliced: true,
-                selected: true,
-                drilldown: 'dataScience'
+                selected: true
             }],
             drilldown: {
                 series: [{
@@ -148,7 +126,7 @@
                 }
             },
             zoomType: 'xy', // Enable zooming (both horizontal and vertical)
-            touchEventEnabled: true, // Allow touch interaction
+            touchEventEnabled: true // Allow touch interaction
         });
     </script>
 </body>
