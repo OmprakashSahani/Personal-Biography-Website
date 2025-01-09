@@ -41,11 +41,14 @@
                 events: {
                     load: function () {
                         var chart = this;
-                        var angle = 0;
+                        var angle = 45;  // Initial angle
+                        var speed = 1;  // Speed of rotation (change this to control the speed)
                         setInterval(function () {
-                            // Slow rotation: increase interval and reduce angle change
-                            angle += 0.5;  // Very small increment to make rotation slower
-                            if (angle >= 360) angle = 0;  // Reset angle once it reaches 360
+                            // Slowly increase the angle for smoother rotation
+                            angle += speed;  // Increment by a small value for slower rotation
+                            if (angle >= 360) angle = 0;  // Reset angle after 360 to avoid overflow
+                            
+                            // Update the chart's alpha angle
                             chart.update({
                                 chart: {
                                     options3d: {
@@ -53,7 +56,7 @@
                                     }
                                 }
                             });
-                        }, 50);  // Update every 50ms for smoother rotation
+                        }, 50);  // Update interval (in milliseconds)
                     }
                 }
             },
