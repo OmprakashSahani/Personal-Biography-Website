@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Donut Chart with Automatic Subsections Movement</title>
+    <title>3D Donut Chart with Auto-Moving Subsections</title>
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/highcharts-3d.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -20,10 +20,10 @@
     </style>
 </head>
 <body>
-    <h1>3D Donut Chart with Automatic Subsections Movement</h1>
+    <h1>3D Donut Chart with Moving Subsections</h1>
     <div id="container"></div>
     <script>
-        var chart = Highcharts.chart('container', {
+        Highcharts.chart('container', {
             chart: {
                 type: 'pie',
                 options3d: {
@@ -34,32 +34,27 @@
                 events: {
                     load: function () {
                         var chart = this;
-                        var moveOut = true; // Boolean to control the expansion direction
-
-                        // Function to animate the chart
-                        setInterval(function () {
+                        var interval = setInterval(function () {
                             chart.series[0].points.forEach(function (point) {
-                                // Determine the radius for subsections
-                                if (moveOut) {
-                                    point.update({
-                                        radius: point.radius + 15 // Expand outward
-                                    });
-                                } else {
-                                    point.update({
-                                        radius: point.radius - 15 // Contract inward
-                                    });
-                                }
+                                // Expand and contract subsections automatically
+                                point.update({
+                                    radius: point.radius === 100 ? 150 : 100
+                                });
                             });
-                            moveOut = !moveOut; // Toggle between expanding and contracting
-                        }, 2000); // Change state every 2 seconds
+                        }, 2000); // Toggle radius every 2 seconds
+
+                        // Stop the interval after 20 seconds to avoid indefinite loop
+                        setTimeout(function() {
+                            clearInterval(interval);
+                        }, 20000);
                     }
                 }
             },
             title: {
-                text: 'Research Breakdown with Subsections (3D Donut)'
+                text: 'Research Breakdown with Auto-Moving Subsections (3D Donut)'
             },
             subtitle: {
-                text: 'Main Sections and Subsections Moving Automatically'
+                text: 'Main Sections and Subsections Automatically Move In and Out'
             },
             plotOptions: {
                 pie: {
