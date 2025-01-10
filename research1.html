@@ -77,7 +77,13 @@
                 <div id="interdisciplinarySubsection" class="subsection-chart"></div>
             </section>
             <section style="margin-bottom: 50px;">
-                <div id="progress-donut" style="height: 600px; width: 100%; border-radius: 15px;"></div>
+                <div id="progress-donut" class="chart-container"></div>
+                <style>
+                    .chart-container {
+                        width: 90%;
+                        height: 600px;
+                        margin: 0 auto;
+                </style>
                 <script>
                     // Main Donut Chart
                     Highcharts.chart('main-donut', {
@@ -131,7 +137,15 @@
                 </script>
             </section>
             <section style="margin-bottom: 50px;">
-                <div id="subsection-chart" style="height: 300px; width: 45%; border-radius: 15px; margin: 10px; display: inline-block;"></div>
+                <div id="subsection-chart" class="subsection-chart"></div>
+                <style>
+                    .subsection-chart {
+                        width: 45%;
+                        height: 300px;
+                        margin: 10px;
+                        display: inline-block;
+                    }
+                </style>
                 <script>
                     function createSubsectionChart(containerId, data) {
                         Highcharts.chart(containerId, {
