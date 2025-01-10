@@ -130,6 +130,72 @@
                     });
                 </script>
             </section>
+            <section style="margin-bottom: 50px;">
+                <div id="progress-donut" class="chart-container" style="height: 600px; width: 100%; border-radius: 15px;"></div>
+                <script>
+                    function createSubsectionChart(containerId, data) {
+                        Highcharts.chart(containerId, {
+                            chart: {
+                                type: 'pie',
+                                options3d: {
+                                    enabled: true,
+                                    alpha: 45,
+                                    beta: 0
+                                }
+                            },
+                            title: { text: 'Subsection Breakdown' },
+                            plotOptions: {
+                                pie: {
+                                    innerSize: 80,
+                                    depth: 50,
+                                    dataLabels: {
+                                        enabled: true,
+                                        format: '{point.name}: {point.percentage:.1f}%',
+                                        style: {
+                                            color: 'black',
+                                            fontWeight: 'bold'
+                                        }
+                                    },
+                                    allowPointSelect: true,
+                                    cursor: 'pointer'
+                                }
+                            },
+                            series: [{
+                                name: 'Subsection Breakdown',
+                                data: data
+                            }],
+                            exporting: { enabled: true },
+                            credits: { enabled: false }
+                        });
+                    }
+                    const dataScienceSubsection = [
+                        ['Text Collection', 10],
+                        ['Preprocessing', 8],
+                        ['Feature Extraction', 12]
+                    ];
+                    const machineLearningSubsection = [
+                        ['Supervised Learning', 15],
+                        ['Unsupervised Learning', 10],
+                        ['Deep Learning', 10],
+                        ['NLP Tasks', 5]
+                    ];
+                    const aiTechniquesSubsection = [
+                        ['NLG', 10],
+                        ['AI for Education', 5],
+                        ['Semantic Analysis', 3],
+                        ['Symbolic AI', 2]
+                    ];
+                    const interdisciplinarySubsection = [
+                        ['Programming Language Design', 5],
+                        ['Cultural Preservation', 5]
+                    ];
+                    // Create Subsection Charts
+                    createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
+                    createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
+                    createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
+                    createSubsectionChart('interdisciplinarySubsection', interdisciplinarySubsection);
+                </script>
+            </section>
         </section>
     </section>
 </body>
