@@ -40,53 +40,44 @@
                     this ancient language accessible for global research and modern applications, ranging from <strong>digital education to programming language design.</strong></p>
             </section>
             <h2>Purpose and Scope</h2> 
-            <p class="p1"> 
-                <h3 style="text-align: left">Linguistic Analysis:</h3>
-                <p class="p1">Utilize ML to analyze Sanskrit texts for identifying linguistic patterns, such as morphological intricacies, syntactic structures, 
+            <section>
+                <h3>Linguistic Analysis:</h3>
+                <p>Utilize ML to analyze Sanskrit texts for identifying linguistic patterns, such as morphological intricacies, syntactic structures, 
                     and semantic nuances.</p>
-                <p class="p1">Example: Computational analysis of Panini’s Ashtadhyayi grammar to understand its modern relevance.</p>
-            <section>
-            <p class="p1"> 
-                <h3 style="text-align: left">Cultural Preservation:</h3>
-                <p class="p1">Digitize Sanskrit manuscripts and apply ML to analyze and preserve these texts for future generations.</p>
-                <p class="p1">Example: Using OCR to convert ancient handwritten texts into machine-readable formats for digital archives.</p>
+                <p>Example: Computational analysis of Panini’s Ashtadhyayi grammar to understand its modern relevance.</p>
             </section>
             <section>
-            <p class="p1"> 
-                <h3 style="text-align: left">Advancements in Natural Language Processing:</h3>
-                <p class="p1">Develop state-of-the-art NLP tools tailored for Sanskrit, such as tokenizers, parsers, and machine translation systems.</p>
-                <p class="p1">Example: Building Sanskrit-English translation models for interdisciplinary research and global accessibility.</p>
+                <h3>Cultural Preservation:</h3>
+                <p>Digitize Sanskrit manuscripts and apply ML to analyze and preserve these texts for future generations.</p>
+                <p>Example: Using OCR to convert ancient handwritten texts into machine-readable formats for digital archives.</p>
             </section>
             <section>
-            <p class="p1"> 
-                <h3 style="text-align: left">Programming Language Design:</h3>
-                <p class="p1">Explore how Sanskrit’s rule-based grammatical framework can inspire structured programming languages or symbolic AI systems.</p>
-                <p class="p1">Example: Designing a logic-driven computational framework inspired by Panini’s sutras for modern programming tasks.</p>
+                <h3>Advancements in Natural Language Processing:</h3>
+                <p>Develop state-of-the-art NLP tools tailored for Sanskrit, such as tokenizers, parsers, and machine translation systems.</p>
+                <p>Example: Building Sanskrit-English translation models for interdisciplinary research and global accessibility.</p>
             </section>
-            <title>3D Donut Charts</title>
+            <section>
+                <h3>Programming Language Design:</h3>
+                <p>Explore how Sanskrit’s rule-based grammatical framework can inspire structured programming languages or symbolic AI systems.</p>
+                <p>Example: Designing a logic-driven computational framework inspired by Panini’s sutras for modern programming tasks.</p>
+            </section>
+
             <script src="https://code.highcharts.com/highcharts.js"></script>
             <script src="https://code.highcharts.com/highcharts-3d.js"></script>
             <script src="https://code.highcharts.com/modules/exporting.js"></script>
             
-            <!-- Section 1: Main Donut Chart and Subsections -->
-            <section>
-                <div id="main-donut" class="chart-container"></div>
-                <div id="dataScienceSubsection" class="subsection-chart"></div>
-                <div id="machineLearningSubsection" class="subsection-chart"></div>
-                <div id="aiTechniquesSubsection" class="subsection-chart"></div>
-                <div id="interdisciplinarySubsection" class="subsection-chart"></div>
-            </section>
+            <!-- Main Donut Chart -->
             <section style="margin-bottom: 50px;">
-                <div id="progress-donut" class="chart-container"></div>
+                <div id="main-donut" class="chart-container"></div>
                 <style>
                     .chart-container {
                         width: 100%;
                         height: 600px;
                         margin: 0 auto;
                         border-radius: 15px;
+                    }
                 </style>
                 <script>
-                    // Main Donut Chart
                     Highcharts.chart('main-donut', {
                         chart: {
                             type: 'pie',
@@ -120,32 +111,36 @@
                         series: [{
                             name: 'Research Breakdown',
                             data: [
-                                { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
-                                { name: 'Machine Learning Techniques', y: 40, drilldown: 'machineLearning' },
-                                { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
-                                { name: 'Interdisciplinary Applications', y: 10, drilldown: 'interdisciplinary' }
+                                { name: 'Data Science Techniques', y: 30 },
+                                { name: 'Machine Learning Techniques', y: 40 },
+                                { name: 'AI Techniques', y: 20 },
+                                { name: 'Interdisciplinary Applications', y: 10 }
                             ]
                         }],
                         exporting: {
-                            enabled: true,
-                            buttons: {
-                                contextButton: {
-                                    menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
-                                }
-                            }
+                            enabled: true
                         },
                         credits: { enabled: false }
                     });
                 </script>
             </section>
+
+            <!-- Subsection Charts -->
             <section style="margin-bottom: 50px;">
-                <div id="subsection-chart" class="subsection-chart"></div>
+                <div id="dataScienceSubsection" class="subsection-chart"></div>
+                <h3 style="text-align: center;">Data Science</h3>
+                <div id="machineLearningSubsection" class="subsection-chart"></div>
+                <h3 style="text-align: center;">Machine Learning</h3>
+                <div id="aiTechniquesSubsection" class="subsection-chart"></div>
+                <h3 style="text-align: center;">Artificial Intelligence</h3>
+                <div id="interdisciplinarySubsection" class="subsection-chart"></div>
+                <h3 style="text-align: center;">Interdisciplinary Studies</h3>
                 <style>
                     .subsection-chart {
-                        width: 600px;
+                        width: 550px;
                         height: 300px;
-                        margin: 10px;
-                        display: inline-block;
+                        margin: 10px auto;
+                        display: block;
                         border-radius: 15px;
                     }
                 </style>
@@ -161,7 +156,7 @@
                                 },
                                 backgroundColor: '#f4f4f4',
                             },
-                            title: { text: 'Subsection Breakdown' },
+                            title: { text: '' },
                             plotOptions: {
                                 pie: {
                                     innerSize: 80,
@@ -186,6 +181,7 @@
                             credits: { enabled: false }
                         });
                     }
+
                     const dataScienceSubsection = [
                         ['Text Collection', 10],
                         ['Preprocessing', 8],
@@ -207,7 +203,7 @@
                         ['Programming Language Design', 5],
                         ['Cultural Preservation', 5]
                     ];
-                    // Create Subsection Charts
+
                     createSubsectionChart('dataScienceSubsection', dataScienceSubsection);
                     createSubsectionChart('machineLearningSubsection', machineLearningSubsection);
                     createSubsectionChart('aiTechniquesSubsection', aiTechniquesSubsection);
