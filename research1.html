@@ -15,14 +15,14 @@
 
         .subsection-container {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            align-items: center;
             margin: 20px 0;
-            gap: 10px;
+            gap: 20px;
         }
 
         .subsection {
-            flex: 1;
+            flex: 1 1 calc(50% - 20px); /* 50% width minus gap for 2 subsections per row */
             text-align: center;
         }
 
@@ -73,14 +73,13 @@
                     this ancient language accessible for global research and modern applications, ranging from <strong>digital education to programming language design.</strong></p>
             </section>
             <h2>Purpose and Scope</h2> 
-            <!-- Omitted for brevity -->
 
             <!-- Main Donut Chart -->
             <section style="margin-bottom: 50px;">
                 <div id="main-donut" class="chart-container"></div>
             </section>
 
-            <!-- Subsection Charts Inline -->
+            <!-- Subsection Charts in Two Rows -->
             <section class="subsection-container">
                 <div class="subsection">
                     <div id="dataScienceSubsection" class="subsection-chart"></div>
