@@ -63,6 +63,76 @@
                 <p class="p1">Explore how Sanskrit’s rule-based grammatical framework can inspire structured programming languages or symbolic AI systems.</p>
                 <p class="p1">Example: Designing a logic-driven computational framework inspired by Panini’s sutras for modern programming tasks.</p>
             </section>
+            <title>3D Donut Charts</title>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            
+            <!-- Section 1: Main Donut Chart and Subsections -->
+            <section>
+                <h2>Main Research Breakdown</h2>
+                
+                <div id="main-donut" class="chart-container"></div>
+                <div id="dataScienceSubsection" class="subsection-chart"></div>
+                <div id="machineLearningSubsection" class="subsection-chart"></div>
+                <div id="aiTechniquesSubsection" class="subsection-chart"></div>
+                <div id="interdisciplinarySubsection" class="subsection-chart"></div>
+            </section>
+            <section style="margin-bottom: 50px;">
+                <h2>Research Progress Distribution</h2>
+                <div id="progress-donut" class="chart-container" style="height: 600px; width: 100%; border-radius: 15px;"></div>
+                <script>
+                    // Main Donut Chart
+                    Highcharts.chart('main-donut', {
+                        chart: {
+                            type: 'pie',
+                            options3d: {
+                                enabled: true,
+                                alpha: 45,
+                                beta: 0
+                            }
+                        },
+                        title: {
+                            text: 'Main Research Breakdown'
+                        },
+                        plotOptions: {
+                            pie: {
+                                innerSize: 100,
+                                depth: 45,
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '{point.name}: {point.percentage:.1f}%',
+                                    style: {
+                                        color: 'black',
+                                        fontWeight: 'bold'
+                                    }
+                                },
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                showInLegend: true
+                            }
+                        },
+                        series: [{
+                            name: 'Research Breakdown',
+                            data: [
+                                { name: 'Data Science Techniques', y: 30, drilldown: 'dataScience' },
+                                { name: 'Machine Learning Techniques', y: 40, drilldown: 'machineLearning' },
+                                { name: 'AI Techniques', y: 20, drilldown: 'aiTechniques' },
+                                { name: 'Interdisciplinary Applications', y: 10, drilldown: 'interdisciplinary' }
+                            ]
+                        }],
+                        exporting: {
+                            enabled: true,
+                            buttons: {
+                                contextButton: {
+                                    menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG']
+                                }
+                            }
+                        },
+                        credits: { enabled: false }
+                    });
+                </script>
+            </section>
         </section>
     </section>
 </body>
