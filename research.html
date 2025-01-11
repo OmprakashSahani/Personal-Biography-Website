@@ -162,7 +162,7 @@
                         backgroundColor: '#f9f9f9' // Light background for contrast
                     },
                     title: {
-                        text: 'Research Progress Distribution',
+                        text: 'Component Weightage in Research Methodology',
                         style: {
                             fontSize: '22px',
                             fontWeight: 'bold',
@@ -170,7 +170,7 @@
                         }
                     },
                     subtitle: {
-                        text: 'A detailed breakdown of Research phases',
+                        text: 'A detailed breakdown of Component Weightage in Research',
                         style: {
                             fontSize: '16px',
                             color: '#666'
@@ -209,16 +209,16 @@
                         name: 'Progress',
                         colorByPoint: true,
                         data: [
-                            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
-                            { name: 'Literature Review and Existing Research', y: 20 },
+                            { name: 'Topic Selection', y: 5, sliced: true, selected: true },
+                            { name: 'Literature Review and Existing Research', y: 15 },
                             { name: 'Data Collection', y: 10 },
-                            { name: 'Model Development', y: 0 },
-                            { name: 'ML Techniques Studied', y: 15 },
-                            { name: 'Data Preprocessing and Cleaning', y: 0 },
-                            { name: 'Challenges Identified', y: 5 },
-                            { name: 'Future Scope Identified', y: 10 },
-                            { name: 'Outcomes', y: 0 },
-                            { name: 'Documentation & Writing', y: 10 }
+                            { name: 'Model Development', y: 20 },
+                            { name: 'Machine Learning Techniques Studied', y: 10 },
+                            { name: 'Data Preprocessing and Cleaning', y: 10 },
+                            { name: 'Challenges Identified', y: 10 },
+                            { name: 'Future Scope Identified', y: 5 },
+                            { name: 'Outcomes', y: 10 },
+                            { name: 'Documentation & Writing', y: 5 }
                         ]
                     }],
                         credits: {
@@ -229,15 +229,48 @@
         </section>
             <section>
                 <p class="p1">
-                    The research progress distribution reflects the various stages of the project's lifecycle and their current completion levels. 
-                    The <strong>Topic Selection (30%)</strong> phase is the most advanced, focusing on identifying a relevant and impactful research area. 
-                    The <strong>Literature Review and Existing Research (20%)</strong> phase entails studying previous works to build a solid theoretical foundation. 
-                    <strong>Data Collection (10%)</strong> marks the acquisition of relevant datasets, while <strong>Machine Learning Techniques Studied (15%)</strong> involves understanding and 
-                    selecting appropriate algorithms for the research. <strong>Challenges Identified (5%)</strong> indicates potential roadblocks and limitations encountered during the research. 
-                    Similarly, <strong>Future Scope Identified (10%)</strong> ensures that the research outlines areas for expansion and further studies. 
-                    While progress in <strong>Model Development, Data Preprocessing and Cleaning, and Outcomes is yet to begin (0%),</strong> the <strong>Documentation and Writing (10%)</strong> phase ensures that 
-                    completed work is systematically recorded. 
-                    This chart provides a clear visualization of how much has been accomplished and what areas require further attention.</p>
+                    The <strong>weightage of components</strong> in this research reflects the significance and effort dedicated to each aspect of the study. 
+                    <strong>Topic selection,</strong> which sets the direction of the research, holds a <strong>modest weight of 5%</strong> due to its foundational role. 
+                    <strong>Literature review and existing research</strong> carry a <strong>higher weight of 15%,</strong> as it is crucial for understanding the current landscape and identifying 
+                    gaps in knowledge. <strong>Data collection</strong> is assigned <strong></strong>10%,</strong> highlighting the importance of gathering high-quality data, while <strong>data preprocessing and 
+                    cleaning</strong> are equally valued at <strong>10%,</strong> ensuring the data is suitable for analysis and modeling.
+                </p>
+                <section>
+                    <p class="p1">
+                        The core of the research, <strong>model development,</strong> receives the <strong>highest weightage at 20%,</strong> reflecting its central role in developing machine 
+                        learning models for healthcare applications. The exploration of <strong>machine learning techniques,</strong> which ensures the robustness and innovation 
+                        of the study, is assigned <strong>10%.</strong> Recognizing and addressing challenges, such as privacy and interpretability, is crucial for practical 
+                        applicability, making the <strong>challenges</strong> component equally significant at <strong>10%.</strong> <strong>Future scope</strong> identification, contributing to the study's 
+                        longevity and relevance, is given <strong>5%,</strong> while <strong>outcomes,</strong> representing the research’s results and their impact, is allocated <strong>10%.</strong> 
+                        Finally, <strong>documentation and writing</strong> are essential for the clear and professional presentation of the study, contributing the remaining <strong>5%.</strong> 
+                        Collectively, these weightages ensure that each aspect of the research is balanced and contributes effectively to the success of the study.
+                    </p>
+                </section>
+            </section>
+            
+            <section>
+                <h2>Data Science Techniques for Healthcare</h2>
+                <h3 style="text-align: left;">Data Collection and Preprocessing:</h3>
+                <p class="p1">
+                    Data collection and preprocessing in healthcare involve gathering information from diverse sources such as electronic health records (EHRs), 
+                    IoT devices, and clinical trials, followed by steps like data cleaning, normalization, and encoding categorical variables to ensure consistency and usability 
+                    for machine learning models. This process enables accurate predictions and risk assessments for patients.
+                </p>
+                <section>
+                    <h3 style="text-align: left;">Exploratory Data Analysis:</h3>
+                    <p class="p1">
+                        Exploratory Data Analysis (EDA) helps uncover hidden patterns in the data, identifying correlations and anomalies that could impact clinical decisions. 
+                        EDA uses techniques like summary statistics, correlation analysis, and visualizations, 
+                        such as scatter plots and box plots, to explore relationships between patient data and health outcomes.
+                    </p>
+                </section>
+                <section>
+                    <h3 style="text-align: left;">Data visualization:</h3>
+                    <p class="p1">
+                        Data visualization, through tools like heatmaps and line charts, makes it easier for clinicians and healthcare professionals to interpret trends, 
+                        detect anomalies, and understand complex relationships, ultimately aiding in personalized treatment plans, risk prediction, and the optimization of patient care delivery.
+                    </p>
+                </section>
             </section>
                     
             <section>
