@@ -233,10 +233,10 @@
                 
                 // Subsection Charts
                 const chartsData = {
-                    dataScienceSubsection: [['Text Collection', 10], ['Preprocessing', 8], ['Feature Extraction', 12]],
-                    machineLearningSubsection: [['Supervised Learning', 15], ['Unsupervised Learning', 10], ['Deep Learning', 10], ['NLP Tasks', 5]],
-                    aiTechniquesSubsection: [['NLG', 10], ['AI for Education', 5], ['Semantic Analysis', 3], ['Symbolic AI', 2]],
-                    interdisciplinarySubsection: [['Programming Language Design', 5], ['Cultural Preservation', 5]],
+                    dataScienceSubsection: [['Text Collection', 6], ['Preprocessing', 7], ['Feature Extraction', 7], ['Data Augmentation', 5], ['Dimensionality Reduction', 5]],
+                    machineLearningSubsection: [['Supervised Learning', 8], ['Unsupervised Learning', 6], ['Deep Learning', 10], ['NLP Tasks', 10], ['Transfer Learning', 4], ['Reinforcement Learning', 2]],
+                    aiTechniquesSubsection: [['Natural Language Generation', 3], ['AI for Education', 4], ['Semantic Analysis',  6], ['Symbolic AI', 5], ['Knowledge Representation', 2], ['Cognitive Computing', 2], ['Computer Vision for Text Analysis', 2]],
+                    interdisciplinarySubsection: [['Programming Language Design', 4], ['Cultural Preservation', 4], ['Computational Philology', 1], ['Philosophical AI', 1],  ['Digital Humanities', 1]],
                 };
 
                 for (const [id, data] of Object.entries(chartsData)) {
@@ -274,11 +274,11 @@
                         backgroundColor: '#f9f9f9',
                     },
                     title: {
-                        text: 'Research Progress Distribution',
+                        text: 'Component Weightage in Research Methodology',
                         style: { fontSize: '22px', fontWeight: 'bold', color: '#333' },
                     },
                     subtitle: {
-                        text: 'A detailed breakdown of Research phases',
+                        text: 'A detailed breakdown of Component Weightage in Research ',
                         style: {
                             fontSize: '16px',
                             color: '#666'
@@ -308,16 +308,18 @@
                     series: [{
                         name: 'Progress',
                         data: [
-                            { name: 'Topic Selection', y: 30, sliced: true, selected: true },
-                            { name: 'Literature Review', y: 20 },
-                            { name: 'Data Collection', y: 10 },
-                            { name: 'Model Development', y: 0 },
-                            { name: 'ML Techniques Studied', y: 15 },
-                            { name: 'Data Preprocessing', y: 0 },
+                            { name: 'Topic Selection', y: 10 },
+                            { name: 'Literature Review and Existing Research', y: 15, sliced: true, selected: true },
+                            { name: 'Data Cleaning, Preprocessing, and Feature Extraction', y: 10 },
+                            { name: 'Machine Learning Techniques Studied', y: 15 },
+                            { name: 'Data Science Techniques Studied', y: 10 },
+                            { name: 'AI and Interdisciplinary Techniques Studied', y: 10 },
+                            { name: 'Model Development', y: 10 },
                             { name: 'Challenges Identified', y: 5 },
-                            { name: 'Future Scope Identified', y: 10 },
-                            { name: 'Outcomes', y: 0 },
-                            { name: 'Documentation & Writing', y: 10 },
+                            { name: 'Future Scope Identified', y: 5 },
+                            { name: 'Outcomes', y: 5 },
+                            { name: 'Potential Applications', y: 5 },
+                            { name: 'Documentation & Writing', y: 5 },
                         ],
                     }],
                     exporting: { enabled: true },
